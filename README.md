@@ -88,10 +88,12 @@ The homepage is accessible to everyone, in the home page is possible to consult 
 
 The admin user creates an election. **The election is a smart contract deployed on the blockchain**.
 
-In order to vote, the Voter must be owner of a **Digital Electoral Card**, **a smart contract deployed on the blockchain and is releases by a third party authority to each individual with vote rights**. The Electronic Electoral card gives the right to vote, the voter uses the Electornic Digital Voting card private key to sign and cast the vote.
+In order to vote, the Voter must be owner of a **Digital Electoral Card**, **a smart contract deployed on the blockchain and released by a third party authority to each individual with vote rights**. The Electronic Electoral card gives the right to vote, the voter uses the Electornic Digital Voting card private key to sign and cast the vote.
 
 The Agora platorm, with the support of the smart contracts methods, checks the Digital Voting Cards data and the election data in order to allow the user to vote.
 **After the user casts the vote, The election metadata are "stamped" to the Digital Voting card, this prevents a Voter to vote more than one time**.
+
+The electronic vote allows to introduce a variety of voting mechianism: just as example, Agora implements a mechanism that gives to each voter 20 voting points to be distributed across the candidates.
 
 
 # Works References
