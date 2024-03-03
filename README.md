@@ -70,7 +70,7 @@ The following papers illustrates the ZK proofs with Ethereum:
 
 # Solution proposed
 
-** The main objective of this project is to implement a digital governance system  which includes features of anonymity and confidentiality**.
+**The main objective of this project is to implement a digital governance system  which includes features of anonymity and confidentiality**.
 In order to achieve this goal,  the proposed solution includes the usage of:
 
 * **a Tor network for blockchain transactions**, to prevent network analysis and the revelation of IP addresses of origin (layer 0 solution);
