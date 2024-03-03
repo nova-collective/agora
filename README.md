@@ -95,6 +95,11 @@ The Agora platorm, with the support of the smart contracts methods, checks the D
 
 The electronic vote allows to introduce a variety of voting mechianism: just as example, Agora implements a mechanism that gives to each voter 20 voting points to be distributed across the candidates.
 
+# Resources
+
+* [Agora functional analysis](https://github.com/g3k0/agora/wiki/Functional-analysis)
+* [Agora technical analysis](https://github.com/g3k0/agora/wiki/Technical-analysis)
+
 
 # Works References
 
