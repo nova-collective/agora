@@ -76,7 +76,7 @@ In order to achieve this goal,  the proposed solution includes the usage of:
 * **a Tor network for blockchain transactions**, to prevent network analysis and the revelation of IP addresses of origin (layer 0 solution);
 * **an implementation of a Zk-SNARKS protocol for the Ethereum smart contracts**, with the help of ZoKrates (layer 1 solution);
 
-# How Agora Works in a nutshell
+# How Agora works in a nutshell
 
 Agora is a **dApp composed by a web front end and a backed** composed by an application server and a database. The backend interacts with the underliyng public Ethreum network.
 The application provides two types of users: 
