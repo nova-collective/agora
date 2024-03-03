@@ -76,6 +76,23 @@ In order to achieve this goal,  the proposed solution includes the usage of:
 * **a Tor network for blockchain transactions**, to prevent network analysis and the revelation of IP addresses of origin (layer 0 solution);
 * **an implementation of a Zk-SNARKS protocol for the Ethereum smart contracts**, with the help of ZoKrates (layer 1 solution);
 
+# How Agora Works in a nutshell
+
+Agora is a **dApp composed by a web front end and a backed** composed by an application server and a database. The backend interacts with the underliyng public Ethreum network.
+The application provides two types of users: 
+
+* **Admin users**: access the admin area and they can create a manage an election;
+* **Voter users**: they can register to the plaform as voters, they can vote, and check if the vote is correctly registered on the blockchain network;
+
+The homepage is accessible to everyone, in the home page is possible to consult the results of the elections.
+
+The admin user creates an election. **The election is a smart contract deployed on the blockchain**.
+
+In order to vote, the Voter must be owner of a **Digital Electoral Card**, **a smart contract deployed on the blockchain and is releases by a third party authority to each individual with vote rights**. The Electronic Electoral card gives the right to vote, the voter uses the Electornic Digital Voting card private key to sign and cast the vote.
+
+The Agora platorm, with the support of the smart contracts methods, checks the Digital Voting Cards data and the election data in order to allow the user to vote.
+**After the user casts the vote, The election metadata are "stamped" to the Digital Voting card, this prevents a Voter to vote more than one time**.
+
 
 # Works References
 
