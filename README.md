@@ -85,5 +85,5 @@ In order to achieve this goal,  the proposed solution includes the usage of:
 * Ben-Sasson, Eli, et al. “Succinct Non-Interactive Zero Knowledge for a von Neumann Architecture.” Cryptology ePrint Archive, https://eprint.iacr.org/2013/879.pdf. Accessed 25 February 2024.
 * McCorry, Patrick, et al. “,.” , - YouTube, 19 May 2023, https://link.springer.com/chapter/10.1007/978-3-319-70972-7_20. Accessed 18 February 2024.
 * Reitwießner, Christian. “zkSNARKs in a Nutshell unicode.” GitHub Pages, http://chriseth.github.io/notes/articles/zksnarks/zksnarks.pdf. Accessed 25 February 2024.
-Singh, Abhay, et al. “Secure Voting Website Using Ethereum and Smart Contracts.” MDPI, https://www.mdpi.com/2571-5577/6/4/70. Accessed 18 February 2024.
+* Singh, Abhay, et al. “Secure Voting Website Using Ethereum and Smart Contracts.” MDPI, https://www.mdpi.com/2571-5577/6/4/70. Accessed 18 February 2024.
 
