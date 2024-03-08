@@ -99,6 +99,7 @@ The electronic vote allows to introduce a variety of voting mechianism: just as 
 
 * [Agora functional analysis](https://github.com/g3k0/agora/wiki/Functional-analysis)
 * [Agora technical analysis](https://github.com/g3k0/agora/wiki/Technical-analysis)
+* [Zero-Knowledge Proofs](https://zkp.science/)
 
 
 # Works References
