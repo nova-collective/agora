@@ -89,7 +89,7 @@ The admin user creates an election. **The election is a smart contract deployed 
 
 In order to vote, the Voter must be owner of a **Digital Electoral Card**, **a smart contract deployed on the blockchain and released by a third party authority to each individual with vote rights**. The Electronic Electoral card gives the right to vote.
 
-The Agora platorm, with the support of the smart contracts methods and the ZKSNARKS protocol, checks the Digital Electoral Cards data and the election data in order to allow the user to vote. **ZKSNARKS allow the system to prove that the Voter has the right to vote by checking the Electoral Card and at the same time do not reveal the indentity of the Voter**.
+The Agora platorm, with the support of the smart contracts methods and the ZKSNARKS protocol, checks the Digital Electoral Cards data and the election data in order to allow the user to vote. **ZKSNARKS allow the system to prove that the Voter has the right to vote by checking the Electoral Card and at the same time do not reveal the identity of the Voter**.
 
 **The Voter casts the vote, and the election metadata are "stamped" to the Digital Electoral card, this prevents a Voter to vote more than one time**.
 
