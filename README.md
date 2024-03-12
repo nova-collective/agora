@@ -38,9 +38,8 @@ Anonymity is concerned with hiding the sender’s or receiver identity, confiden
 Blockchain by their nature does not preserve privacy because of their mechanism of block approvals. All transaction data, including account details, inputs, outputs and states are visible to anyone on the blockchain and privacy can not be preserved.
 One solution is to encrypt the data but if the value is hidden the data cannot be verified. The need is to combine public verifiability and confidentiality.
 
-In the context of a digital governance, anonymity is not required and even unwanted: in some countries voting is mandatory, and knowing whether a person voted or not in an election is a data that should be kept transparent, as it is in traditional paper voting.
-Confidentiality, that is an absolute requirement, can be divided into three categories:
-* conditional privacy: the system has the ability to make the data visible to a third party. And this is something we don’t want in a voting system.
+Confidentiality can be divided into three categories:
+* conditional privacy: the system has the ability to make the data visible to a third party.
 * unconditional privacy: generally speaking this can be dangerous in the context of a blockchain because it can permit criminal activities.
 * Selective disclosure: Only some data is visible and the other data is hidden, this is the case of a voting system based on a blockchain, where we can make visible the person who voted, but not how they voted. Range proof allows to prove that a voter is more than 18 years old, but it does not reveal how the person voted.
 
@@ -88,10 +87,11 @@ The homepage is accessible to everyone, in the home page is possible to consult 
 
 The admin user creates an election. **The election is a smart contract deployed on the blockchain**.
 
-In order to vote, the Voter must be owner of a **Digital Electoral Card**, **a smart contract deployed on the blockchain and released by a third party authority to each individual with vote rights**. The Electronic Electoral card gives the right to vote, the voter uses the Electornic Digital Voting card private key to sign and cast the vote.
+In order to vote, the Voter must be owner of a **Digital Electoral Card**, **a smart contract deployed on the blockchain and released by a third party authority to each individual with vote rights**. The Electronic Electoral card gives the right to vote.
 
-The Agora platorm, with the support of the smart contracts methods, checks the Digital Voting Cards data and the election data in order to allow the user to vote.
-**After the user casts the vote, The election metadata are "stamped" to the Digital Voting card, this prevents a Voter to vote more than one time**.
+The Agora platorm, with the support of the smart contracts methods and the ZKSNARKS protocol, checks the Digital Electoral Cards data and the election data in order to allow the user to vote. **ZKSNARKS allow the system to prove that the Voter has the right to vote by checking the Electoral Card and at the same time do not reveal the indentity of the Voter**.
+
+**The Voter casts the vote, and the election metadata are "stamped" to the Digital Electoral card, this prevents a Voter to vote more than one time**.
 
 The electronic vote allows to introduce a variety of voting mechianism: just as example, Agora implements a mechanism that gives to each voter 20 voting points to be distributed across the candidates.
 
@@ -111,4 +111,6 @@ The electronic vote allows to introduce a variety of voting mechianism: just as 
 * McCorry, Patrick, et al. “,.” , - YouTube, 19 May 2023, https://link.springer.com/chapter/10.1007/978-3-319-70972-7_20. Accessed 18 February 2024.
 * Reitwießner, Christian. “zkSNARKs in a Nutshell unicode.” GitHub Pages, http://chriseth.github.io/notes/articles/zksnarks/zksnarks.pdf. Accessed 25 February 2024.
 * Singh, Abhay, et al. “Secure Voting Website Using Ethereum and Smart Contracts.” MDPI, https://www.mdpi.com/2571-5577/6/4/70. Accessed 18 February 2024.
+* Li, Yunxuan. “A privacy preserving ethereum-based E-voting system.” OPUS - Online Publikationen der Universität Stuttgart, 3 June 2009, https://elib.uni-stuttgart.de/handle/11682/10426. Accessed 12 March 2024.
+
 
