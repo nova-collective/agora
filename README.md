@@ -73,7 +73,7 @@ The following papers illustrates the ZK proofs with Ethereum:
 In order to achieve this goal,  the proposed solution includes the usage of:
 
 * **a Tor network for blockchain transactions**, to prevent network analysis and the revelation of IP addresses of origin (layer 0 solution);
-* **an implementation of a Zk-SNARKS protocol for the Ethereum smart contracts**, with the help of ZoKrates (layer 1 solution);
+* **an implementation of a Zk-SNARKS protocol for the Ethereum smart contracts**, with the help of ZoKrates (layer 2 solution);
 
 # How Agora works in a nutshell
 
