@@ -1,5 +1,5 @@
 # Agora
-A confidentiality-first electronic voting system
+A confidentiality-first electronic voting system.
 
 ## About
 
