@@ -111,6 +111,6 @@ The electronic vote allows to introduce a variety of voting mechianism: just as 
 * McCorry, Patrick, et al. “,.” , - YouTube, 19 May 2023, https://link.springer.com/chapter/10.1007/978-3-319-70972-7_20. Accessed 18 February 2024.
 * Reitwießner, Christian. “zkSNARKs in a Nutshell unicode.” GitHub Pages, http://chriseth.github.io/notes/articles/zksnarks/zksnarks.pdf. Accessed 25 February 2024.
 * Singh, Abhay, et al. “Secure Voting Website Using Ethereum and Smart Contracts.” MDPI, https://www.mdpi.com/2571-5577/6/4/70. Accessed 18 February 2024.
-* Li, Yunxuan. “A privacy preserving ethereum-based E-voting system.” OPUS - Online Publikationen der Universität Stuttgart, 3 June 2019, https://elib.uni-stuttgart.de/handle/11682/10426. Accessed 12 March 2024.
+* Li, Yunxuan. “A privacy preserving ethereum-based E-voting system.” OPUS - Online Publikationen der Universität Stuttgart, 2 January 2019, https://elib.uni-stuttgart.de/handle/11682/10426. Accessed 12 March 2024.
 
 
