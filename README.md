@@ -93,7 +93,7 @@ The Agora platorm, with the support of the smart contracts methods and the ZKSNA
 
 **The Voter casts the vote, and the election metadata are "stamped" to the Digital Electoral card, this prevents a Voter to vote more than one time**.
 
-The electronic vote allows to introduce a variety of voting mechianism: just as example, Agora implements a mechanism that gives to each voter 20 voting points to be distributed across the candidates.
+The electronic vote allows to introduce a variety of voting mechanisms: just as example, Agora implements a mechanism that gives to each voter 20 voting points to be distributed across the candidates.
 
 # Resources
 
