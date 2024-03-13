@@ -75,7 +75,7 @@ In order to achieve this goal,  the proposed solution includes the usage of:
 * **a Tor network for blockchain transactions**, to prevent network analysis and the revelation of IP addresses of origin (layer 0 solution);
 * **an implementation of a Zk-SNARKS protocol for the Ethereum smart contracts**, with the help of ZoKrates (layer 2 solution);
 
-# How Agora works in a nutshell
+# How Agora works
 
 Agora is a **dApp composed by a web front end and a backed** composed by an application server and a database. The backend interacts with the underliyng public Ethreum network.
 The application provides two types of users: 
@@ -87,12 +87,26 @@ The homepage is accessible to everyone, in the home page is possible to consult 
 
 **The voting protocol** of Agora consists of 5 phases:
 
-* **Phase 0, release of the Digital Electoral Card**: An authority generates and releases a Digital Electoral Card smart contract on blockchain for the voter and delivers the public address and private (secret) key pair to the voter;
-* **Phase 1, setup**: An admin initializes and opens an election, prepares the lists and candidates, prepares the list of voters and all the information of the election (region, province, municipality, etc.) which will be cross-referenced with the data of the voter's electoral card to verify the right to vote;
-* **Phase 2, registration**: to initialize phase 2, the admin must determine the time period for registration. The server generates the Registration smart contract and releases it onto the blockchain. The recording time is saved and the election status updated to “recording”. During the registration period, each voter authenticates on the client server. The voter registers the address of his Digital Electoral Card smart contract on the Registration smart contract, signing the transaction with the private key and the blockchain;
-* **Phase 3, voting**: the admin specifies the time interval for voting. When the server receives the time interval, it generates a Voting smart contract and deploy it on the blockchain. When the voting period begins, the voting status is updated and voters can access the list of candidates from the server, the server verifies the election and Digital Electoral Card data to authorize voting, checking that the Electoral Card has not been already "stamped". The voter carries out the vote and generates the related proof π-vote. The voter sends the transaction to the Voting smart contract. The computations are done locally in the voter's machine and the transaction is sent directly to the smart contract. the client server does not acquire any information from the voter. The Voting smart contract that has acquired the π-vote proof double check the voting rights and prints on the Digital Electoral Card and "prints" the election metadata on the voter's Digital Electoral Card smart contract;
+* **Phase 0, release of the Digital Electoral Card**: An authority generates and releases a Digital Electoral Card smart contract on blockchain for the voter and delivers the public address and private (secret) key pair to the voter:
+
+  ![phase 0](docs/assets/agora_main_sequence_diagrams-Phase%200.jpg)
+
+* **Phase 1, setup**: An admin initializes and opens an election, prepares the lists and candidates, prepares the list of voters and all the information of the election (region, province, municipality, etc.) which will be cross-referenced with the data of the voter's electoral card to verify the right to vote:
+
+  ![phase 1](docs/assets/agora_main_sequence_diagrams-Phase%201.jpg)
+
+* **Phase 2, registration**: to initialize phase 2, the admin must determine the time period for registration. The server generates the Registration smart contract and releases it onto the blockchain. The recording time is saved and the election status updated to “recording”. During the registration period, each voter authenticates on the client server. The voter registers the address of his Digital Electoral Card smart contract on the Registration smart contract, signing the transaction with the private key and the blockchain:
+
+  ![phase 2](docs/assets/agora_main_sequence_diagrams-Phase%202.jpg)
+
+* **Phase 3, voting**: the admin specifies the time interval for voting. When the server receives the time interval, it generates a Voting smart contract and deploy it on the blockchain. When the voting period begins, the voting status is updated and voters can access the list of candidates from the server, the server verifies the election and Digital Electoral Card data to authorize voting, checking that the Electoral Card has not been already "stamped". The voter carries out the vote and generates the related proof π-vote. The voter sends the transaction to the Voting smart contract. The computations are done locally in the voter's machine and the transaction is sent directly to the smart contract. the client server does not acquire any information from the voter. The Voting smart contract that has acquired the π-vote proof double check the voting rights and prints on the Digital Electoral Card and "prints" the election metadata on the voter's Digital Electoral Card smart contract:
+
+  ![phase 3](docs/assets/agora_main_sequence_diagrams-Phase%203.jpg)
+
 * **Phase 4, calculation of the result**: when the voting period ends, the server automatically closes the voting and updates the status of the election. The server takes all the ballots from the Voting smart contract and calculates the result. The server generates a proof π-result of the election results and sends the proof to the Voting smart contract. When the election results are published, a check can be carried out by interacting directly with the blockchain to extract the result and the validity of the proof. the result is considered valid only when the corresponding proof π-result is valid.
-The voter can also check whether her vote was correctly counted in the calculation of the results;
+The voter can also check whether her vote was correctly counted in the calculation of the results:
+
+  ![phase 4](docs/assets/agora_main_sequence_diagrams-Phase%204.jpg)
 
 
 What happens if a Voter registers for an election and then it does not vote? The vote is simply considered as "white ballot", in analogy with traditionals voting systems.
