@@ -1,4 +1,5 @@
-# Agora
+<img src="docs/assets/logo.jpg" alt="Agora" width="600"/>
+
 A confidentiality-first electronic voting system.
 
 ## About
