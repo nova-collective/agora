@@ -121,6 +121,11 @@ The electronic vote also allows to introduce a variety of voting mechanisms: jus
 * [Agora technical analysis](https://github.com/g3k0/agora/wiki/Technical-analysis)
 * [Zero-Knowledge Proofs](https://zkp.science/)
 
+# Donations
+Support this project and offer me a crypto-coffee!!
+
+![wallet](docs/assets/wallet_address.png)
+
 
 # Works References
 
