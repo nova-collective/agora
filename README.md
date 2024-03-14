@@ -1,4 +1,4 @@
-<img src="docs/assets/logo.jpg" alt="Agora" width="600"/>
+<img src="docs/assets/logo.jpg" alt="Agora" width="500"/>
 
 A confidentiality-first electronic voting system.
 
