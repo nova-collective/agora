@@ -78,11 +78,11 @@ In order to achieve this goal,  the proposed solution includes the usage of:
 
 # How Agora works
 
-Agora is a **dApp composed by a web front end and a backed** composed by an application server and a database. The backend interacts with the underliyng public Ethreum network.
+Agora is a **dApp composed by a web front end and a backed** composed by an application server and a database. The backend interacts with the underlying public Ethereum network.
 The application provides two types of users: 
 
 * **Admin users**: access the admin area and they can create a manage elections;
-* **Voter users**: they can register to the plaform as voters, they can vote, and check if the vote is correctly registered on the blockchain network;
+* **Voter users**: they can register to the platform as voters, they can vote, and check if the vote is correctly registered on the blockchain network;
 
 The homepage is accessible to everyone, in the home page is possible to consult the results of the elections.
 
@@ -110,7 +110,7 @@ The voter can also check whether her vote was correctly counted in the calculati
   ![phase 4](docs/assets/agora_main_sequence_diagrams-Phase%204.jpg)
 
 
-What happens if a Voter registers for an election and then it does not vote? The vote is simply considered as "white ballot", in analogy with traditionals voting systems.
+What happens if a Voter registers for an election and then it does not vote? The vote is simply considered as "white ballot", in analogy with traditional voting systems.
 
 Ok, but who pays the bill? Every transaction on the blockchain, from the deploy of smart contracts to the execution of their methods have a price in terms of gas fees. For the purpose of this project this topic is not explored in depth, anyway it is clear that this fees can't be in charge of the voters.
 
