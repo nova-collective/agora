@@ -118,8 +118,8 @@ The electronic vote also allows to introduce a variety of voting mechanisms: jus
 
 # Resources
 
-* [Agora functional analysis](https://github.com/g3k0/agora/wiki/Functional-analysis)
-* [Agora technical analysis](https://github.com/g3k0/agora/wiki/Technical-analysis)
+* [Agora functional analysis](https://github.com/g3k0/agora/wiki/2.-Functional-analysis)
+* [Agora technical analysis](https://github.com/g3k0/agora/wiki/3.-Technical-analysis)
 * [Zero-Knowledge Proofs](https://zkp.science/)
 
 # Donations
