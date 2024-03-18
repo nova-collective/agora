@@ -127,6 +127,12 @@ Support this project and offer me a crypto-coffee!!
 
 ![wallet](docs/assets/wallet_address.png)
 
+Crypto? No way...
+
+No problem, there is the related [crowdfunding campaign](https://www.gofundme.com/f/agora-sistema-di-voto-basato-su-blockchain) (in italian):
+
+![crowdfunding](docs/assets/qr_code_go_fund_me.png)
+
 
 # Works References
 
