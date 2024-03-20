@@ -92,7 +92,7 @@ The homepage is accessible to everyone, in the home page is possible to consult 
 
 **The voting protocol** of Agora consists of 5 phases:
 
-* **Phase 0, release of the Digital Electoral Card**: An authority generates and releases a Digital Electoral Card smart contract on blockchain for the voter and delivers the DEC public address and private (secret) key to the voter:
+* **Phase 0, release of the Digital Electoral Card**: An authority generates and releases a Digital Electoral Card (DEC) smart contract on blockchain for the voter and delivers the DEC public address and private (secret) key to the voter:
 
   ![phase 0](docs/assets/agora_main_sequence_diagrams-Phase%200.jpg)
 
