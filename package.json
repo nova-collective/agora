@@ -17,11 +17,11 @@
     "doc": "docs"
   },
   "scripts": {
+    "test-contracts": "npx hardhat test",
+    "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
-    "commit": "npx git-cz",
-    "test-contracts": "npx hardhat test",
-    "coverage-contracts": "npx hardhat coverage"
+    "commit": "npx git-cz"
   },
   "repository": {
     "type": "git",
