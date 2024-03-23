@@ -17,7 +17,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "commit": "./script/commit-msg && npx lint-staged && npx validate-branch-name && npx git-cz",
+    "commit": "npx lint-staged && npx validate-branch-name && npx git-cz",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
