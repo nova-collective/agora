@@ -17,10 +17,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "commit": "npx git-cz",
+    "commit": "npx git-cz && npm run prepare-commit",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
-    "prepare-commit": "npx lint-staged && npx validate-branch-name && git-cz",
+    "prepare-commit": "git-cz",
     "test": "test",
     "test-contracts": "npx hardhat test"
   },
