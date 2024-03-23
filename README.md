@@ -29,8 +29,7 @@ To setup the application follow these steps:
 1. clone this repository
 2. from the root folder of the application run: `npm i`
 3. run `npm run prepare`
-4. copy the `commit-msg` and the `pre-commit` scripts into the `.husky` folder
-5. Write a `.env` file in the root of the project and configure:
+4. Write a `.env` file in the root of the project and configure:
     * `GOERLI_URL` You can find the data in your Alchemy account
     * `PRIVATE_KEY` You can find the data in your Alchemy account
     * `ALCHEMY_API_KEY` You can find the data in your Alchemy account
@@ -39,6 +38,8 @@ To setup the application follow these steps:
 ## How to commit
 1. `git add <files list>`
 2. `npm run commit`
+
+Remember to follow this convention for commit messages: `AG-<jira id> <description>`, this allows to link the commit to its ticket in the Jira board.
 
 ## Test
 
