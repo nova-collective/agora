@@ -37,7 +37,6 @@ To setup the application follow these steps:
     * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions
 
 ## How to commit
- 
 1. `git add <files list>`
 2. `npm run commit`
 
