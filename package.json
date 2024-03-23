@@ -1,0 +1,77 @@
+{
+  "name": "agora",
+  "version": "0.0.1",
+  "description": "A confidentiality-first electronic voting system",
+  "author": {
+    "name": "nova collective",
+    "email": "nova.web3.collective@gmail.com",
+    "url": "https://github.com/nova-collective"
+  },
+  "funding": {
+    "type": "GoFundMe",
+    "url": "https://www.gofundme.com/f/agora-sistema-di-voto-basato-su-blockchain"
+  },
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "test",
+    "prepare": "husky prepare",
+    "prepare-commit": "git-cz",
+    "commit": "npx git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nova-collective/agora.git"
+  },
+  "keywords": [
+    "governance",
+    "voting",
+    "blockchain",
+    "zero-knowledge",
+    "zk-snarks",
+    "ethereum",
+    "solidity"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nova-collective/agora/issues",
+    "email": "nova.web3.collective@gmail.com"
+  },
+  "homepage": "https://github.com/nova-collective/agora#readme",
+  "engines": {
+    "node": ">=20.11.1",
+    "npm": "~10.2.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/cz-commitlint": "^19.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3",
+    "validate-branch-name": "^1.3.0"
+  },
+  "validate-branch-name": {
+    "pattern": "^AG-\\d+(?:-[a-zA-Z]+)+$",
+    "errorMsg": "Invalid branch name \n Ex. Ag-<number>-text-description"
+  },
+  "lint-staged": {
+    "*.js": "prettier",
+    "*.ts": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+   }
+ }
+}
