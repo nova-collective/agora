@@ -11,11 +11,15 @@ Consult the technical documentation in the [wiki](https://github.com/nova-collec
 * [Agora technical analysis](https://github.com/g3k0/agora/wiki/3.-Technical-analysis)
 
 
+Agora is a web3 dApp based on the [Hardhat framework](https://hardhat.org/) and the [Alchemy SDK](https://www.alchemy.com/). Consult the documentation.
+
 ## Prerequisites
 
 In order to run the application you need the following software installed on you machine:
 
 * [Node.js](https://nodejs.org/en) v20.11.1 or above
+
+You also need an Alchemy account.
 
 ## Setup
 
@@ -24,12 +28,24 @@ To setup the application follow these steps:
 1. clone this repository
 2. from the root folder of the application run: `npm i`
 3. run `npm run prepare`
-3. copy the `commit-msg` and the `pre-commit` scripts into the `.husky` folder
+4. copy the `commit-msg` and the `pre-commit` scripts into the `.husky` folder
+5. Write a `.env` file in the root of the project and configure:
+    * `GOERLI_URL` You can find the data in your Alchemy account
+    * `PRIVATE_KEY` You can find the data in your Alchemy account
+    * `ALCHEMY_API_KEY` You can find the data in your Alchemy account
+    * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions
 
 ## How to commit
  
 1. `git add <files list>`
 2. `npm run commit`
+
+## Test
+
+1. Run the unit tests for smart contracts: `npm run test-contracts`
+2 Run the unit test code coverage for smart contracts: `npm run coverage-contracts`
+
+smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
 
 # Donations
 Support this project and offer me a crypto-coffee!!
