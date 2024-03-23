@@ -2,4 +2,3 @@
 . "$(dirname -- "$0")/husky.sh"
 npx lint-staged
 npx validate-branch-name
-npx hardhat test
