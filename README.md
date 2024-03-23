@@ -43,9 +43,9 @@ To setup the application follow these steps:
 ## Test
 
 1. Run the unit tests for smart contracts: `npm run test-contracts`
-2 Run the unit test code coverage for smart contracts: `npm run coverage-contracts`
+2. Run the unit test code coverage for smart contracts: `npm run coverage-contracts`
 
-smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
+Smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
 
 # Donations
 Support this project and offer me a crypto-coffee!!
