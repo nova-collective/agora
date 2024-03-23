@@ -20,7 +20,7 @@
     "commit": "npx git-cz",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
-    "prepare-commit": "git-cz",
+    "prepare-commit": "npx lint-staged && npx validate-branch-name && git-cz",
     "test": "test",
     "test-contracts": "npx hardhat test"
   },
