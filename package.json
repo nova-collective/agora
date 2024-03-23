@@ -17,7 +17,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "commit": "npm run test-contracts && npx lint-staged && npx validate-branch-name && npx git-cz",
+    "commit": "./script/commit",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
