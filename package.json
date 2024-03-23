@@ -17,7 +17,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "commit": "npm run prepare-commit && npx git-cz",
+    "commit": "npx --no -- commitlint --edit $1 && npx lint-staged && npx validate-branch-name && npx git-cz",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
