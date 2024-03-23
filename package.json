@@ -17,7 +17,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "commit": "npx git-cz && npm run prepare-commit",
+    "commit": "npm run prepare-commit && npx git-cz",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
