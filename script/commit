@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
+
 npm run test-contracts
-npx lint-staged
-npx validate-branch-name
 npx git-cz
