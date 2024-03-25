@@ -1,0 +1,19 @@
+{
+    "path": ["./"],
+    "silent": false,
+    "format": ["console"],
+    "ignore": [
+      "**/*.min.js",
+      "**/*.map",
+      "**/*.spec.js",
+      "**/*.test.js",
+      "**/node_modules"
+    ],
+    "ignoreCase": true,
+    "threshold": 10,
+    "reporters": ["console"],
+    "languages": ["javascript", "typescript"],
+    "gitignore": true,
+    "failOnDuplication": false
+  }
+  

@@ -22,7 +22,9 @@
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
     "test": "test",
-    "test-contracts": "npx hardhat test"
+    "test-contracts": "npx hardhat test",
+    "lint": "npx lint-staged",
+    "duplicated": "npx jscpd"
   },
   "repository": {
     "type": "git",
@@ -65,6 +67,7 @@
     "hardhat-deploy": "^0.12.2",
     "hardhat-gas-reporter": "^1.0.8",
     "husky": "^9.0.11",
+    "jscpd": "^3.5.10",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "solidity-coverage": "^0.8.11",

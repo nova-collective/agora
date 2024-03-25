@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  codeQuality:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 20.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run linter
+      run: npm run lint
+
+    - name: Run duplications check
+      run: npm run duplicated
+
+    - name: Run unit tests
+      run: npm run test-contracts
