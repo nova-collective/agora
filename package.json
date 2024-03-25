@@ -22,7 +22,8 @@
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
     "test": "test",
-    "test-contracts": "npx hardhat test"
+    "test-contracts": "npx hardhat test",
+    "lint": "npx lint-staged"
   },
   "repository": {
     "type": "git",
