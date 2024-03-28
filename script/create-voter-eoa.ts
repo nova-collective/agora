@@ -10,7 +10,7 @@
 import { ethers } from "hardhat";
 import { Response, EOAResponse, result } from "./types";
 
-async function main(): Promise<Response<EOAResponse>> {
+export async function main(): Promise<Response<EOAResponse>> {
   const response: Response<EOAResponse> = {
     result: result.OK,
   };
