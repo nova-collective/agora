@@ -3,13 +3,6 @@ import { ethers } from "hardhat";
 import { main } from "./create-voter-eoa";
 
 describe("Main function", () => {
-  /*beforeEach(() => {
-    ethers.Wallet.createRandom = jest.fn().mockReturnValueOnce({
-      address: "mockedAddress",
-      privateKey: "mockedPrivateKey",
-    });
-  });*/
-
   afterEach(() => {
     jest.clearAllMocks();
   });
