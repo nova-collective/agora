@@ -46,8 +46,11 @@ Remember to follow this convention for commit messages: `AG-<jira id> <descripti
 
 1. Run the unit tests for smart contracts: `npm run test-contracts`
 2. Run the unit test code coverage for smart contracts: `npm run coverage-contracts`
+3. Run the unit test for scripts: `npm run test-scripts`
 
 Smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
+
+CI/CD workflow fails if the unit test code coverage threshold (**80% of lines of code**) for scripts is not met. 
 
 # Donations
 Support this project and offer me a crypto-coffee!!
