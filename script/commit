@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+npm run duplicated
 npm run test-contracts
 npm run test-scripts
 npx git-cz
