@@ -4,4 +4,9 @@ module.exports = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
+  coverageThreshold: {
+    global: {
+      lines: 100,
+    },
+  },
 };

@@ -22,9 +22,10 @@
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
     "test-contracts": "npx hardhat test",
-    "test-scripts": "jest --coverage --bail",
+    "test-scripts": " jest --coverage --bail",
     "lint": "npx lint-staged",
-    "duplicated": "npx jscpd"
+    "duplicated": "npx jscpd",
+    "test-code-coverage": "nyc jest"
   },
   "repository": {
     "type": "git",
