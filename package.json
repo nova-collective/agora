@@ -21,8 +21,8 @@
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
-    "test": "jest --coverage --bail",
     "test-contracts": "npx hardhat test",
+    "test-scripts": "jest --coverage --bail",
     "lint": "npx lint-staged",
     "duplicated": "npx jscpd"
   },

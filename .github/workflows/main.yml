@@ -33,5 +33,8 @@ jobs:
     - name: Run duplications check
       run: npm run duplicated
 
-    - name: Run unit tests
+    - name: Run smart contracts unit tests
       run: npm run test-contracts
+    
+    - name: Run scripts unit tests
+      run: npm run test-scripts
