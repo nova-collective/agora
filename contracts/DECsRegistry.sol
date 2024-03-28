@@ -33,21 +33,26 @@ contract DEC {
     /// @dev the address is related to the Election smart contract
     mapping (uint => address) ElectoralStamps;
 
+    event DECEncrypted(address indexed owner, bytes encryptedData);
+    event DECDecrypted(address indexed owner, bool success);
+
 
     /// @notice This function is used to encrypt ad digitally sign a DEC
-    function encryptDEC(DECdata memory dec) public view onlyOwner returns (bytes memory) {
+    function encryptDEC(DECdata memory dec) public onlyOwner returns (bytes memory) {
         bytes memory encodedData = abi.encodePacked(
             dec.taxCode, dec.municipality, dec.province, dec.region, dec.country
         );
         bytes32 hashedData = keccak256(encodedData);
         bytes memory signature = signData(hashedData);
 
+        emit DECEncrypted(msg.sender, abi.encodePacked(hashedData, signature));
+
         return abi.encodePacked(hashedData, signature);
     }
 
 
     /// @notice This function is used to decrypt and verify the signature of a DEC
-    function decryptDEC(bytes memory encryptedData, address eoaAddress) public pure returns (bool) {
+    function decryptDEC(bytes memory encryptedData, address eoaAddress) public returns (bool) {
         require(encryptedData.length == 96, "Invalid encrypted data length");
 
         bytes32 hashedData;
@@ -58,7 +63,11 @@ contract DEC {
         }
 
         address signer = recoverSigner(hashedData, signature);
-        return signer == eoaAddress;
+        bool success = signer == eoaAddress;
+
+        emit DECDecrypted(eoaAddress, success);
+
+        return success;
     }
 
 
