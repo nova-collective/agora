@@ -7,7 +7,7 @@ import "hardhat-gas-reporter";
 import "hardhat-deploy";
 
 const GOERLI_URL: string = process.env.GOERLI_URL || "";
-const PRIVATE_KEY: string = process.env.PRIVATE_KEY || "";
+const ALCHEMY_PRIVATE_KEY: string = process.env.ALCHEMY_PRIVATE_KEY || "";
 
 const config: HardhatUserConfig = {
   solidity: "0.8.24",
@@ -18,7 +18,7 @@ const config: HardhatUserConfig = {
   networks: {
     goerli: {
       url: GOERLI_URL,
-      accounts: [PRIVATE_KEY],
+      accounts: [ALCHEMY_PRIVATE_KEY],
     },
   },
 };

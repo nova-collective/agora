@@ -35,6 +35,9 @@ jobs:
 
     - name: Run smart contracts unit tests
       run: npm run test-contracts
+      env:
+        ALCHEMY_PRIVATE_KEY: ${{ secrets.ALCHEMY_PRIVATE_KEY }}
+        GOERLI_URL: ${{ secrets.GOERLI_URL }}
     
     - name: Run scripts unit tests
       run: npm run test-scripts
