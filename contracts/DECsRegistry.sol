@@ -20,12 +20,16 @@ contract DECsRegistry is DEC {
     /// @dev the address is related to the Voter's EOA
     mapping (address => bytes) registry;
 
+    event DECRegistered(address indexed voter, bytes dec);
+    event DECStamped(address indexed election, address indexed voter);
+
     
     /// @notice this function is used by the third party authority to register a Voter's DEC in the registry
     /// @dev the DEC contains sensitive data that must be encrypted
     function registerDEC(decData memory dec, address voter) public onlyOwner {
         require(registry[voter].length == 0, "The Voter's DEC has been already registered");
         registry[voter] = encryptDEC(dec);
+        emit DECRegistered(voter, registry[voter]);
         return;
     }
 
@@ -50,6 +54,8 @@ contract DECsRegistry is DEC {
     /// @notice this function put the election stamp on the Voter's DEC after the vote
     /// @dev the owner of the DECs registry is the same of the election smart contract (third party authority)
     function stampsTheDEC(address election, address voter) public onlyOwner {
-        return electoralStamps[voter].push(election);
+        electoralStamps[voter].push(election);
+        emit DECStamped(election, voter);
+        return;
     } 
 }
