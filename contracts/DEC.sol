@@ -34,7 +34,6 @@ contract DEC {
     mapping (uint => address) ElectoralStamps;
 
     event DECEncrypted(address indexed owner, bytes encryptedData);
-    event DECDecrypted(address indexed owner, bool success);
 
 
     /// @notice This function is used to encrypt ad digitally sign a DEC
