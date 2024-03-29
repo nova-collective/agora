@@ -20,7 +20,7 @@ describe("DEC Contract", function () {
   });
 
   it("should encrypt DEC data correctly", async function () {
-    const DECdata = {
+    const decData = {
       taxCode: "123456789",
       municipality: "Sample Municipality",
       province: "Sample Province",
@@ -28,7 +28,7 @@ describe("DEC Contract", function () {
       country: "Sample Country",
     };
 
-    const encryptedData = await decContract.encryptDEC(DECdata);
+    const encryptedData = await decContract.encryptDEC(decData);
 
     expect(encryptedData.data).to.not.be.null;
   });

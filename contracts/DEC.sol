@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.24;
 
-/// @title The Register of the Voter's Digital Electoral Cards
+/// @title The Voter's Digital Electoral Cards
 /// @author Christian Palazzo <palazzochristian@yahoo.it>
 /// @custom:experimental This is an experimental contract.
 contract DEC {
@@ -21,7 +21,7 @@ contract DEC {
     
     /// @notice This is the Digital Electoral Card, emitted by a public third-party authority and owned by the Voter
     /// @dev This data is encrypted with the Voter's public address and only the Voter can decrypt it using the private key
-    struct DECdata {
+    struct decData {
         string taxCode;
         string municipality;
         string province;
@@ -29,15 +29,11 @@ contract DEC {
         string country;
     }
 
-    /// @notice this is the list of stamps of elections in which the voter participated
-    /// @dev the address is related to the Election smart contract
-    mapping (uint => address) ElectoralStamps;
-
     event DECEncrypted(address indexed owner, bytes encryptedData);
 
 
     /// @notice This function is used to encrypt ad digitally sign a DEC
-    function encryptDEC(DECdata memory dec) public onlyOwner returns (bytes memory) {
+    function encryptDEC(decData memory dec) public onlyOwner returns (bytes memory) {
         bytes memory encodedData = abi.encodePacked(
             dec.taxCode, dec.municipality, dec.province, dec.region, dec.country
         );
