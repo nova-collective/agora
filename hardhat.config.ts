@@ -6,7 +6,7 @@ import "solidity-coverage";
 import "hardhat-gas-reporter";
 import "hardhat-deploy";
 
-const GOERLI_URL: string = process.env.GOERLI_URL || "";
+const SEPOLIA_URL: string = process.env.SEPOLIA_URL || "";
 const ALCHEMY_PRIVATE_KEY: string = process.env.ALCHEMY_PRIVATE_KEY || "";
 
 const config: HardhatUserConfig = {
@@ -16,8 +16,8 @@ const config: HardhatUserConfig = {
     enabled: process.env.REPORT_GAS ? true : false,
   },
   networks: {
-    goerli: {
-      url: GOERLI_URL,
+    sepolia: {
+      url: SEPOLIA_URL,
       accounts: [ALCHEMY_PRIVATE_KEY],
     },
   },
