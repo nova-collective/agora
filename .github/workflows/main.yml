@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALCHEMY_PRIVATE_KEY: ${{ secrets.ALCHEMY_PRIVATE_KEY }}
-      GOERLI_URL: ${{ secrets.GOERLI_URL }}
+      SEPOLIA_URL: ${{ secrets.SEPOLIA_URL }}
 
     steps:
     - name: Checkout repository
