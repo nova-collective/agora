@@ -1,0 +1,301 @@
+<mxfile modified="2024-03-30T14:43:45.595Z" host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="CFliSjrETH6lHmAMpKYu" version="24.1.0" type="device" pages="2">
+  <diagram id="x4cQjc6QrKb0_X9qm4QU" name="Agora High Level">
+    <mxGraphModel dx="3915" dy="2009" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br style=&quot;font-size: 10px&quot;&gt;[Software System]&lt;/font&gt;" placeholders="1" name="Ethereum blockchain network" id="8zCLCm36TlPyL0DN_zaN-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#828282;fontColor=#000000;align=left;labelPosition=center;verticalLabelPosition=middle;verticalAlign=bottom;strokeWidth=1;perimeterSpacing=0;spacing=4;spacingTop=0;fontSize=10;fillColor=none;dashed=1;dashPattern=14 14;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-620" y="960" width="440" height="480" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br style=&quot;font-size: 10px&quot;&gt;[Container]&lt;/font&gt;" placeholders="1" name="Ethereum node" id="iMF1-VZZ27c8i7yuffg6-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#828282;fillColor=none;fontColor=#000000;align=left;labelPosition=center;verticalLabelPosition=middle;verticalAlign=bottom;dashed=1;strokeWidth=1;perimeterSpacing=0;spacing=4;spacingTop=0;fontSize=10;dashPattern=14 14;container=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-565" y="1000" width="330" height="390" as="geometry">
+              <mxRectangle x="560" y="40" width="110" height="30" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Software System&lt;/span&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="EVM&#xa;(Ethereum Virtual Machine)" description="The virtual machine present on every blockchain node" id="4mZEk1iroGOWjw6Mvnr2-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#FFFFFF;strokeColor=#828282;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-490" y="1045" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Agora smart contracts" technology="Solidity" description="The smart contracts deployed on the Ethereum blockchain. They implements a zkSNARKs protocol" id="1DTGawhpiIEdZtZT-MbX-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-490" y="1225" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;[%technology%]&lt;br&gt;&lt;/span&gt;" placeholders="1" name="executes" technology="bytecode" id="Zc9-EoE2qIDx_mT14fFP-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="4mZEk1iroGOWjw6Mvnr2-1" target="1DTGawhpiIEdZtZT-MbX-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-465" y="1185" as="sourcePoint" />
+              <mxPoint x="-265" y="1185" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br style=&quot;font-size: 10px&quot;&gt;[Software System]&lt;/font&gt;" placeholders="1" name="Agora" id="gFhG6YHdSdo2MWqxFPzN-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#828282;fontColor=#000000;align=left;labelPosition=center;verticalLabelPosition=middle;verticalAlign=bottom;strokeWidth=1;perimeterSpacing=0;spacing=4;spacingTop=0;fontSize=10;fillColor=none;dashed=1;dashPattern=14 14;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1520" y="-140" width="1440" height="700" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br style=&quot;font-size: 10px&quot;&gt;[Container]&lt;/font&gt;" placeholders="1" name="Back end" id="rlPIaTtVboxuI6gkkUt_-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#828282;fillColor=none;fontColor=#000000;align=left;labelPosition=center;verticalLabelPosition=middle;verticalAlign=bottom;dashed=1;strokeWidth=1;perimeterSpacing=0;spacing=4;spacingTop=0;fontSize=10;dashPattern=14 14;container=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-760" y="-100" width="600" height="620" as="geometry">
+              <mxRectangle x="560" y="40" width="110" height="30" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Smart contracts ABI" technology="Solidity" description="Application Binary Interfaces, helps the high level language to interact with the smart contracts bytecode on EVM" id="rlPIaTtVboxuI6gkkUt_-2">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-380" y="-70" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Ethereum js library" technology="JavaScript" description="A third party library that interact with the Ethereum blockchain and exposes JS API" id="BPiqEpN3ACYY41KuNl8t-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-380" y="140" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="Uses" id="uY-crybyiylODFAFYUoO-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BPiqEpN3ACYY41KuNl8t-1" target="rlPIaTtVboxuI6gkkUt_-2" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-290" y="190" as="sourcePoint" />
+              <mxPoint x="-90" y="190" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Utilities scripts" technology="JavaScript" description="A set of scripts that provides utilities for interacting with the smart contracts (e.g. smart contract deploy)" id="uY-crybyiylODFAFYUoO-2">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-380" y="360" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="uses" id="uY-crybyiylODFAFYUoO-3">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="uY-crybyiylODFAFYUoO-2" target="BPiqEpN3ACYY41KuNl8t-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-440" y="410" as="sourcePoint" />
+              <mxPoint x="-440" y="320" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Software System&lt;/span&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Alchemy" description="The Alchemy layer exposes a set of API that interacts with the underlying blockchain network" id="-zjGJdlXMzJi_3BQqytm-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#FFFFFF;strokeColor=#828282;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-490" y="700" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;[%technology%]&lt;br&gt;&lt;/span&gt;" placeholders="1" name="Invokes" technology="JSON-RPC" id="EqOb-pyXl3Vm5k8AWmzO-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="-zjGJdlXMzJi_3BQqytm-1" target="8zCLCm36TlPyL0DN_zaN-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="214" y="189.5" as="sourcePoint" />
+              <mxPoint x="414" y="189.5" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;[%technology%]&lt;br&gt;&lt;/span&gt;" placeholders="1" name="invokes" technology="HTTP" id="mZeIi5heuTbLkXtXWwRR-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BPiqEpN3ACYY41KuNl8t-1" target="-zjGJdlXMzJi_3BQqytm-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-150" y="210" as="sourcePoint" />
+              <mxPoint x="50" y="210" as="targetPoint" />
+              <mxPoint as="offset" />
+              <Array as="points">
+                <mxPoint x="-30" y="200" />
+                <mxPoint x="-30" y="600" />
+                <mxPoint x="-400" y="600" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Node.js Server" technology="JavaScript" description="Exposes the REST APIs" id="mZeIi5heuTbLkXtXWwRR-3">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-700" y="140" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="uses" id="mZeIi5heuTbLkXtXWwRR-4">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="mZeIi5heuTbLkXtXWwRR-3" target="BPiqEpN3ACYY41KuNl8t-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-450" y="240" as="sourcePoint" />
+              <mxPoint x="-450" y="140" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Software System&lt;/span&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Database" description="A documental non-relational database, where the data is stored." id="RlWboZDz-zzXiB4MwjSa-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#FFFFFF;strokeColor=#828282;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-700" y="-290" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;[%technology%]&lt;br&gt;&lt;/span&gt;" placeholders="1" name="uses" technology="HTTP" id="N3J5PfkJafUCaIe0_Fup-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="mZeIi5heuTbLkXtXWwRR-3" target="RlWboZDz-zzXiB4MwjSa-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-640" y="20" as="sourcePoint" />
+              <mxPoint x="-440" y="20" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br style=&quot;font-size: 10px&quot;&gt;[Container]&lt;/font&gt;" placeholders="1" name="Front end SPA" id="N3J5PfkJafUCaIe0_Fup-4">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#828282;fillColor=none;fontColor=#000000;align=left;labelPosition=center;verticalLabelPosition=middle;verticalAlign=bottom;dashed=1;strokeWidth=1;perimeterSpacing=0;spacing=4;spacingTop=0;fontSize=10;dashPattern=14 14;container=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1480" y="-100" width="690" height="620" as="geometry">
+              <mxRectangle x="560" y="40" width="110" height="30" as="alternateBounds" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="React" technology="JavaScript" description="js library for SPA (single page applications)" id="N3J5PfkJafUCaIe0_Fup-5">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1020" y="120" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Admin Panel" technology="JavaScript" description="set of pages for Admin users" id="N3J5PfkJafUCaIe0_Fup-6">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1280" y="-80" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Voter Panel" technology="JavaScript" description="set of pages for Voter users" id="N3J5PfkJafUCaIe0_Fup-7">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1280" y="320" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Component: %technology%]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="Home Page" technology="HTML" description="Contains elections data and components for login/register users" id="N3J5PfkJafUCaIe0_Fup-9">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#85baf0;fontColor=#000000;strokeColor=#6992BD;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1280" y="120" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="redirect to" id="5jA24EbEcbqocshlrsuv-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="N3J5PfkJafUCaIe0_Fup-9" target="N3J5PfkJafUCaIe0_Fup-6" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1380" y="70" as="sourcePoint" />
+              <mxPoint x="-1180" y="70" as="targetPoint" />
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="redirect to" id="5jA24EbEcbqocshlrsuv-2">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="N3J5PfkJafUCaIe0_Fup-9" target="N3J5PfkJafUCaIe0_Fup-7" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1400" y="380" as="sourcePoint" />
+              <mxPoint x="-1260" y="320" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="-1190" y="320" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="uses" id="d8Zayz1zDranGjSibhy0-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="N3J5PfkJafUCaIe0_Fup-6" target="N3J5PfkJafUCaIe0_Fup-5" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1060" y="20" as="sourcePoint" />
+              <mxPoint x="-860" y="20" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="-930" y="-20" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="uses" id="d8Zayz1zDranGjSibhy0-2">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="N3J5PfkJafUCaIe0_Fup-9" target="N3J5PfkJafUCaIe0_Fup-5" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1080" y="270" as="sourcePoint" />
+              <mxPoint x="-880" y="270" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" placeholders="1" name="uses" id="d8Zayz1zDranGjSibhy0-3">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="N3J5PfkJafUCaIe0_Fup-7" target="N3J5PfkJafUCaIe0_Fup-5" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1050" y="379.5" as="sourcePoint" />
+              <mxPoint x="-850" y="379.5" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="-930" y="380" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="&lt;div&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;[Software System&lt;/span&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" placeholders="1" name="TOR Network" description="The Onion Router, is free and open-source software for enabling anonymous communication" id="gVcyLhmhxT0-2eKrZGvU-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#FFFFFF;strokeColor=#828282;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1">
+            <mxGeometry x="-1780" y="135" width="180" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;[%technology%]&lt;br&gt;&lt;/span&gt;" placeholders="1" name="invokes" technology="HTTP" id="JeeCy8IjnMUS0gYqwGPu-1">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.001;entryY=0.479;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gVcyLhmhxT0-2eKrZGvU-1" target="gFhG6YHdSdo2MWqxFPzN-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1720" y="350" as="sourcePoint" />
+              <mxPoint x="-1520" y="350" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" placeholders="1" instruction="edit data of the lower shape within the group" id="5j92J8PmLVZzk6j81RDq-1">
+          <mxCell style="group;resizable=0;rotatable=0;metaEdit=1;allowArrows=0;" parent="1" vertex="1" connectable="0">
+            <mxGeometry x="-2040" y="90" width="160" height="170" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;div style=&quot;color: rgb(255 , 255 , 255) ; white-space: normal&quot;&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(255 , 255 , 255) ; white-space: normal&quot;&gt;&lt;font style=&quot;font-size: 8px&quot;&gt;[Person]&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(255 , 255 , 255) ; white-space: normal ; font-size: 8px&quot;&gt;&lt;span style=&quot;font-size: x-small&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(255 , 255 , 255) ; white-space: normal&quot;&gt;&lt;font size=&quot;1&quot;&gt;%description%&lt;/font&gt;&lt;/div&gt;" name="User" description="An Admin that wants to create or manage an election or a Voter that casts a vote" placeholders="1" id="5j92J8PmLVZzk6j81RDq-2">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#828282;fillColor=#999999;fontColor=#000000;arcSize=31;metaEdit=1;allowArrows=0;" parent="5j92J8PmLVZzk6j81RDq-1" vertex="1">
+            <mxGeometry y="70" width="160" height="100" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="5j92J8PmLVZzk6j81RDq-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#828282;fillColor=#999999;fontColor=#000000;allowArrows=0;" parent="5j92J8PmLVZzk6j81RDq-1" vertex="1">
+          <mxGeometry x="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <object label="&lt;span style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;[%technology%]&lt;br&gt;&lt;/span&gt;" placeholders="1" name="invokes" technology="HTTP" id="5j92J8PmLVZzk6j81RDq-4">
+          <mxCell style="endArrow=block;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;entryX=0.011;entryY=0.558;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="gVcyLhmhxT0-2eKrZGvU-1" edge="1">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+              <mxPoint x="-1878" y="200" as="sourcePoint" />
+              <mxPoint x="-1809" y="310" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p4lBu1J1kbelyQbBJE4A" name="smart contracts">
+    <mxGraphModel dx="2261" dy="840" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mP0Fo4o5vdSD1j_qhpuj-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;DEC&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ owner: address&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ taxCode: string&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ country: String&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ region: String&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ province: String&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ municipality: String&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ encryptDEC(decData): bytes&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;- signData(bytes32 data): bytes&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;- uintToBytes32(uint256): bytes32&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="120" y="180" width="330" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="MUF2wZHp3FFVUKBGIRuA-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Election&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;+ owner: address&lt;/font&gt;&lt;/p&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;- electionStart: Datetime&amp;nbsp;&lt;br&gt;&amp;nbsp;- electionEnd: Datetime&lt;/font&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;- ballotBox: mapping(uint256 =&amp;gt; string)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;- results: mapping(uint256 =&amp;gt; string)&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;- isInvokedInElectionPeriod(): bool&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ setElectionStart(uint256 electionStart): void&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ getElectionStart(): uint256&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ setElectionEnd(uint256 electionStart): void&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ getElectionEnd(): uint256&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ vote(): void&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ scrutiny(): void&lt;/font&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="105" y="920" width="360" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pGaC0LirGqdrQCCYNV9h-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;DECsRegistry&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;+ ElectoralStamps: mappig(address =&amp;gt; address[])&lt;/font&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;+ Registry: mapping(address =&amp;gt; bytes)&amp;nbsp;&lt;br&gt;&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ registerDEC(decData dec, address voter): void&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ getDEC(address voter): bytes&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ hasVoterAlreadyVoted(address voter, address election): bool&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font size=&quot;3&quot;&gt;+ stampsTheDEC(address election, address voter): void&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="47.5" y="585" width="475" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGaC0LirGqdrQCCYNV9h-1" target="mP0Fo4o5vdSD1j_qhpuj-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="580" as="sourcePoint" />
+            <mxPoint x="440" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CountryElection&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-220" y="1400" width="320" height="236" as="geometry" />
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RegionalElection&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="125" y="1400" width="320" height="236" as="geometry" />
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MunicipalityElection&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1400" width="320" height="236" as="geometry" />
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.466;exitY=0.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.539;entryY=1.011;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rqTxfOrhh5VgZEfQ6Rwo-8" target="MUF2wZHp3FFVUKBGIRuA-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="540" y="1320" as="sourcePoint" />
+            <mxPoint x="590" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rqTxfOrhh5VgZEfQ6Rwo-7" target="MUF2wZHp3FFVUKBGIRuA-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="1360" as="sourcePoint" />
+            <mxPoint x="380" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rqTxfOrhh5VgZEfQ6Rwo-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.466;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rqTxfOrhh5VgZEfQ6Rwo-6" target="MUF2wZHp3FFVUKBGIRuA-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-60" y="1380" as="sourcePoint" />
+            <mxPoint x="-10" y="1330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
