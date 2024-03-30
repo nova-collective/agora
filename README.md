@@ -33,6 +33,7 @@ To setup the application follow these steps:
     * `SEPOLIA_URL` You can find the data in your Alchemy account, after you create an app there;
     * `ALCHEMY_API_KEY` You can find the data in your Alchemy account;
     * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions;
+    * `NODE_ENV` set `development` for your local machine;
 
 ## How to commit
 
@@ -50,6 +51,10 @@ Remember to follow this convention for commit messages: `AG-<jira id> <descripti
 Smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
 
 CI/CD workflow fails if the unit test code coverage threshold (**80% of lines of code**) for scripts is not met. 
+
+## How to run
+
+1. Compile the smart contracts: `npm run compile`
 
 # Donations
 Support this project and offer me a crypto-coffee!!

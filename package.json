@@ -18,6 +18,7 @@
   },
   "scripts": {
     "commit": "./script/commit",
+    "compile": "npx hardhat compile",
     "coverage-contracts": "npx hardhat coverage",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
