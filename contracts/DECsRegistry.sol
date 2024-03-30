@@ -20,7 +20,7 @@ contract DECsRegistry {
     }
 
     /// @notice this is the list of stamps of elections in which the voter participated
-    /// @dev the first address is related to the Voter's EOA, the second array is the Voter's stamps list
+    /// @dev the first address is related to the Voter's DEC, the second array is the Voter's stamps list
     mapping(address => address[]) electoralStamps;
 
     /// @notice this function contains the list of DECs

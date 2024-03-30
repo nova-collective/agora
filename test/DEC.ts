@@ -1,35 +1,63 @@
+import { assert } from "chai";
 import { ethers } from "hardhat";
-import { expect } from "chai";
+import { DEC } from "../typechain-types/DEC";
 
-describe("DEC Contract", function () {
-  let DEC: any;
-  let decContract: any;
-  let ownerAddress: any;
+describe("DEC Contract", () => {
+  let dec: DEC;
 
-  before(async function () {
-    DEC = await ethers.getContractFactory("DEC");
-    [ownerAddress] = await ethers.getSigners();
+  beforeEach(async () => {
+    const DECFactory = await ethers.getContractFactory("DEC");
+    dec = await DECFactory.deploy(
+      ethers.encodeBytes32String("12345678901"),
+      ethers.encodeBytes32String("Roma"),
+      ethers.encodeBytes32String("Lazio"),
+      ethers.encodeBytes32String("Italia"),
+    );
   });
 
-  beforeEach(async function () {
-    decContract = await DEC.deploy();
+  it("Should set initial data correctly", async () => {
+    assert.equal(
+      await dec.owner(),
+      await (await ethers.provider.getSigner(0)).getAddress(),
+    );
+    assert.equal(
+      ethers.decodeBytes32String(await dec.getTaxCode()),
+      "12345678901",
+    );
+    assert.equal(
+      ethers.decodeBytes32String(await dec.getMunicipality()),
+      "Roma",
+    );
+    assert.equal(ethers.decodeBytes32String(await dec.getRegion()), "Lazio");
+    assert.equal(ethers.decodeBytes32String(await dec.getCountry()), "Italia");
   });
 
-  it("should deploy the contract and set the owner", async function () {
-    expect(await decContract.owner()).to.equal(ownerAddress.address);
+  it("Should set and get tax code correctly", async () => {
+    await dec.setTaxCode(ethers.encodeBytes32String("98765432109"));
+    assert.equal(
+      ethers.decodeBytes32String(await dec.getTaxCode()),
+      "98765432109",
+    );
   });
 
-  it("should encrypt DEC data correctly", async function () {
-    const decData = {
-      taxCode: "123456789",
-      municipality: "Sample Municipality",
-      province: "Sample Province",
-      region: "Sample Region",
-      country: "Sample Country",
-    };
+  it("Should set and get municipality correctly", async () => {
+    await dec.setMunicipality(ethers.encodeBytes32String("Milano"));
+    assert.equal(
+      ethers.decodeBytes32String(await dec.getMunicipality()),
+      "Milano",
+    );
+  });
 
-    const encryptedData = await decContract.encryptDEC(decData);
+  it("Should set and get region correctly", async () => {
+    await dec.setRegion(ethers.encodeBytes32String("Lombardia"));
+    assert.equal(
+      ethers.decodeBytes32String(await dec.getRegion()),
+      "Lombardia",
+    );
+  });
 
-    expect(encryptedData.data).to.not.be.null;
+  it("Should set and get country correctly", async () => {
+    await dec.setCountry(ethers.encodeBytes32String("Francia"));
+    assert.equal(ethers.decodeBytes32String(await dec.getCountry()), "Francia");
   });
 });
