@@ -33,6 +33,7 @@ To setup the application follow these steps:
     * `SEPOLIA_URL` You can find the data in your Alchemy account, after you create an app there;
     * `ALCHEMY_API_KEY` You can find the data in your Alchemy account;
     * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions;
+    * `NODE_ENV` set `development` for your local machine;
 
 ## How to commit
 
@@ -50,6 +51,32 @@ Remember to follow this convention for commit messages: `AG-<jira id> <descripti
 Smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
 
 CI/CD workflow fails if the unit test code coverage threshold (**80% of lines of code**) for scripts is not met. 
+
+## Run the localhost development network
+
+Hardhat framework provides a local blockchain network that lives in memory, that is useful to test local developments.
+To start the network run the command:
+
+`npm run node:start`
+
+## Compile the smart contracts
+
+Run the command: `npm run compile`
+
+## Deploy the smart contract
+
+The smart contracts deploy process is managed, under the hood, by [Ignition](https://hardhat.org/ignition/docs/getting-started#overview).
+
+To deploy smart contract instances run the command:
+
+`npm run deploy-contract <ignition-module-path> <network>`
+
+Ignition will deploy the instances of the smart contract following the logic specified in the ignition module.
+
+To deploy to a specific network (e.g. mainnet, sepora), the network must be configured in the `hardhat.config.ts` file.
+
+For the local network the parameter to pass is `localhost`, there is no need to configure the local network.
+
 
 # Donations
 Support this project and offer me a crypto-coffee!!

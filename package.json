@@ -18,13 +18,16 @@
   },
   "scripts": {
     "commit": "./script/commit",
+    "compile": "npx hardhat compile",
     "coverage-contracts": "npx hardhat coverage",
+    "deploy-contract": "./script/deploy",
+    "duplicated": "npx jscpd",
+    "lint": "npx lint-staged",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
+    "node:start": "npx hardhat node",
     "test-contracts": "npx hardhat test",
-    "test-scripts": " jest --coverage --bail",
-    "lint": "npx lint-staged",
-    "duplicated": "npx jscpd"
+    "test-scripts": " jest --coverage --bail"
   },
   "repository": {
     "type": "git",
@@ -56,6 +59,7 @@
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@commitlint/cz-commitlint": "^19.2.0",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
