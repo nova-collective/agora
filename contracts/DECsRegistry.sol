@@ -8,16 +8,7 @@ import "./DEC.sol";
 /// @custom:experimental This is an experimental contract.
 contract DECsRegistry {
     address public owner;
-
-    constructor() {
-        /// @dev only the owner of the contract has write permissions
-        owner = msg.sender;
-    }
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner can call this function");
-        _;
-    }
+    string public name;
 
     /// @notice this is the list of stamps of elections in which the voter participated
     /// @dev the first address is related to the Voter's DEC, the second array is the Voter's stamps list
@@ -29,6 +20,27 @@ contract DECsRegistry {
 
     event DECRegistered(address indexed voter, address dec);
     event DECStamped(address indexed election, address indexed voter);
+    
+    constructor(string memory _name) {
+        /// @dev only the owner of the contract has write permissions
+        owner = msg.sender;
+        name = _name;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only owner can call this function");
+        _;
+    }
+
+    /// @notice DECs REgistry name setter function
+    function setName(string memory _name) public onlyOwner {
+        name = _name;
+    }
+
+    /// @notice DECs REgistry name getter function
+    function getName() public view returns (string memory) {
+        return name;
+    }
 
     /// @notice this function is used by the third party authority to register a Voter's DEC in the registry
     function registerDEC(address dec, address voter) public onlyOwner {

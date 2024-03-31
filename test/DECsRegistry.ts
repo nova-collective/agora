@@ -15,11 +15,20 @@ describe("DECs Registry Contract", function () {
   beforeEach(async () => {
     const ContractFactory = await ethers.getContractFactory("DECsRegistry");
     [owner, voter] = await ethers.getSigners();
-    contract = await ContractFactory.deploy();
+    contract = await ContractFactory.deploy("test");
   });
 
   it("Should deploy the contract", async function () {
     expect(contract.address).to.not.equal(0);
+  });
+
+  it("should set and get name correctly", async function () {
+    const newName = "New Name";
+
+    await contract.connect(owner).setName(newName);
+    const retrievedName = await contract.getName();
+
+    expect(retrievedName).to.equal(newName);
   });
 
   it("Should register DEC", async function () {
