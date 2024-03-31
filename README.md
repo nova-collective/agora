@@ -31,7 +31,7 @@ To setup the application follow these steps:
 3. run `npm run prepare`
 4. Write a `.env` file in the root of the project and configure:
     * `SEPOLIA_URL` You can find the data in your Alchemy account, after you create an app there;
-    * `ALCHEMY_API_KEY` You can find the data in your Alchemy account;
+    * `ALCHEMY_PRIVATE_KEY` You can find the data in your Alchemy account;
     * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions;
     * `NODE_ENV` set `development` for your local machine;
 
