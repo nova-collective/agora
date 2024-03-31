@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <module_path> <network>"
+  exit 1
+fi
+
+MODULE_PATH="$1"
+NETWORK="$2"
+
+npx hardhat ignition deploy "$MODULE_PATH" --network "$NETWORK"

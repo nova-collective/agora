@@ -20,12 +20,14 @@
     "commit": "./script/commit",
     "compile": "npx hardhat compile",
     "coverage-contracts": "npx hardhat coverage",
+    "deploy-contract": "./script/deploy",
+    "duplicated": "npx jscpd",
+    "lint": "npx lint-staged",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
+    "node:start": "npx hardhat node",
     "test-contracts": "npx hardhat test",
-    "test-scripts": " jest --coverage --bail",
-    "lint": "npx lint-staged",
-    "duplicated": "npx jscpd"
+    "test-scripts": " jest --coverage --bail"
   },
   "repository": {
     "type": "git",
