@@ -66,7 +66,7 @@ contract MunicipalityElection is Election {
     function registerParty(
         string memory name,
         string[] memory counciliorCandidates
-    ) public onlyOwner isRegistrationPeriod {
+    ) external onlyOwner isRegistrationPeriod {
         /**
          * 1. check that the function is invoked in the registration period
          * 2. check that the party is not already registered;
@@ -103,7 +103,7 @@ contract MunicipalityElection is Election {
     function registerCoalition(
         string memory candidateMajor,
         string[] memory coalitionParties
-    ) public onlyOwner isRegistrationPeriod {
+    ) external onlyOwner isRegistrationPeriod {
         /**
          * 1. check that the function is invoked in the registration period (consider a modifier); X
          * 2. check that the list of parties of the coalition are registered in the parties list;

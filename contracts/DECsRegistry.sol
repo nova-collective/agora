@@ -33,17 +33,17 @@ contract DECsRegistry {
     }
 
     /// @notice DECs REgistry name setter function
-    function setName(string memory _name) public onlyOwner {
+    function setName(string memory _name) external onlyOwner {
         name = _name;
     }
 
     /// @notice DECs REgistry name getter function
-    function getName() public view returns (string memory) {
+    function getName() external view returns (string memory) {
         return name;
     }
 
     /// @notice this function is used by the third party authority to register a Voter's DEC in the registry
-    function registerDEC(address dec, address voter) public onlyOwner {
+    function registerDEC(address dec, address voter) external onlyOwner {
         require(
             registry[voter] == address(0),
             "The Voter's DEC has been already registered"
@@ -54,7 +54,7 @@ contract DECsRegistry {
     }
 
     /// @notice this function returns an encrypted DEC in order to check if a Voter has the voting rights
-    function getDEC(address voter) public view returns (address) {
+    function getDEC(address voter) external view returns (address) {
         require(
             registry[voter] != address(0),
             "The Voter don't have a registered DEC"
@@ -66,7 +66,7 @@ contract DECsRegistry {
     function hasVoterAlreadyVoted(
         address voter,
         address election
-    ) public view returns (bool) {
+    ) external view returns (bool) {
         for (uint i = 0; i < electoralStamps[voter].length; i++) {
             if (electoralStamps[voter][i] == election) {
                 return true;
@@ -76,7 +76,7 @@ contract DECsRegistry {
     }
 
     /// @notice this function put the election stamp on the Voter's stamps list after the vote
-    function stamps(address election, address voter) public onlyOwner {
+    function stamps(address election, address voter) external onlyOwner {
         electoralStamps[voter].push(election);
         emit DECStamped(election, voter);
         return;

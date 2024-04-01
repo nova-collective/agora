@@ -30,35 +30,35 @@ contract DEC {
         _;
     }
 
-    function setTaxCode(bytes memory _taxCode) public onlyOwner {
+    function setTaxCode(bytes memory _taxCode) external onlyOwner {
         taxCode = _taxCode;
     }
 
-    function getTaxCode() public view returns (bytes memory) {
+    function getTaxCode() external view returns (bytes memory) {
         return taxCode;
     }
 
-    function setMunicipality(bytes memory _municipality) public onlyOwner {
+    function setMunicipality(bytes memory _municipality) external onlyOwner {
         municipality = _municipality;
     }
 
-    function getMunicipality() public view returns (bytes memory) {
+    function getMunicipality() external view returns (bytes memory) {
         return municipality;
     }
 
-    function setRegion(bytes memory _region) public onlyOwner {
+    function setRegion(bytes memory _region) external onlyOwner {
         region = _region;
     }
 
-    function getRegion() public view returns (bytes memory) {
+    function getRegion() external view returns (bytes memory) {
         return region;
     }
 
-    function setCountry(bytes memory _country) public onlyOwner {
+    function setCountry(bytes memory _country) external onlyOwner {
         country = _country;
     }
 
-    function getCountry() public view returns (bytes memory) {
+    function getCountry() external view returns (bytes memory) {
         return country;
     }
 

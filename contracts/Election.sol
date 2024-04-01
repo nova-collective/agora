@@ -54,14 +54,14 @@ contract Election {
         return block.timestamp > registrationEnd;
     }
 
-    function setElectionStart(uint256 _electionStart) public onlyOwner {
+    function setElectionStart(uint256 _electionStart) external onlyOwner {
         require(block.timestamp > registrationEnd, "Elections can't start before the end of the registration process");
         require(!isIvokedInElectionPeriod(), "Elections have already started, it's too late for changing the start of the elections");
         require(!isElectionClosed(), "Elections are closed, it's not possible to change the start of the elections");
         electionStart = _electionStart;
     }
 
-    function getElectionStart() public view returns (uint256) {
+    function getElectionStart() external view returns (uint256) {
         return electionStart;
     }
 
@@ -71,17 +71,17 @@ contract Election {
         electionEnd = _electionEnd;
     }
 
-    function getElectionEnd() public view returns (uint256) {
+    function getElectionEnd() external view returns (uint256) {
         return electionEnd;
     }
 
-    function setRegistrationStart(uint256 _registrationStart) public onlyOwner {
+    function setRegistrationStart(uint256 _registrationStart) external onlyOwner {
         require(!isIvokedInRegistrationPeriod(), "Registrations have already started, it's too late for changing the start of the registration");
         require(!isRegistrationClosed(), "Registration are closed, it's not possible to change the start of the registration");
         registrationStart = _registrationStart;
     }
 
-    function getRegistrationStart() public view returns (uint256) {
+    function getRegistrationStart() external view returns (uint256) {
         return registrationStart;
     }
 
@@ -91,18 +91,18 @@ contract Election {
         registrationEnd = _registrationEnd;
     }
 
-    function getRegistrationEnd() public view returns (uint256) {
+    function getRegistrationEnd() external view returns (uint256) {
         return registrationEnd;
     }
 
     /// @notice this function collects the ballots
-    function vote() public view {
+    function vote() external view {
         require(isIvokedInElectionPeriod(), "Elections are not open");
         require(!isElectionClosed(), "Elections are closed");
     }
 
     /// @notice this function calculates the elections results
-    function scrutiny() public view onlyOwner {
+    function scrutiny() external view onlyOwner {
         require(isElectionClosed(), "Scrutiny is possible only after the elections end");
     }
 }
