@@ -29,7 +29,7 @@ const config: HardhatUserConfig = {
       // Version of the EVM to compile for.
       // Affects type checking and code generation. Can be homestead,
       // tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg, istanbul or berlin
-      evmVersion: "byzantium",
+      evmVersion: "constantinople",
       debug: {
         // How to treat revert (and require) reason strings. Settings are
         // "default", "strip", "debug" and "verboseDebug".
