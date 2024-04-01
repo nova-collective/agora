@@ -7,10 +7,10 @@ pragma solidity ^0.8.24;
 /// @custom:experimental This is an experimental contract.
 contract Election {
     address public owner;
-    uint256 private electionStart;
-    uint256 private electionEnd;
-    uint256 private registrationStart;
-    uint256 private registrationEnd;
+    uint256 public electionStart;
+    uint256 public electionEnd;
+    uint256 public registrationStart;
+    uint256 public registrationEnd;
     int8 private votingPoints;
     mapping (uint256 => string) private ballotBox; // change the data types later
     mapping (uint256 => string) results; // change the data types later

@@ -44,6 +44,14 @@ contract MunicipalityElection is Election {
         country = _country;
     }
 
+    modifier isRegistrationPeriod() {
+        require(
+            block.timestamp >= registrationStart && block.timestamp <= registrationEnd, 
+            "This function can be invoked only during the registration period"
+        );
+        _;
+    }
+
     /**
      * During the registration period, each party registers to the election, presenting its list of councilor candidates.
      * The parties registered, can register a coalition of parties, indicating a candidate for the major.
@@ -53,9 +61,9 @@ contract MunicipalityElection is Election {
 
     /// @notice as first step, we register the parties with their councilor candidates
     /// @dev only the owner of the contract has write permissions
-    function registerParty(string memory name, Candidate[] memory counciliorCandidates) public onlyOwner {
+    function registerParty(string memory name, Candidate[] memory counciliorCandidates) public onlyOwner isRegistrationPeriod {
         /**
-         * 1. check that the function is invoked in the registration period (consider a modifier);
+         * 1. check that the function is invoked in the registration period (consider a modifier); X
          * 2. check that the party is not already registered;
          * 3. check that the list of candidates is of 5 elements;
          * 4. check that the candidates name are unique (check the lists of all parties);
@@ -65,9 +73,9 @@ contract MunicipalityElection is Election {
 
     /// @notice the parties already registered can form and register a coalition, indicating the candidate for major
     /// @dev only the owner of the contract has write permissions
-    function registerCoalition(string memory candidateMajor, string[] memory coalitionParties) public onlyOwner {
+    function registerCoalition(string memory candidateMajor, string[] memory coalitionParties) public onlyOwner isRegistrationPeriod {
         /**
-         * 1. check that the function is invoked in the registration period (consider a modifier);
+         * 1. check that the function is invoked in the registration period (consider a modifier); X
          * 2. check that the list of parties of the coalition are registered in the parties list;
          * 3. check that in the list of parties there are no parties already registered in a coalition;
          * 4. check that che name of the candidateMajor is unique (check the lists of all parties);

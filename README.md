@@ -90,23 +90,23 @@ For the creation of the registry we deploy the DECs Registry smart contract usin
 `npm run deploy-contract ignition/Registry localhost`;
 
 ### 2. The Public Authority / Admin creates the EOA for the Voter
-Execute the `create-voter`scripts and take note of the resulting `address` and `privateKey`:
+Execute the `create-voter` scripts and take note of the resulting `address` and `privateKey`:
 
 `npx hardhat run election-scripts/create-voter-eoa.ts`
 
-### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs REgistry
+### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs Registry
 [TO DO]
 
 ### 4. The Public Authority / Admin creates a Municipality Election
 At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
 
-The smart contract is deployed passing the registration timestamps (configured in the ignition config file):
+The smart contract is deployed passing the registration timestamps and other data (configured in the ignition config file):
 
 `npm run deploy-contract ignition/MunicipalityElection localhost`
 
 note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
 
-This registration is about the registration of parties, candidates and coalitions.
+This registration is about the registration of parties, candidates and coalitions for the election.
 
 ## Donations
 Support this project and offer me a crypto-coffee!!
