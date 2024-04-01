@@ -14,25 +14,32 @@ export type EOAResponse = {
   privateKey: string;
 };
 
+export enum Candidature {
+  MAJOR = "major",
+  COUNCILOR = "councilor",
+}
+
 export type Candidate = {
   name: string;
   surname: string;
+  candidateFor: Candidature;
   points: number;
 };
 
 export type Party = {
   name: string;
-  candidatesList: Candidate[];
-  points: number;
+  councilorCandidatesList: Candidate[];
 };
 
 export type Coalition = {
-  coalitionCandidate: Candidate;
-  points: number;
+  majorCandidate: Candidate;
   parties: Party[];
 };
 
-export type CountryElection = {
+export type MunicipalityElection = {
+  country: string;
+  region: string;
+  municipality: string;
   votingPoints: number;
   coalitions: Coalition[];
   registrationStartDate: number;

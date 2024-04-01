@@ -97,12 +97,12 @@ Execute the `create-voter`scripts and take note of the resulting `address` and `
 ### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs REgistry
 [TO DO]
 
-### 4. The Public Authority / Admin creates the a Country Election
-At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry.
+### 4. The Public Authority / Admin creates a Municipality Election
+At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
 
-It's time to create an election, passing the registration timestamps (configured in the ignition config file):
+The smart contract is deployed passing the registration timestamps (configured in the ignition config file):
 
-`npm run deploy-contract ignition/CountryElection localhost`
+`npm run deploy-contract ignition/MunicipalityElection localhost`
 
 note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
 
