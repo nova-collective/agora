@@ -8,7 +8,11 @@ import "./Election.sol";
 /// @custom:experimental This is an experimental contract.
 contract CountryElection is Election {
 
-    constructor(uint256 _registrationStart, uint256 _registrationEnd) Election(_registrationStart, _registrationEnd) {
+    constructor(
+        uint256 _registrationStart,
+        uint256 _registrationEnd,
+        int8 _votingPoints
+    ) Election(_registrationStart, _registrationEnd, _votingPoints) {
 
     }
 

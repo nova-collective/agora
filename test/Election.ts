@@ -13,7 +13,11 @@ describe("Election", function () {
   beforeEach(async function () {
     const ElectionFactory = await ethers.getContractFactory("Election", owner);
     [owner] = await ethers.getSigners();
-    electionContract = await ElectionFactory.deploy(tomorrow, dayAfterTomorrow);
+    electionContract = await ElectionFactory.deploy(
+      tomorrow,
+      dayAfterTomorrow,
+      20,
+    );
   });
 
   it("should deploy with correct initial values", async function () {

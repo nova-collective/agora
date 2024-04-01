@@ -11,15 +11,22 @@ contract Election {
     uint256 private electionEnd;
     uint256 private registrationStart;
     uint256 private registrationEnd;
+    int8 private votingPoints;
     mapping (uint256 => string) private ballotBox; // change the data types later
     mapping (uint256 => string) results; // change the data types later
 
-    constructor(uint256 _registrationStart, uint256 _registrationEnd) {
+    constructor(
+        uint256 _registrationStart,
+        uint256 _registrationEnd,
+        int8 _votingPoints
+    ) {
         require(_registrationStart < _registrationEnd, "The registration start date can't be equal or after the registration end date");
+        require(_votingPoints > 19, "It is not possible to assing less that 20 voting points for the election");
 
         owner = msg.sender;
         registrationStart = _registrationStart;
         registrationEnd = _registrationEnd;
+        votingPoints = _votingPoints;
     }
 
     modifier onlyOwner() {

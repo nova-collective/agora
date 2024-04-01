@@ -106,7 +106,7 @@ The smart contract is deployed passing the registration timestamps (configured i
 
 note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
 
-This registration is about the registration of the Voter to the Agora platform (implemented in the phase 2).
+This registration is about the registration of parties, candidates and coalitions.
 
 ## Donations
 Support this project and offer me a crypto-coffee!!

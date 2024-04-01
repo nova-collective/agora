@@ -22,13 +22,13 @@ export enum Candidature {
 export type Candidate = {
   name: string;
   surname: string;
-  candidateFor: Candidature;
+  candidatesFor: Candidature;
   points: number;
 };
 
 export type Party = {
   name: string;
-  councilorCandidatesList: Candidate[];
+  councilorCandidates: Candidate[];
 };
 
 export type Coalition = {

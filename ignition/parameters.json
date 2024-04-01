@@ -5,6 +5,10 @@
     },
     "MunicipalityElection": {
         "registrationStart": 1714578352000,
-        "registrationEnd": 1717256752000
+        "registrationEnd": 1717256752000,
+        "municipality": "Braccagni",
+        "region": "Toscana",
+        "country": "Italy",
+        "votingPoints": 20
     }
 }
