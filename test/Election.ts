@@ -20,28 +20,38 @@ describe("Election", function () {
     const ownerAddress = await electionContract.owner();
     expect(ownerAddress).to.equal(await owner.getAddress());
 
-    const start = await electionContract.getElectionStart();
+    const start = await electionContract.getRegistrationStart();
     expect(start).to.equal(tomorrow);
 
-    const end = await electionContract.getElectionEnd();
+    const end = await electionContract.getRegistrationEnd();
     expect(end).to.equal(dayAfterTomorrow);
   });
 
-  it("should allow owner to change election start date before election starts", async function () {
+  it("should allow owner to change registration start date before election starts", async function () {
     const newStartDate = now + 43200000;
-    await electionContract.setElectionStart(newStartDate);
-    const start = await electionContract.getElectionStart();
+    await electionContract.setRegistrationStart(newStartDate);
+    const start = await electionContract.getRegistrationStart();
 
     expect(start).to.equal(newStartDate);
   });
 
-  it("should allow owner to change election end date before election starts", async function () {
+  it("should allow owner to change registration end date before election starts", async function () {
     const newEndDate = dayAfterTomorrow + 86400000;
 
-    await electionContract.setElectionEnd(newEndDate);
+    await electionContract.setRegistrationEnd(newEndDate);
 
-    const end = await electionContract.getElectionEnd();
+    const end = await electionContract.getRegistrationEnd();
     expect(end).to.equal(newEndDate);
+  });
+
+  it("should revert when setting elections start before the end of the registration period", async function () {
+    const electionStartDate = dayAfterTomorrow + 17280000;
+
+    await expect(
+      electionContract.setElectionStart(electionStartDate),
+    ).to.be.revertedWith(
+      "Elections can't start before the end of the registration process",
+    );
   });
 
   it("should not allow voting before election period", async function () {
@@ -50,18 +60,30 @@ describe("Election", function () {
     );
   });
 
-  it("should not allow owner to change election start date during election or after it ends", async function () {
+  it("should not allow owner to change registration start date during registration period or after it ends", async function () {
     const now = Math.floor(Date.now() / 1000);
 
-    await electionContract.setElectionStart(now);
+    await electionContract.setRegistrationStart(now);
 
-    await expect(electionContract.setElectionStart(now + 1)).to.be.revertedWith(
-      "Elections have already started, it's too late for changing the start of the elections",
+    await expect(
+      electionContract.setRegistrationStart(now + 1),
+    ).to.be.revertedWith(
+      "Registrations have already started, it's too late for changing the start of the registration",
     );
 
     await ethers.provider.send("evm_increaseTime", [tomorrow]);
-    await expect(electionContract.setElectionStart(300)).to.be.revertedWith(
-      "Elections are closed, it's not possible to change the start of the elections",
+    await expect(electionContract.setRegistrationStart(300)).to.be.revertedWith(
+      "Registration are closed, it's not possible to change the start of the registration",
     );
   });
+
+  // it("should correctly set and get the elections end", async function () {});
+
+  // it("should not set the elections start before the end of the registration", async function () {});
+
+  // it("should not set the elections start during the elections", async function () {});
+
+  // it("should not set the elections start after the elections closure", async function () {});
+
+  // it("should not set the elections end after the elections closure", async function () {});
 });

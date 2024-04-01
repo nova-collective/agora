@@ -8,4 +8,4 @@ fi
 MODULE_PATH="$1"
 NETWORK="$2"
 
-npx hardhat ignition deploy "$MODULE_PATH" --network "$NETWORK"
+npx hardhat ignition deploy "$MODULE_PATH" --network "$NETWORK" --parameters ignition/parameters.json

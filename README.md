@@ -77,8 +77,38 @@ To deploy to a specific network (e.g. mainnet, sepora), the network must be conf
 
 For the local network the parameter to pass is `localhost`, there is no need to configure the local network.
 
+## Emulate the whole process using the scrips
 
-# Donations
+### Prerequisites
+
+* Start the local network: `npm run node:start`;
+* edit the ignition configuration: `ignition/parameters.json`;
+
+### 1. The Public Authority / Admin creates the DECs Registry
+For the creation of the registry we deploy the DECs Registry smart contract using ignition:
+
+`npm run deploy-contract ignition/Registry localhost`;
+
+### 2. The Public Authority / Admin creates the EOA for the Voter
+Execute the `create-voter`scripts and take note of the resulting `address` and `privateKey`:
+
+`npx hardhat run election-scripts/create-voter-eoa.ts`
+
+### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs REgistry
+[TO DO]
+
+### 4. The Public Authority / Admin creates the a Country Election
+At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry.
+
+It's time to create an election, passing the registration timestamps (configured in the ignition config file):
+
+`npm run deploy-contract ignition/CountryElection localhost`
+
+note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
+
+This registration is about the registration of the Voter to the Agora platform (implemented in the phase 2).
+
+## Donations
 Support this project and offer me a crypto-coffee!!
 
 ![wallet](docs/assets/wallet_address.png)
