@@ -28,6 +28,9 @@ contract MunicipalityElection is Election {
     /// @dev I need this variable to assign memory data to storage
     Candidate[] counciliorCandidatesArray;
 
+    /// @dev it takes track of the parties already in coalition
+    mapping(string => bool) partyExistsInCoalition;
+
     string public municipality;
     string public region;
     string public country;
@@ -101,15 +104,65 @@ contract MunicipalityElection is Election {
     /// @notice the parties already registered can form and register a coalition, indicating the candidate for major
     /// @dev only the owner of the contract has write permissions
     function registerCoalition(
-        string memory candidateMajor,
+        string memory majorCandidate,
         string[] memory coalitionParties
     ) external onlyOwner isRegistrationPeriod {
         /**
          * 1. check that the function is invoked in the registration period (consider a modifier); X
-         * 2. check that the list of parties of the coalition are registered in the parties list;
-         * 3. check that in the list of parties there are no parties already registered in a coalition;
-         * 4. check that che name of the candidateMajor is unique;
-         * 5. register the coalition with the name of the candidateMajor;
+         * 2. check that the list of parties of the coalition are registered in the parties list; x
+         * 3. check that in the list of parties there are no parties already registered in a coalition; x
+         * 4. check that the name of the majorCandidate is unique; x
+         * 5. register the coalition with the name of the majorCandidate;
          */
+        require(_arePartiesRegistered(parties, coalitionParties), "One or more parties are not registered. Proceed with the registration first");
+        require (!_arePartiesAlreadyInCoalition(coalitions, coalitionParties), "One or more parties are already present in a registered coalition");
+        require(!_isMajorCandidateAlreadyRegistered(majorCandidate, coalitions), "The major candidate is already registered with a coalition");
+
+        Candidate memory mcandidate = Candidate({
+            name: majorCandidate,
+            candidatesFor: 'major',
+            points: 0
+        }); 
+
+        Coalition memory newCoalition = Coalition({
+            majorCandidate: mcandidate,
+            parties: coalitionParties
+        });
+
+        coalitions.push(newCoalition);
     }
+
+    function _arePartiesRegistered(mapping(string => Candidate[]) storage registeredParties, string[] memory partiesToCheck) private view returns (bool) {
+        for(uint i = 0; i < partiesToCheck.length; i++) {
+            if (registeredParties[partiesToCheck[i]].length == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // Funzione per controllare se le parti sono già in una coalizione
+    function _arePartiesAlreadyInCoalition(Coalition[] memory _coalitions, string[] memory partiesToCheck) private returns (bool) {
+        for(uint i = 0; i < _coalitions.length; i++) {
+            for(uint j = 0; j < _coalitions[i].parties.length; j++) {
+                partyExistsInCoalition[_coalitions[i].parties[j]] = true;
+            }
+        }
+        
+        for(uint i = 0; i < partiesToCheck.length; i++) {
+            if (partyExistsInCoalition[partiesToCheck[i]]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function _isMajorCandidateAlreadyRegistered(string memory candidateMajor, Coalition[] memory _coalitions) private pure returns (bool) {
+    for(uint i = 0; i < _coalitions.length; i++) {
+        if (keccak256(abi.encodePacked((_coalitions[i].majorCandidate.name))) == keccak256(abi.encodePacked((candidateMajor)))) {
+            return true;
+        }
+    }
+    return false;
+}
 }
