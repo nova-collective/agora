@@ -57,6 +57,18 @@ contract MunicipalityElection is Election {
         _;
     }
 
+    function getCandidatesByParty(string memory partyName) private view returns (string[] memory) {
+        Candidate[] memory candidateList = parties[partyName];
+        string[] memory candidateNames = new string[](candidateList.length);
+
+        // Estrae i nomi dei candidati dal mapping
+        for (uint i = 0; i < candidateList.length; i++) {
+            candidateNames[i] = candidateList[i].name;
+        }
+
+        return candidateNames;
+    }
+
     /// @notice as first step, during the registration period the parties register their names and list of councilior candidates
     function registerParty(
         string memory name,
