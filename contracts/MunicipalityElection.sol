@@ -22,6 +22,8 @@ contract MunicipalityElection is Election {
 
     /// @dev the of the mapping is the party name
     mapping(string => Candidate[]) private parties;
+    uint256 partiesLength;
+
     Coalition[] private coalitions;
 
     /// @dev this is a mapping used in private function
@@ -59,7 +61,7 @@ contract MunicipalityElection is Election {
 
     function getCandidatesByParty(
         string memory partyName
-    ) private view returns (string[] memory) {
+    ) external view returns (string[] memory) {
         Candidate[] memory candidateList = parties[partyName];
         string[] memory candidateNames = new string[](candidateList.length);
 
@@ -69,6 +71,25 @@ contract MunicipalityElection is Election {
         }
 
         return candidateNames;
+    }
+
+    function getCoalition(uint256 index) external view returns (Candidate memory, string[] memory) {
+        require(index < coalitions.length, "Index out of range");
+        
+        Coalition storage coalition = coalitions[index];
+        string[] memory partyNames = new string[](partiesLength);
+        uint256 count = 0;
+
+        // it retrieve the name of the parties in the coalition
+        for (uint256 i = 0; i < partiesLength; i++) {
+            string memory partyName;
+            if (coalition.parties[partyName]) {
+                partyNames[count] = partyName;
+                count++;
+            }
+        }
+
+        return (coalition.majorCandidate, partyNames);
     }
 
     /// @notice as first step, during the registration period the parties register their names and list of councilior candidates
@@ -90,6 +111,7 @@ contract MunicipalityElection is Election {
         }
 
         parties[name] = counciliorCandidatesArray;
+        partiesLength;
     }
 
     /// @notice in this second step, the parties registered compose coalitions and indicate a major candidate name. A coalition is composed by one or more parties.
