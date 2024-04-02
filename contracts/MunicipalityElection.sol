@@ -10,7 +10,7 @@ import "./Election.sol";
 contract MunicipalityElection is Election {
     struct Candidate {
         string name;
-        string candidatesFor; // majior or councilior
+        string candidatesFor; // major or councilior
         uint256 points;
     }
 
@@ -57,7 +57,9 @@ contract MunicipalityElection is Election {
         _;
     }
 
-    function getCandidatesByParty(string memory partyName) private view returns (string[] memory) {
+    function getCandidatesByParty(
+        string memory partyName
+    ) private view returns (string[] memory) {
         Candidate[] memory candidateList = parties[partyName];
         string[] memory candidateNames = new string[](candidateList.length);
 
@@ -92,38 +94,51 @@ contract MunicipalityElection is Election {
 
     /// @notice in this second step, the parties registered compose coalitions and indicate a major candidate name. A coalition is composed by one or more parties.
     function registerCoalition(
-    string memory majorCandidate,
-    string[] memory coalitionParties
-) external onlyOwner isRegistrationPeriod {
-    require(_arePartiesRegistered(coalitionParties), "One or more parties are not registered. Proceed with the registration first");
-    require (!_arePartiesAlreadyInCoalition(coalitionParties), "One or more parties are already present in a registered coalition");
-    require(!_isMajorCandidateAlreadyRegistered(majorCandidate), "The major candidate is already registered with a coalition");
+        string memory majorCandidate,
+        string[] memory coalitionParties
+    ) external onlyOwner isRegistrationPeriod {
+        require(
+            _arePartiesRegistered(coalitionParties),
+            "One or more parties are not registered. Proceed with the registration first"
+        );
+        require(
+            !_arePartiesAlreadyInCoalition(coalitionParties),
+            "One or more parties are already present in a registered coalition"
+        );
+        require(
+            !_isMajorCandidateAlreadyRegistered(majorCandidate),
+            "The major candidate is already registered with a coalition"
+        );
 
-    Candidate memory mcandidate = Candidate({
-        name: majorCandidate,
-        candidatesFor: 'major',
-        points: 0
-    }); 
+        Candidate memory mcandidate = Candidate({
+            name: majorCandidate,
+            candidatesFor: "major",
+            points: 0
+        });
 
-    Coalition storage newCoalition = coalitions[coalitions.length];
-    for (uint i = 0; i < coalitionParties.length; i++) {
-        newCoalition.parties[coalitionParties[i]] = true;
+        Coalition storage newCoalition = coalitions[coalitions.length];
+        for (uint i = 0; i < coalitionParties.length; i++) {
+            newCoalition.parties[coalitionParties[i]] = true;
+        }
+        newCoalition.majorCandidate = mcandidate;
     }
-    newCoalition.majorCandidate = mcandidate;
-}
 
-    function _arePartiesRegistered(string[] memory partiesToCheck) private view returns (bool) {
-        for(uint i = 0; i < partiesToCheck.length; i++) {
+    function _arePartiesRegistered(
+        string[] memory partiesToCheck
+    ) private view returns (bool) {
+        for (uint i = 0; i < partiesToCheck.length; i++) {
             if (parties[partiesToCheck[i]].length == 0) {
                 return false;
             }
         }
         return true;
     }
-    
-    function _arePartiesAlreadyInCoalition(string[] memory partiesToCheck) private view returns (bool) {
-        for(uint i = 0; i < coalitions.length; i++) {
-            for(uint j = 0; j < partiesToCheck.length; j++) {
+
+    function _arePartiesAlreadyInCoalition(
+        string[] memory partiesToCheck
+    ) private view returns (bool) {
+        for (uint i = 0; i < coalitions.length; i++) {
+            for (uint j = 0; j < partiesToCheck.length; j++) {
                 if (coalitions[i].parties[partiesToCheck[j]]) {
                     return true;
                 }
@@ -132,9 +147,15 @@ contract MunicipalityElection is Election {
         return false;
     }
 
-    function _isMajorCandidateAlreadyRegistered(string memory candidateMajor) private view returns (bool) {
-        for(uint i = 0; i < coalitions.length; i++) {
-            if (keccak256(abi.encodePacked(coalitions[i].majorCandidate.name)) == keccak256(abi.encodePacked(candidateMajor))) {
+    function _isMajorCandidateAlreadyRegistered(
+        string memory candidateMajor
+    ) private view returns (bool) {
+        for (uint i = 0; i < coalitions.length; i++) {
+            if (
+                keccak256(
+                    abi.encodePacked(coalitions[i].majorCandidate.name)
+                ) == keccak256(abi.encodePacked(candidateMajor))
+            ) {
                 return true;
             }
         }
