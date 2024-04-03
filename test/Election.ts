@@ -6,6 +6,7 @@ import { Election } from "../typechain-types/Election";
 describe("Election", function () {
   let owner: Signer;
   let electionContract: Election;
+  const name = "Mock election";
   const now = Date.now();
   const tomorrow = now + 86400000;
   const dayAfterTomorrow = now + 86400000 + 86400000;
@@ -14,6 +15,7 @@ describe("Election", function () {
     const ElectionFactory = await ethers.getContractFactory("Election", owner);
     [owner] = await ethers.getSigners();
     electionContract = await ElectionFactory.deploy(
+      name,
       tomorrow,
       dayAfterTomorrow,
       20,

@@ -7,6 +7,7 @@ pragma solidity ^0.8.24;
 /// @custom:experimental This is an experimental contract.
 contract Election {
     address public owner;
+    string public name;
     uint256 public electionStart;
     uint256 public electionEnd;
     uint256 public registrationStart;
@@ -16,6 +17,7 @@ contract Election {
     mapping (uint256 => string) results; // change the data types later
 
     constructor(
+        string memory _name,
         uint256 _registrationStart,
         uint256 _registrationEnd,
         int8 _votingPoints
@@ -24,6 +26,7 @@ contract Election {
         require(_votingPoints > 19, "It is not possible to assing less that 20 voting points for the election");
 
         owner = msg.sender;
+        name = _name;
         registrationStart = _registrationStart;
         registrationEnd = _registrationEnd;
         votingPoints = _votingPoints;

@@ -9,10 +9,11 @@ import "./Election.sol";
 contract RegionalElection is Election {
 
     constructor(
+        string memory _name,
         uint256 _registrationStart,
         uint256 _registrationEnd,
         int8 _votingPoints
-    ) Election(_registrationStart, _registrationEnd, _votingPoints) {
+    ) Election(_name, _registrationStart, _registrationEnd, _votingPoints) {
 
     }
 

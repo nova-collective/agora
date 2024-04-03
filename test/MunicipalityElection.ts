@@ -7,6 +7,7 @@ describe("MunicipalityElection Contract", function () {
   let contract: MunicipalityElection;
   let owner: Signer;
 
+  const electionName = "Mock Election";
   const partyName = "Party A";
   const partyNameB = "PArty B";
   const councilorCandidates = [
@@ -34,6 +35,7 @@ describe("MunicipalityElection Contract", function () {
 
     // Deploy the contract with a registration period that includes the current timestamp
     contract = (await ContractFactory.deploy(
+      electionName,
       "Municipality",
       "Region",
       "Country",
@@ -55,7 +57,7 @@ describe("MunicipalityElection Contract", function () {
     expect(result[0]).to.be.equal("Candidate 1");
   });
 
-  it.skip("Should register a coalition", async function () {
+  it("Should register a coalition", async function () {
     await contract.connect(owner).registerParty(partyName, councilorCandidates);
     await contract
       .connect(owner)
@@ -63,14 +65,16 @@ describe("MunicipalityElection Contract", function () {
     await contract
       .connect(owner)
       .registerCoalition(majorCandidate, coalitionParties);
-    const coalition = await contract.coalitions(contract.coalitions.length - 1);
+    const coalition = await contract.getCoalition(0);
 
-    expect(coalition.majorCandidate.name).to.be.equal(majorCandidate);
-    expect(coalition.parties["Party A"]).to.be.true;
-    expect(coalition.parties["Party B"]).to.be.true;
+    expect(coalition[0][0]).to.be.equal(majorCandidate);
+    expect(coalition[0][1]).to.be.equal("major");
+    expect(coalition[0][2]).to.be.equal(0);
+    expect(coalition[1][0]).to.be.equal(partyName);
+    expect(coalition[1][1]).to.be.equal(partyNameB);
   });
 
-  it.skip("Should prevent to register multiple coalitions with same parties", async function () {
+  it("Should prevent to register multiple coalitions with same parties", async function () {
     await contract.connect(owner).registerParty(partyName, councilorCandidates);
     await contract
       .connect(owner)

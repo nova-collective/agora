@@ -17,7 +17,7 @@ contract MunicipalityElection is Election {
     /// @dev the string key of the map correspond tho the party name registered in the parties mapping
     struct Coalition {
         Candidate majorCandidate;
-        mapping(string => bool) parties;
+        string[] parties;
     }
 
     /// @dev the of the mapping is the party name
@@ -41,10 +41,11 @@ contract MunicipalityElection is Election {
         string memory _municipality,
         string memory _region,
         string memory _country,
+        string memory _name,
         uint256 _registrationStart,
         uint256 _registrationEnd,
         int8 _votingPoints
-    ) Election(_registrationStart, _registrationEnd, _votingPoints) {
+    ) Election(_name, _registrationStart, _registrationEnd, _votingPoints) {
         municipality = _municipality;
         region = _region;
         country = _country;
@@ -77,16 +78,14 @@ contract MunicipalityElection is Election {
         require(index < coalitions.length, "Index out of range");
         
         Coalition storage coalition = coalitions[index];
-        string[] memory partyNames = new string[](partiesLength);
+        string[] memory partyNames = new string[](coalition.parties.length);
         uint256 count = 0;
 
-        // it retrieve the name of the parties in the coalition
-        for (uint256 i = 0; i < partiesLength; i++) {
-            string memory partyName;
-            if (coalition.parties[partyName]) {
-                partyNames[count] = partyName;
-                count++;
-            }
+        // Recupera il nome delle parti nella coalizione
+        for (uint256 i = 0; i < coalition.parties.length; i++) {
+            string memory partyName = coalition.parties[i];
+            partyNames[count] = partyName;
+            count++;
         }
 
         return (coalition.majorCandidate, partyNames);
@@ -147,11 +146,15 @@ contract MunicipalityElection is Election {
             points: 0
         });
 
-        Coalition storage newCoalition = coalitions[coalitions.length];
-        for (uint i = 0; i < coalitionParties.length; i++) {
-            newCoalition.parties[coalitionParties[i]] = true;
-        }
+        
+
+        // Creazione di una nuova coalizione con il candidato principale e le parti
+        Coalition memory newCoalition;
         newCoalition.majorCandidate = mcandidate;
+        newCoalition.parties = coalitionParties;
+
+        // Aggiunta della nuova coalizione all'array di coalizioni
+        coalitions.push(newCoalition);
     }
 
     function _arePartiesRegistered(
@@ -169,9 +172,11 @@ contract MunicipalityElection is Election {
         string[] memory partiesToCheck
     ) private view returns (bool) {
         for (uint i = 0; i < coalitions.length; i++) {
-            for (uint j = 0; j < partiesToCheck.length; j++) {
-                if (coalitions[i].parties[partiesToCheck[j]]) {
-                    return true;
+            for (uint j = 0; j < coalitions[i].parties.length; j++) {
+                for (uint k = 0; k < partiesToCheck.length; k++) {
+                    if (keccak256(bytes(coalitions[i].parties[j])) == keccak256(bytes(partiesToCheck[k]))) {
+                        return true;
+                    }
                 }
             }
         }
