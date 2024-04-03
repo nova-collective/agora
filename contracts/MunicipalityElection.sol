@@ -63,9 +63,9 @@ contract MunicipalityElection is Election {
         string memory partyName
     ) external view returns (string[] memory) {
         Candidate[] memory candidateList = parties[partyName];
-        string[] memory candidateNames = new string[](candidateList.length);
+        string[] memory candidateNames = new string[](5);
 
-        // Estrae i nomi dei candidati dal mapping
+        // it retrieves the names of the candidates from the mapping
         for (uint i = 0; i < candidateList.length; i++) {
             candidateNames[i] = candidateList[i].name;
         }
@@ -102,16 +102,25 @@ contract MunicipalityElection is Election {
             "The list of councilior candidates must be composed of 5 names"
         );
 
+        Candidate[] storage candidatesList = parties[name];
+        
         for (uint i = 0; i < counciliorCandidates.length; i++) {
             require(
                 !isCounciliorCandidateInArray[counciliorCandidates[i]],
                 "Councilior candidate names must be unique"
             );
+            
+            Candidate memory c = Candidate({
+                name: counciliorCandidates[i],
+                candidatesFor: 'councilior',
+                points: 0
+            });
+            
+            candidatesList.push(c);
             isCounciliorCandidateInArray[counciliorCandidates[i]] = true;
         }
 
-        parties[name] = counciliorCandidatesArray;
-        partiesLength;
+        partiesLength++;
     }
 
     /// @notice in this second step, the parties registered compose coalitions and indicate a major candidate name. A coalition is composed by one or more parties.
