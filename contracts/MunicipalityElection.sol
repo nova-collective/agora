@@ -74,14 +74,15 @@ contract MunicipalityElection is Election {
         return candidateNames;
     }
 
-    function getCoalition(uint256 index) external view returns (Candidate memory, string[] memory) {
+    function getCoalition(
+        uint256 index
+    ) external view returns (Candidate memory, string[] memory) {
         require(index < coalitions.length, "Index out of range");
-        
+
         Coalition storage coalition = coalitions[index];
         string[] memory partyNames = new string[](coalition.parties.length);
         uint256 count = 0;
 
-        // Recupera il nome delle parti nella coalizione
         for (uint256 i = 0; i < coalition.parties.length; i++) {
             string memory partyName = coalition.parties[i];
             partyNames[count] = partyName;
@@ -102,19 +103,19 @@ contract MunicipalityElection is Election {
         );
 
         Candidate[] storage candidatesList = parties[name];
-        
+
         for (uint i = 0; i < counciliorCandidates.length; i++) {
             require(
                 !isCounciliorCandidateInArray[counciliorCandidates[i]],
                 "Councilior candidate names must be unique"
             );
-            
+
             Candidate memory c = Candidate({
                 name: counciliorCandidates[i],
-                candidatesFor: 'councilior',
+                candidatesFor: "councilior",
                 points: 0
             });
-            
+
             candidatesList.push(c);
             isCounciliorCandidateInArray[counciliorCandidates[i]] = true;
         }
@@ -146,14 +147,10 @@ contract MunicipalityElection is Election {
             points: 0
         });
 
-        
-
-        // Creazione di una nuova coalizione con il candidato principale e le parti
         Coalition memory newCoalition;
         newCoalition.majorCandidate = mcandidate;
         newCoalition.parties = coalitionParties;
 
-        // Aggiunta della nuova coalizione all'array di coalizioni
         coalitions.push(newCoalition);
     }
 
@@ -174,7 +171,10 @@ contract MunicipalityElection is Election {
         for (uint i = 0; i < coalitions.length; i++) {
             for (uint j = 0; j < coalitions[i].parties.length; j++) {
                 for (uint k = 0; k < partiesToCheck.length; k++) {
-                    if (keccak256(bytes(coalitions[i].parties[j])) == keccak256(bytes(partiesToCheck[k]))) {
+                    if (
+                        keccak256(bytes(coalitions[i].parties[j])) ==
+                        keccak256(bytes(partiesToCheck[k]))
+                    ) {
                         return true;
                     }
                 }
