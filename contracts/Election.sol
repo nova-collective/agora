@@ -12,7 +12,7 @@ contract Election {
     uint256 public electionEnd;
     uint256 public registrationStart;
     uint256 public registrationEnd;
-    int8 private votingPoints;
+    uint8 private votingPoints;
     mapping (uint256 => string) private ballotBox; // change the data types later
     mapping (uint256 => string) results; // change the data types later
 
@@ -20,7 +20,7 @@ contract Election {
         string memory _name,
         uint256 _registrationStart,
         uint256 _registrationEnd,
-        int8 _votingPoints
+        uint8 _votingPoints
     ) {
         require(_registrationStart < _registrationEnd, "The registration start date can't be equal or after the registration end date");
         require(_votingPoints > 19, "It is not possible to assing less that 20 voting points for the election");

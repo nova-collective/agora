@@ -38,13 +38,13 @@ contract MunicipalityElection is Election {
     string public country;
 
     constructor(
+        string memory _name,
         string memory _municipality,
         string memory _region,
         string memory _country,
-        string memory _name,
         uint256 _registrationStart,
         uint256 _registrationEnd,
-        int8 _votingPoints
+        uint8 _votingPoints
     ) Election(_name, _registrationStart, _registrationEnd, _votingPoints) {
         municipality = _municipality;
         region = _region;

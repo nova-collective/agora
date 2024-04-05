@@ -87,7 +87,7 @@ For the local network the parameter to pass is `localhost`, there is no need to 
 ### 1. The Public Authority / Admin creates the DECs Registry
 For the creation of the registry we deploy the DECs Registry smart contract using ignition:
 
-`npm run deploy-contract ignition/Registry localhost`;
+`npm run deploy-contract Registry localhost`;
 
 ### 2. The Public Authority / Admin creates the EOA for the Voter
 Execute the `create-voter` scripts and take note of the resulting `address` and `privateKey`:
@@ -102,7 +102,7 @@ At this point we have the EOA credentials and the DEC for our voters, and the DE
 
 The smart contract is deployed passing the registration timestamps and other data (configured in the ignition config file):
 
-`npm run deploy-contract ignition/MunicipalityElection localhost`
+`npm run deploy-contract MunicipalityElection localhost`
 
 note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
 

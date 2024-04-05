@@ -12,7 +12,7 @@ contract CountryElection is Election {
         string memory _name,
         uint256 _registrationStart,
         uint256 _registrationEnd,
-        int8 _votingPoints
+        uint8 _votingPoints
     ) Election(_name, _registrationStart, _registrationEnd, _votingPoints) {
 
     }

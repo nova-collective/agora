@@ -5,7 +5,7 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-MODULE_PATH="$1"
+MODULE_NAME="$1"
 NETWORK="$2"
 
-npx hardhat ignition deploy "$MODULE_PATH" --network "$NETWORK" --parameters ignition/parameters.json
+npx hardhat ignition deploy ignition/modules/"$MODULE_NAME".ts --network "$NETWORK" --parameters ignition/parameters.json
