@@ -8,48 +8,8 @@
         "municipality": "Braccagni",
         "region": "Toscana",
         "country": "Italy",
-        "registrationStart": 1714578352000,
-        "registrationEnd": 1717256752000,
-        "votingPoints": 20,
-        "partyA": {
-            "name": "Partito Democratico",
-            "counciliorCandidates": [
-              "Luigi Rossi",
-              "Maria Verdi",
-              "Renato Bianchi",
-              "Francesco Giudi",
-              "Paolo Franchi"
-            ]
-        },
-        "partyB": {
-            "name": "Forza Italia",
-            "counciliorCandidates": [
-              "Francesca Riti",
-              "Mario Cecchi",
-              "Carlo Proni",
-              "Piepaolo Pingitore",
-              "Vanessa Reti"
-            ]
-        },
-        "partyC": {
-            "name": "Cinque Stelle",
-            "counciliorCandidates": [
-              "Giuseppe Toni",
-              "Nicolò Movizzo",
-              "Alessandra Tonali",
-              "Antonella Chierici",
-              "Antonio Basso"
-            ]
-        },
-        "partyD": {
-            "name": "Lega",
-            "counciliorCandidates": [
-              "Patrizio Pini",
-              "Mariagrazia Crudi",
-              "Sabrina Giacigli",
-              "Marco Lioni",
-              "Pio Pedri"
-            ]
-        }
+        "registrationStart": 1712269847,
+        "registrationEnd": 1717256752,
+        "votingPoints": 20
     }
 }

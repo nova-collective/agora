@@ -1,45 +1,91 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import { Party } from "../types";
+
+const partyNameA = "Partito Democratico";
+const partyNameB = "Forza Italia";
+const partyNameC = "Cinque Stelle";
+const partyNameD = "Lega";
+
+const parties: Party[] = [
+  {
+    name: partyNameA,
+    counciliorCandidates: [
+      "Luigi Rossi",
+      "Maria Verdi",
+      "Renato Bianchi",
+      "Francesco Giudi",
+      "Paolo Franchi",
+    ],
+  },
+  {
+    name: partyNameB,
+    counciliorCandidates: [
+      "Francesca Riti",
+      "Mario Cecchi",
+      "Carlo Proni",
+      "Piepaolo Pingitore",
+      "Vanessa Reti",
+    ],
+  },
+  {
+    name: partyNameC,
+    counciliorCandidates: [
+      "Giuseppe Toni",
+      "Nicolò Movizzo",
+      "Alessandra Tonali",
+      "Antonella Chierici",
+      "Antonio Basso",
+    ],
+  },
+  {
+    name: partyNameD,
+    counciliorCandidates: [
+      "Patrizio Pini",
+      "Mariagrazia Crudi",
+      "Sabrina Giacigli",
+      "Marco Lioni",
+      "Pio Pedri",
+    ],
+  },
+];
 
 export default buildModule("MunicipalityElection", (m) => {
   const municipalityElection = m.contract("MunicipalityElection", [
-    // m.getParameter("name"),
-    // m.getParameter("registrationStart"),
-    // m.getParameter("registrationEnd"),
-    // m.getParameter("municipality"),
-    // m.getParameter("region"),
-    // m.getParameter("country"),
-    // m.getParameter("votingPoints"),
-    "Election of major of Braccagni city",
-    "Braccagni",
-    "Toscana",
-    "Italy",
-    1714578352000,
-    1717256752000,
-    20,
+    m.getParameter("name"),
+    m.getParameter("municipality"),
+    m.getParameter("region"),
+    m.getParameter("country"),
+    m.getParameter("registrationStart"),
+    m.getParameter("registrationEnd"),
+    m.getParameter("votingPoints"),
   ]);
 
-  // console.log("----------------------");
-  // console.log(JSON.stringify(m.getParameter("partyA")));
-  // console.log("----------------------");
+  parties.forEach((p, index) => {
+    m.call(
+      municipalityElection,
+      "registerParty",
+      [p.name, p.counciliorCandidates],
+      { id: `registerElection_${index}` },
+    );
+  });
 
-  //const parties = [
-  //  m.getParameter("partyA"),
-  //  m.getParameter("partyB"),
-  //  m.getParameter("partyC"),
-  //  m.getParameter("partyD"),
-  //];
+  m.call(
+    municipalityElection,
+    "registerCoalition",
+    ["Candidate 1", [partyNameA, partyNameB]],
+    {
+      id: "registerCoalition_0",
+    },
+  );
 
-  //m.call(municipalityElection, "registerParty", [
-  //  parties[0].name,
-  //  parties[0].counciliorCandidates,
-  //]);
-
-  //parties.forEach((p) => {
-  //  m.call(municipalityElection, "registerParty", [
-  //    p.name,
-  //    p.counciliorCandidates,
-  //  ]);
-  //});
+  m.call(
+    municipalityElection,
+    "registerCoalition",
+    ["Candidate 2", [partyNameC, partyNameD]],
+    {
+      id: "registerCoalition_1",
+    },
+  );
 
   return { municipalityElection };
 });
