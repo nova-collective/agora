@@ -94,28 +94,26 @@ Execute the `create-voter` scripts and take note of the resulting `address` and 
 
 `npx hardhat run election-scripts/create-voter-eoa.ts`
 
+Alternatively, if you are working on the local node, you can get 20 EOA credentials with the start command of the node.
+ 
 ### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs Registry
 [TO DO]
 
 ### 4. The Public Authority / Admin creates a Municipality Election
 At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
 
-The smart contract is deployed passing the registration timestamps and other data (configured in the ignition config file):
+The smart contract is deployed passing some data, open `election-scripts/__mocks__.ts file` and:
 
-`npm run deploy-contract MunicipalityElection localhost`
-
-Take note of the address of the smart contract instance returned in the log. 
-
-Note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
-
-This registration is about the registration of parties, candidates and coalitions for the election.
-
-Open the  `election-scripts/__mocks__.ts file` and:
-
-* write the contract address deployed;
+* edit the contract data, in particular registrationStart and registrationEnd are timestamps in seconds;
 * edit the data of the parties and candidates as you prefer;
 
-Now it's time to register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command:
+
+Note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
+This registration is about the registration of parties, candidates and coalitions for the election, the contract functions must be called
+in the interval specified in the registration.
+
+
+Now it's time to deploy the smart contract election and register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command:
 
 `npx hardhat run election-scripts/create-election.ts`
 

@@ -92,10 +92,6 @@ contract MunicipalityElection is Election {
         return (coalition.majorCandidate, partyNames);
     }
 
-    function getRegisteredPartyCandidates(string memory party) external view returns (Candidate[] memory) {
-    return parties[party];
-}
-
     /// @notice as first step, during the registration period the parties register their names and list of councilior candidates
     function registerParty(
         string memory name,

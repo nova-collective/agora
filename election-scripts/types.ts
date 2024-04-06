@@ -28,7 +28,7 @@ export type Candidate = {
 
 export type Party = {
   name: string;
-  councilorCandidates: Candidate[];
+  councilorCandidates: string[];
 };
 
 export type Coalition = {
@@ -49,4 +49,7 @@ export type MunicipalityElection = {
   status: string;
 };
 
-export type Ballot = Coalition[];
+export type Ballot = {
+  contractAddress: string;
+  coalitions: Coalition[];
+};
