@@ -104,9 +104,22 @@ The smart contract is deployed passing the registration timestamps and other dat
 
 `npm run deploy-contract MunicipalityElection localhost`
 
-note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
+Take note of the address of the smart contract instance returned in the log. 
+
+Note: the "registration" timestamps defined here are not related to the DEC registration on the Registry smart contract. 
 
 This registration is about the registration of parties, candidates and coalitions for the election.
+
+Open the  `election-scripts/__mocks__.ts file` and:
+
+* write the contract address deployed;
+* edit the data of the parties and candidates as you prefer;
+
+Now it's time to register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command:
+
+`npx hardhat run election-scripts/create-election.ts`
+
+
 
 ## Donations
 Support this project and offer me a crypto-coffee!!

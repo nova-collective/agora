@@ -48,3 +48,5 @@ export type MunicipalityElection = {
   electionEndDate: number;
   status: string;
 };
+
+export type Ballot = Coalition[];
