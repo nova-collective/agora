@@ -92,6 +92,10 @@ contract MunicipalityElection is Election {
         return (coalition.majorCandidate, partyNames);
     }
 
+    function getRegisteredPartyCandidates(string memory party) external view returns (Candidate[] memory) {
+    return parties[party];
+}
+
     /// @notice as first step, during the registration period the parties register their names and list of councilior candidates
     function registerParty(
         string memory name,
@@ -158,11 +162,11 @@ contract MunicipalityElection is Election {
         string[] memory partiesToCheck
     ) private view returns (bool) {
         for (uint i = 0; i < partiesToCheck.length; i++) {
-            if (parties[partiesToCheck[i]].length == 0) {
-                return false;
+            if (parties[partiesToCheck[i]].length != 0) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     function _arePartiesAlreadyInCoalition(
