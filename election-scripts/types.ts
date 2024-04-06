@@ -52,3 +52,13 @@ export type Ballot = {
   contractAddress: string;
   coalitions: Coalition[];
 };
+
+export type ElectionData = {
+  name: string;
+  municipality: string;
+  region: string;
+  country: string;
+  registrationStart: number;
+  registrationEnd: number;
+  votingPoints: number;
+};

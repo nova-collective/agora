@@ -16,6 +16,7 @@ import {
   Party,
   Coalition,
   Candidature,
+  ElectionData,
 } from "./types";
 import { Signer } from "ethers";
 import { MunicipalityElection } from "../typechain-types/MunicipalityElection";
@@ -31,14 +32,15 @@ import {
 } from "./__mocks__";
 
 let owner: Signer;
-
 /**
  * This function deploys the contract, registers the parties, the coalitions, the councilor candidates and the
  * major candidate to a given municipality election contract and returns the list of the data registered ready to be use for a ballot.
  *
  * @returns {Promise<Response<Ballot>>} - this response contains the data of the ballot to be used for voting
  */
-export async function main(): Promise<Response<Ballot>> {
+export async function main(
+  electionData?: ElectionData,
+): Promise<Response<Ballot>> {
   const response: Response<Ballot> = {
     result: result.OK,
   };
@@ -50,13 +52,14 @@ export async function main(): Promise<Response<Ballot>> {
   [owner] = await ethers.getSigners();
 
   const contract: MunicipalityElection = (await ContractFactory.deploy(
-    MUNICIPALITY_ELECTION_DATA.name,
-    MUNICIPALITY_ELECTION_DATA.municipality,
-    MUNICIPALITY_ELECTION_DATA.region,
-    MUNICIPALITY_ELECTION_DATA.country,
-    MUNICIPALITY_ELECTION_DATA.registrationStart,
-    MUNICIPALITY_ELECTION_DATA.registrationEnd,
-    MUNICIPALITY_ELECTION_DATA.votingPoints,
+    electionData?.name || MUNICIPALITY_ELECTION_DATA.name,
+    electionData?.municipality || MUNICIPALITY_ELECTION_DATA.municipality,
+    electionData?.region || MUNICIPALITY_ELECTION_DATA.region,
+    electionData?.country || MUNICIPALITY_ELECTION_DATA.country,
+    electionData?.registrationStart ||
+      MUNICIPALITY_ELECTION_DATA.registrationStart,
+    electionData?.registrationEnd || MUNICIPALITY_ELECTION_DATA.registrationEnd,
+    electionData?.votingPoints || MUNICIPALITY_ELECTION_DATA.votingPoints,
   )) as MunicipalityElection;
 
   const address = await contract.getAddress();
@@ -146,9 +149,7 @@ export async function main(): Promise<Response<Ballot>> {
 main()
   .then((response) => {
     console.log(JSON.stringify(response));
-    process.exit(0);
   })
   .catch((error) => {
     console.error(error);
-    process.exit(1);
   });
