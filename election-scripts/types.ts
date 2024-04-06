@@ -21,7 +21,6 @@ export enum Candidature {
 
 export type Candidate = {
   name: string;
-  surname: string;
   candidatesFor: Candidature;
   points: number;
 };

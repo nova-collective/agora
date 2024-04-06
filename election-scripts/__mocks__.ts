@@ -15,6 +15,9 @@ export const PARTY_NAME_B = "Forza Italia";
 export const PARTY_NAME_C = "Cinque Stelle";
 export const PARTY_NAME_D = "Lega";
 
+export const MAJOR_CANDIDATE_1 = "Pino Pini";
+export const MAJOR_CANDIDATE_2 = "Ugo Silenti";
+
 export const PARTIES: Party[] = [
   {
     name: PARTY_NAME_A,

@@ -50,6 +50,9 @@ const config: HardhatUserConfig = {
       url: SEPOLIA_URL,
       accounts: [ALCHEMY_PRIVATE_KEY],
     },
+    localhost: {
+      url: "http://localhost:8545",
+    },
   },
 };
 
