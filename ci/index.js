@@ -19,7 +19,11 @@ if (args.length < 2 || args[0] !== "--function") {
 }
 
 const functionName = args[1];
-const params = JSON.parse(args[3]);
+
+let params;
+if (args[3]) {
+  params = JSON.parse(args[3]);
+}
 
 // Execute the function invoked
 try {
