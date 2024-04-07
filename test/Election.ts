@@ -82,14 +82,4 @@ describe("Election", function () {
       "Registration are closed, it's not possible to change the start of the registration",
     );
   });
-
-  // it("should correctly set and get the elections end", async function () {});
-
-  // it("should not set the elections start before the end of the registration", async function () {});
-
-  // it("should not set the elections start during the elections", async function () {});
-
-  // it("should not set the elections start after the elections closure", async function () {});
-
-  // it("should not set the elections end after the elections closure", async function () {});
 });
