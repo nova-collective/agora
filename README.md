@@ -37,6 +37,14 @@ To setup the application follow these steps:
 
 ## How to commit
 
+The `main` and the `develop` branches are protected. It is required to open and review pull requests in order to merge the code.
+
+Since the development of this project is planned, if you are considering to open a Pull Request please contact first the maintainer of the code at:
+
+`nova.web3.collective@gmail.com`
+
+To commit:
+
 1. `git add <files list>`
 2. `npm run commit`
 
