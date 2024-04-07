@@ -29,5 +29,8 @@ if (args[3]) {
 try {
   functions[functionName](params);
 } catch (e) {
-  console.error("Error: the function invoked does not exists");
+  console.error(
+    "Error: the function invoked does not exists or there is an error in the function",
+  );
+  console.error(e);
 }

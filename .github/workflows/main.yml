@@ -41,3 +41,9 @@ jobs:
     
     - name: Run scripts unit tests
       run: node ci --function scriptsUnitTest
+    
+    - name: Tag the release with the version
+      run: node ci --function tagRelease
+      if: |
+        (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+        (github.event_name == 'pull_request' && github.base_ref == 'refs/heads/main' && github.event.action == 'closed' && github.event.pull_request.merged)
