@@ -39,6 +39,7 @@ export async function main(): Promise<Response<EOAResponse>> {
 main()
   .then((response) => {
     console.log(response);
+    return response;
   })
   .catch((error) => {
     console.error(error);

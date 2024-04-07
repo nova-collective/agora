@@ -36,6 +36,7 @@ let owner: Signer;
  * This function deploys the contract, registers the parties, the coalitions, the councilor candidates and the
  * major candidate to a given municipality election contract and returns the list of the data registered ready to be use for a ballot.
  *
+ * @param {ElectionData} electionData - data required to deploy the smart contract, used for testing purposes
  * @returns {Promise<Response<Ballot>>} - this response contains the data of the ballot to be used for voting
  */
 export async function main(
@@ -51,7 +52,7 @@ export async function main(
 
   [owner] = await ethers.getSigners();
 
-  const contract: MunicipalityElection = (await ContractFactory.deploy(
+  const contract: MunicipalityElection = await ContractFactory.deploy(
     electionData?.name || MUNICIPALITY_ELECTION_DATA.name,
     electionData?.municipality || MUNICIPALITY_ELECTION_DATA.municipality,
     electionData?.region || MUNICIPALITY_ELECTION_DATA.region,
@@ -60,7 +61,7 @@ export async function main(
       MUNICIPALITY_ELECTION_DATA.registrationStart,
     electionData?.registrationEnd || MUNICIPALITY_ELECTION_DATA.registrationEnd,
     electionData?.votingPoints || MUNICIPALITY_ELECTION_DATA.votingPoints,
-  )) as MunicipalityElection;
+  );
 
   const address = await contract.getAddress();
   const parties: Party[] = [];
@@ -149,6 +150,7 @@ export async function main(
 main()
   .then((response) => {
     console.log(JSON.stringify(response));
+    return response;
   })
   .catch((error) => {
     console.error(error);
