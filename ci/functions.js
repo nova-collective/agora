@@ -1,9 +1,23 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const execSync = require("child_process").execSync;
+
+const execSyncOptions = { stdio: "inherit" };
+
 const functions = {
-  functionOne: function (params) {
-    console.log("FunctionOne invoked with parameters:", params);
+  installDeps: function () {
+    return execSync("npm install", execSyncOptions);
   },
-  functionTwo: function (params) {
-    console.log("FunctionTwo invoked with parameters:", params);
+  lint: function () {
+    return execSync("npm run lint", execSyncOptions);
+  },
+  checksDuplications: function () {
+    return execSync("npm run duplicated", execSyncOptions);
+  },
+  smartContractsUnitTest: function () {
+    return execSync("npm run test-contracts", execSyncOptions);
+  },
+  scriptsUnitTest: function () {
+    return execSync("npm run test-scripts", execSyncOptions);
   },
 };
 
