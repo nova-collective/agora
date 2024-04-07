@@ -8,7 +8,12 @@ import "./Election.sol";
 /// @custom:experimental This is an experimental contract.
 contract RegionalElection is Election {
 
-    constructor(uint256 _electionStart, uint256 _electionEnd) Election(_electionStart, _electionEnd) {
+    constructor(
+        string memory _name,
+        uint256 _registrationStart,
+        uint256 _registrationEnd,
+        uint8 _votingPoints
+    ) Election(_name, _registrationStart, _registrationEnd, _votingPoints) {
 
     }
 

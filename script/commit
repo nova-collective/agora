@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-npm run duplicated
-npm run test-contracts
-npm run test-scripts
+set -e
+
+npm run duplicated || exit 1
+npm run test-contracts || exit 1
+npm run test-scripts || exit 1
 npx git-cz
