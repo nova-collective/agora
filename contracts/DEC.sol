@@ -1,15 +1,28 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.24;
 
-/// @title The Voter's Digital Electoral Cards
+/// @title The Voter's Digital Electoral Card
 /// @author Christian Palazzo <palazzochristian@yahoo.it>
 /// @custom:experimental This is an experimental contract.
 contract DEC {
     address public owner;
+    bytes taxCode;
+    bytes municipality;
+    bytes region;
+    bytes country;
 
-    constructor() {
+    constructor(
+        bytes memory _taxCode,
+        bytes memory _municipality,
+        bytes memory _region,
+        bytes memory _country
+    ) {
         /// @dev only the owner of the contract has write permissions
         owner = msg.sender;
+        taxCode = _taxCode;
+        municipality = _municipality;
+        region = _region;
+        country = _country;
     }
 
     modifier onlyOwner() {
@@ -17,50 +30,37 @@ contract DEC {
         _;
     }
 
-    /// @notice This is the Digital Electoral Card, emitted by a public third-party authority and owned by the Voter
-    /// @dev This data is encrypted with the Voter's public address and only the Voter can decrypt it using the private key
-    struct decData {
-        string taxCode;
-        string municipality;
-        string province;
-        string region;
-        string country;
+    function setTaxCode(bytes memory _taxCode) external onlyOwner {
+        taxCode = _taxCode;
     }
 
-    event DECEncrypted(address indexed owner, bytes encryptedData);
-
-    /// @notice This function is used to encrypt ad digitally sign a DEC
-    function encryptDEC(
-        decData memory dec
-    ) public onlyOwner returns (bytes memory) {
-        bytes memory encodedData = abi.encodePacked(
-            dec.taxCode,
-            dec.municipality,
-            dec.province,
-            dec.region,
-            dec.country
-        );
-        bytes32 hashedData = keccak256(encodedData);
-        bytes memory signature = signData(hashedData);
-
-        emit DECEncrypted(msg.sender, abi.encodePacked(hashedData, signature));
-
-        return abi.encodePacked(hashedData, signature);
+    function getTaxCode() external view returns (bytes memory) {
+        return taxCode;
     }
 
-    /// @notice  This function is used to digitally sign the data
-    function signData(bytes32 data) private pure returns (bytes memory) {
-        bytes32 hash = keccak256(
-            abi.encodePacked("\x19Ethereum Signed Message:\n32", data)
-        );
-        bytes1 v = bytes1(0);
-        bytes32 r = bytes32(0);
-        bytes32 s = uintToBytes32(1);
-        return abi.encodePacked(ecrecover(hash, uint8(v), r, s), r, s);
+    function setMunicipality(bytes memory _municipality) external onlyOwner {
+        municipality = _municipality;
     }
 
-    /// @notice this function is used in signData function
-    function uintToBytes32(uint256 x) private pure returns (bytes32) {
-        return bytes32(x);
+    function getMunicipality() external view returns (bytes memory) {
+        return municipality;
     }
+
+    function setRegion(bytes memory _region) external onlyOwner {
+        region = _region;
+    }
+
+    function getRegion() external view returns (bytes memory) {
+        return region;
+    }
+
+    function setCountry(bytes memory _country) external onlyOwner {
+        country = _country;
+    }
+
+    function getCountry() external view returns (bytes memory) {
+        return country;
+    }
+
+
 }

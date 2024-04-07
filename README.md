@@ -31,8 +31,9 @@ To setup the application follow these steps:
 3. run `npm run prepare`
 4. Write a `.env` file in the root of the project and configure:
     * `SEPOLIA_URL` You can find the data in your Alchemy account, after you create an app there;
-    * `ALCHEMY_API_KEY` You can find the data in your Alchemy account;
+    * `ALCHEMY_PRIVATE_KEY` You can find the data in your Alchemy account;
     * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions;
+    * `NODE_ENV` set `development` for your local machine;
 
 ## How to commit
 
@@ -51,7 +52,64 @@ Smart contracts code coverage documentation [here](https://www.npmjs.com/package
 
 CI/CD workflow fails if the unit test code coverage threshold (**80% of lines of code**) for scripts is not met. 
 
-# Donations
+## Run the localhost development network
+
+Hardhat framework provides a local blockchain network that lives in memory, that is useful to test local developments.
+To start the network run the command:
+
+`npm run node:start`
+
+## Compile the smart contracts
+
+Run the command: `npm run compile`
+
+## Deploy the smart contract
+
+The smart contracts deploy process is managed, under the hood, by [Ignition](https://hardhat.org/ignition/docs/getting-started#overview).
+
+To deploy smart contract instances run the command:
+
+`npm run deploy-contract <ignition-module-path> <network>`
+
+Ignition will deploy the instances of the smart contract following the logic specified in the ignition module.
+
+To deploy to a specific network (e.g. mainnet, sepora), the network must be configured in the `hardhat.config.ts` file.
+
+For the local network the parameter to pass is `localhost`, there is no need to configure the local network.
+
+## Emulate the whole process using the scrips
+
+### Prerequisites
+
+* edit the scripts mocks file: `election-scripts/__mocks__.ts`;
+    * edit the municipality election contract data, in particular registrationStart and registrationEnd are timestamps in seconds;
+    * edit the data of the parties and candidates as you prefer;
+
+### 1. The Public Authority / Admin creates the DECs Registry
+For the creation of the registry we deploy the DECs Registry smart contract using ignition:
+
+`npm run deploy-contract Registry localhost`;
+
+### 2. The Public Authority / Admin creates the EOA for the Voter
+Execute the `create-voter` scripts and take note of the resulting `address` and `privateKey`:
+
+`npx hardhat run election-scripts/create-voter-eoa.ts`
+ 
+### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs Registry
+[TO DO]
+
+### 4. The Public Authority / Admin creates a Municipality Election
+At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
+
+Now it's time to deploy the smart contract election and register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command:
+
+`npx hardhat run election-scripts/create-election.ts`
+
+Please note that to make the registration of parties and coalition working, the functions must be called in the registration period set before.
+
+
+
+## Donations
 Support this project and offer me a crypto-coffee!!
 
 ![wallet](docs/assets/wallet_address.png)
