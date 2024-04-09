@@ -11,11 +11,9 @@
 
 import { ethers } from "hardhat";
 import { DEC, Response, result } from "./types";
-import { DECMock } from "./__mocks__";
+import { DECMock, PRIVATE_KEY } from "./__mocks__";
 import { encryptString } from "../lib";
 import { Encrypted } from "eth-crypto";
-
-const PRIVATE_KEY = ""; // insert the Voter's EOA private key here
 
 /**
  * This function encrypt the Voter's DECs data and deploys the smart contract instance.
@@ -31,18 +29,25 @@ export async function main(
     result: result.OK,
   };
 
-  const ContractFactory = await ethers.getContractFactory("DEC");
-  const dec = decsData || DECMock;
-  const key = privateKey || PRIVATE_KEY;
+  try {
+    const ContractFactory = await ethers.getContractFactory("DEC");
 
-  const eTaxCode: Encrypted = await encryptString(dec.taxCode, key);
-  const eMunicipality: Encrypted = await encryptString(dec.municipality, key);
-  const eRegion: Encrypted = await encryptString(dec.region, key);
-  const eCountry: Encrypted = await encryptString(dec.country, key);
+    const dec = decsData || DECMock;
+    const key = privateKey || PRIVATE_KEY;
 
-  await ContractFactory.deploy(eTaxCode, eMunicipality, eRegion, eCountry);
+    const eTaxCode: Encrypted = await encryptString(dec.taxCode, key);
+    const eMunicipality: Encrypted = await encryptString(dec.municipality, key);
+    const eRegion: Encrypted = await encryptString(dec.region, key);
+    const eCountry: Encrypted = await encryptString(dec.country, key);
 
-  return response;
+    await ContractFactory.deploy(eTaxCode, eMunicipality, eRegion, eCountry);
+
+    return response;
+  } catch (e: any) {
+    response.result = result.ERROR;
+    response.errorMessage = e.message || "unknown error";
+    return response;
+  }
 }
 
 main()

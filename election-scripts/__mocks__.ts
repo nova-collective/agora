@@ -7,6 +7,9 @@ export const DECMock = {
   country: "Italy",
 };
 
+export const PRIVATE_KEY =
+  "0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e";
+
 export const MUNICIPALITY_ELECTION_DATA = {
   name: "Election of major of Braccagni city",
   municipality: "Braccagni",
