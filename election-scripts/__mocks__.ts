@@ -1,5 +1,12 @@
 import { Party } from "./types";
 
+export const DECMock = {
+  taxCode: "RSSMRA85C27H501W",
+  municipality: "Ardea",
+  region: "Lazio",
+  country: "Italy",
+};
+
 export const MUNICIPALITY_ELECTION_DATA = {
   name: "Election of major of Braccagni city",
   municipality: "Braccagni",

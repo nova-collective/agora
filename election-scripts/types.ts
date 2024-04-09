@@ -62,3 +62,10 @@ export type ElectionData = {
   registrationEnd: number;
   votingPoints: number;
 };
+
+export type DEC = {
+  taxCode: string;
+  municipality: string;
+  region: string;
+  country: string;
+};

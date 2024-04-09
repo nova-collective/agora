@@ -1,4 +1,11 @@
 {
+    
+    "DEC": {
+        "taxCode": "RSSMRA85C27H501W",
+        "municipality": "Ardea",
+        "region": "Lazio",
+        "country": "Italy"
+    },
     "CountryElection": {
         "registrationStart": 1714578352000,
         "registrationEnd": 1717256752000

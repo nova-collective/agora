@@ -6,16 +6,23 @@ pragma solidity ^0.8.24;
 /// @custom:experimental This is an experimental contract.
 contract DEC {
     address public owner;
-    bytes taxCode;
-    bytes municipality;
-    bytes region;
-    bytes country;
+    Encrypted taxCode;
+    Encrypted municipality;
+    Encrypted region;
+    Encrypted country;
+
+    struct Encrypted {
+        string iv;
+        string ephemPublicKey;
+        string ciphertext;
+        string mac;
+    }
 
     constructor(
-        bytes memory _taxCode,
-        bytes memory _municipality,
-        bytes memory _region,
-        bytes memory _country
+        Encrypted memory _taxCode,
+        Encrypted memory _municipality,
+        Encrypted memory _region,
+        Encrypted memory _country
     ) {
         /// @dev only the owner of the contract has write permissions
         owner = msg.sender;
@@ -30,35 +37,35 @@ contract DEC {
         _;
     }
 
-    function setTaxCode(bytes memory _taxCode) external onlyOwner {
+    function setTaxCode(Encrypted memory _taxCode) external onlyOwner {
         taxCode = _taxCode;
     }
 
-    function getTaxCode() external view returns (bytes memory) {
+    function getTaxCode() external view returns (Encrypted memory) {
         return taxCode;
     }
 
-    function setMunicipality(bytes memory _municipality) external onlyOwner {
+    function setMunicipality(Encrypted memory _municipality) external onlyOwner {
         municipality = _municipality;
     }
 
-    function getMunicipality() external view returns (bytes memory) {
+    function getMunicipality() external view returns (Encrypted memory) {
         return municipality;
     }
 
-    function setRegion(bytes memory _region) external onlyOwner {
+    function setRegion(Encrypted memory _region) external onlyOwner {
         region = _region;
     }
 
-    function getRegion() external view returns (bytes memory) {
+    function getRegion() external view returns (Encrypted memory) {
         return region;
     }
 
-    function setCountry(bytes memory _country) external onlyOwner {
+    function setCountry(Encrypted memory _country) external onlyOwner {
         country = _country;
     }
 
-    function getCountry() external view returns (bytes memory) {
+    function getCountry() external view returns (Encrypted memory) {
         return country;
     }
 
