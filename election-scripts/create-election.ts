@@ -1,8 +1,8 @@
 /**
- * In order to run this script in hardhat, run the command: npx hardhat run script/create-election.ts
+ * In order to run this script in hardhat, run the command: npx hardhat run election-scripts/create-election.ts
  * to run the script over a network configured in the hardhat.config.ts run:
- * npx hardhat run script/create-voter-eoa.ts --network <network-configured>, example:
- * npx hardhat run script/create-voter-eoa.ts --network sepolia
+ * npx hardhat run election-scripts/create-voter-eoa.ts --network <network-configured>, example:
+ * npx hardhat run election-scripts/create-voter-eoa.ts --network sepolia
  *
  * This is the third step of the voting process: a public authority creates an election by
  * deploying the election smart contract passing the required data in the constructor.
@@ -46,105 +46,112 @@ export async function main(
     result: result.OK,
   };
 
-  const ContractFactory = await ethers.getContractFactory(
-    "MunicipalityElection",
-  );
+  try {
+    const ContractFactory = await ethers.getContractFactory(
+      "MunicipalityElection",
+    );
 
-  [owner] = await ethers.getSigners();
+    [owner] = await ethers.getSigners();
 
-  const contract: MunicipalityElection = await ContractFactory.deploy(
-    electionData?.name || MUNICIPALITY_ELECTION_DATA.name,
-    electionData?.municipality || MUNICIPALITY_ELECTION_DATA.municipality,
-    electionData?.region || MUNICIPALITY_ELECTION_DATA.region,
-    electionData?.country || MUNICIPALITY_ELECTION_DATA.country,
-    electionData?.registrationStart ||
-      MUNICIPALITY_ELECTION_DATA.registrationStart,
-    electionData?.registrationEnd || MUNICIPALITY_ELECTION_DATA.registrationEnd,
-    electionData?.votingPoints || MUNICIPALITY_ELECTION_DATA.votingPoints,
-  );
+    const contract: MunicipalityElection = await ContractFactory.deploy(
+      electionData?.name || MUNICIPALITY_ELECTION_DATA.name,
+      electionData?.municipality || MUNICIPALITY_ELECTION_DATA.municipality,
+      electionData?.region || MUNICIPALITY_ELECTION_DATA.region,
+      electionData?.country || MUNICIPALITY_ELECTION_DATA.country,
+      electionData?.registrationStart ||
+        MUNICIPALITY_ELECTION_DATA.registrationStart,
+      electionData?.registrationEnd ||
+        MUNICIPALITY_ELECTION_DATA.registrationEnd,
+      electionData?.votingPoints || MUNICIPALITY_ELECTION_DATA.votingPoints,
+    );
 
-  const address = await contract.getAddress();
-  const parties: Party[] = [];
-  const coalitions: Coalition[] = [];
+    const address = await contract.getAddress();
+    const parties: Party[] = [];
+    const coalitions: Coalition[] = [];
 
-  for (const party of PARTIES) {
+    for (const party of PARTIES) {
+      await contract
+        .connect(owner)
+        .registerParty(party.name, party.councilorCandidates);
+      const candidatesRegistered = await contract.getCandidatesByParty(
+        party.name,
+      );
+      parties.push(party);
+
+      console.log(
+        `registered party ${party.name} with candidates: ${JSON.stringify(candidatesRegistered)}`,
+      );
+    }
+
     await contract
       .connect(owner)
-      .registerParty(party.name, party.councilorCandidates);
-    const candidatesRegistered = await contract.getCandidatesByParty(
-      party.name,
-    );
-    parties.push(party);
+      .registerCoalition(MAJOR_CANDIDATE_1, [PARTY_NAME_A, PARTY_NAME_B]);
+    const coalition1Raw = await contract.getCoalition(0);
+
+    const coalition1: Coalition = {
+      majorCandidate: {
+        name: coalition1Raw[0][0],
+        candidatesFor: coalition1Raw[0][1] as Candidature,
+        points: Number(coalition1Raw[0][2]),
+      },
+      parties: [],
+    };
+
+    for (const p of parties) {
+      for (const k of coalition1Raw[1]) {
+        if (k === p.name) {
+          coalition1.parties.push(p);
+        }
+      }
+    }
+
+    coalitions.push(coalition1);
 
     console.log(
-      `registered party ${party.name} with candidates: ${JSON.stringify(candidatesRegistered)}`,
+      `registered coalition for major candidate: ${coalition1Raw[0]} and parties ${coalition1Raw[1]}`,
     );
-  }
 
-  await contract
-    .connect(owner)
-    .registerCoalition(MAJOR_CANDIDATE_1, [PARTY_NAME_A, PARTY_NAME_B]);
-  const coalition1Raw = await contract.getCoalition(0);
+    await contract
+      .connect(owner)
+      .registerCoalition(MAJOR_CANDIDATE_2, [PARTY_NAME_C, PARTY_NAME_D]);
+    const coalition2Raw = await contract.getCoalition(1);
 
-  const coalition1: Coalition = {
-    majorCandidate: {
-      name: coalition1Raw[0][0],
-      candidatesFor: coalition1Raw[0][1] as Candidature,
-      points: Number(coalition1Raw[0][2]),
-    },
-    parties: [],
-  };
+    const coalition2: Coalition = {
+      majorCandidate: {
+        name: coalition2Raw[0][0],
+        candidatesFor: coalition2Raw[0][1] as Candidature,
+        points: Number(coalition2Raw[0][2]),
+      },
+      parties: [],
+    };
 
-  for (const p of parties) {
-    for (const k of coalition1Raw[1]) {
-      if (k === p.name) {
-        coalition1.parties.push(p);
+    for (const p of parties) {
+      for (const k of coalition2Raw[1]) {
+        if (k === p.name) {
+          coalition2.parties.push(p);
+        }
       }
     }
+
+    coalitions.push(coalition2);
+
+    console.log(
+      `registered coalition for major candidate: ${coalition2Raw[0]} and parties ${coalition2Raw[1]}`,
+    );
+
+    const ballot: Ballot = {
+      contractAddress: address,
+      coalitions,
+    };
+
+    response.data = ballot;
+
+    return response;
+  } catch (e: any) {
+    response.result = result.ERROR;
+    response.errorMessage = e.message || "unknown error";
+    return response;
   }
-
-  coalitions.push(coalition1);
-
-  console.log(
-    `registered coalition for major candidate: ${coalition1Raw[0]} and parties ${coalition1Raw[1]}`,
-  );
-
-  await contract
-    .connect(owner)
-    .registerCoalition(MAJOR_CANDIDATE_2, [PARTY_NAME_C, PARTY_NAME_D]);
-  const coalition2Raw = await contract.getCoalition(1);
-
-  const coalition2: Coalition = {
-    majorCandidate: {
-      name: coalition2Raw[0][0],
-      candidatesFor: coalition2Raw[0][1] as Candidature,
-      points: Number(coalition2Raw[0][2]),
-    },
-    parties: [],
-  };
-
-  for (const p of parties) {
-    for (const k of coalition2Raw[1]) {
-      if (k === p.name) {
-        coalition2.parties.push(p);
-      }
-    }
-  }
-
-  coalitions.push(coalition2);
-
-  console.log(
-    `registered coalition for major candidate: ${coalition2Raw[0]} and parties ${coalition2Raw[1]}`,
-  );
-
-  const ballot: Ballot = {
-    contractAddress: address,
-    coalitions,
-  };
-
-  response.data = ballot;
-
-  return response;
 }
 
 main()
