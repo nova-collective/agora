@@ -1,5 +1,7 @@
 import { Party } from "./types";
 
+export const DECS_REGISTRY_NAME = "Italy DECs Registry";
+
 export const DECMock = {
   taxCode: "RSSMRA85C27H501W",
   municipality: "Ardea",

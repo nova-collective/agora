@@ -4,7 +4,7 @@
  * npx hardhat run election-scripts/create-dec.ts --network <network-configured>, example:
  * npx hardhat run election-scripts/create-dec.ts --network sepolia
  *
- * This is the second step of the voting process: a public authority creates an EOA for the Voter.
+ * This is the third step of the voting process: a public authority creates an EOA for the Voter.
  * The EOA has a public address and a private key.
  * This script deploys the DEC for the Voter by encrypting the data using the Voter's EOA private key.
  */

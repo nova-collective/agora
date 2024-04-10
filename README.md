@@ -89,15 +89,16 @@ For the local network the parameter to pass is `localhost`, there is no need to 
 
 ### Prerequisites
 
-* edit the scripts mocks file: `election-scripts/__mocks__.ts`;
+* Edit the scripts mocks file: `election-scripts/__mocks__.ts`;
     * edit the municipality election contract data, in particular registrationStart and registrationEnd are timestamps in seconds;
     * edit the data of the parties and candidates as you prefer;
     * edit the data of the Voter as you prefer;
+* Compile the smart contracts in order to produce the artifacts: `npm run compile`
 
 ### 1. The Public Authority / Admin creates the DECs Registry
-For the creation of the registry we deploy the DECs Registry smart contract using ignition:
+For the creation of the registry we deploy the DECs Registry smart contract:
 
-`npm run deploy-contract Registry localhost`;
+`npx hardhat run election-scripts/create-decs-registry.ts`;
 
 ### 2. The Public Authority / Admin creates the EOA for the Voter
 Execute the `create-voter` scripts and take note of the resulting `address` and `privateKey`:
@@ -110,7 +111,10 @@ Then, deploy the contract encrypting the Voter's data with the command:
 
 `npx hardhat run election-scripts/create-dec.ts`
 
-### 4. The Public Authority / Admin creates a Municipality Election
+### 4. The Public Authority / Admin registers the Voters DECs on the DECs Registry
+[TO DO]
+
+### 5. The Public Authority / Admin creates a Municipality Election
 At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
 
 Now it's time to deploy the smart contract election and register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command:
