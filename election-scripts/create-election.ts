@@ -4,7 +4,7 @@
  * npx hardhat run election-scripts/create-voter-eoa.ts --network <network-configured>, example:
  * npx hardhat run election-scripts/create-voter-eoa.ts --network sepolia
  *
- * This is the third step of the voting process: a public authority creates an election by
+ * This is the fourth step of the voting process: a public authority creates an election by
  * deploying the election smart contract passing the required data in the constructor.
  * Then, the script registers the parties and the names of the councilior and major candidates.
  */

@@ -19,7 +19,7 @@ import { Encrypted } from "eth-crypto";
  * This function encrypt the Voter's DECs data and deploys the smart contract instance.
  *
  * @param {DEC} decsData - the list of DECs to deploy
- * @returns - the api response containing the outcome of the operation
+ * @returns {Promise<Response<string>>} - the api response containing the output of the operation
  */
 export async function main(
   decsData?: DEC,
