@@ -93,7 +93,8 @@ For the local network the parameter to pass is `localhost`, there is no need to 
     * edit the municipality election contract data, in particular registrationStart and registrationEnd are timestamps in seconds;
     * edit the data of the parties and candidates as you prefer;
     * edit the data of the Voter as you prefer;
-* Compile the smart contracts in order to produce the artifacts: `npm run compile`
+* Compile the smart contracts in order to produce the artifacts: `npm run compile`;
+* Creates the `typechain-types` folder with the command: `npx hardhat typechain`; 
 
 ### 1. The Public Authority / Admin creates the DECs Registry
 For the creation of the registry we deploy the DECs Registry smart contract:
