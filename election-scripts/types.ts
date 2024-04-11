@@ -1,3 +1,5 @@
+import { Signer } from "ethers";
+
 export enum result {
   OK = "ok",
   ERROR = "error",
@@ -12,6 +14,10 @@ export interface Response<T> {
 export type EOAResponse = {
   address: string;
   privateKey: string;
+};
+
+export type CreateDECResponse = {
+  DECAddress: string;
 };
 
 export enum Candidature {
@@ -68,4 +74,9 @@ export type DEC = {
   municipality: string;
   region: string;
   country: string;
+};
+
+export type RegistryResponse = {
+  address: string;
+  owner: Signer;
 };

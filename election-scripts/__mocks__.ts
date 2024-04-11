@@ -1,14 +1,23 @@
 import { Party } from "./types";
 
+export const DECsRegistryData = {
+  name: "Italy DECs Registry",
+  address: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+  DECAddress: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+};
+
+export const VoterEOA = {
+  address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  privateKey:
+    "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+};
+
 export const DECMock = {
   taxCode: "RSSMRA85C27H501W",
   municipality: "Ardea",
   region: "Lazio",
   country: "Italy",
 };
-
-export const PRIVATE_KEY =
-  "0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e";
 
 export const MUNICIPALITY_ELECTION_DATA = {
   name: "Election of major of Braccagni city",

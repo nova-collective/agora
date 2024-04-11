@@ -4,14 +4,14 @@
  * npx hardhat run election-scripts/create-dec.ts --network <network-configured>, example:
  * npx hardhat run election-scripts/create-dec.ts --network sepolia
  *
- * This is the second step of the voting process: a public authority creates an EOA for the Voter.
+ * This is the third step of the voting process: a public authority creates an EOA for the Voter.
  * The EOA has a public address and a private key.
  * This script deploys the DEC for the Voter by encrypting the data using the Voter's EOA private key.
  */
 
 import { ethers } from "hardhat";
-import { DEC, Response, result } from "./types";
-import { DECMock, PRIVATE_KEY } from "./__mocks__";
+import { DEC, Response, result, CreateDECResponse } from "./types";
+import { DECMock, VoterEOA } from "./__mocks__";
 import { encryptString } from "../lib";
 import { Encrypted } from "eth-crypto";
 
@@ -19,13 +19,13 @@ import { Encrypted } from "eth-crypto";
  * This function encrypt the Voter's DECs data and deploys the smart contract instance.
  *
  * @param {DEC} decsData - the list of DECs to deploy
- * @returns - the api response containing the outcome of the operation
+ * @returns {Promise<Response<CreateDECResponse>>} - the api response containing the output of the operation
  */
 export async function main(
   decsData?: DEC,
   privateKey?: string,
-): Promise<Response<string>> {
-  const response: Response<string> = {
+): Promise<Response<CreateDECResponse>> {
+  const response: Response<CreateDECResponse> = {
     result: result.OK,
   };
 
@@ -33,14 +33,23 @@ export async function main(
     const ContractFactory = await ethers.getContractFactory("DEC");
 
     const dec = decsData || DECMock;
-    const key = privateKey || PRIVATE_KEY;
+    const key = privateKey || VoterEOA.privateKey;
 
     const eTaxCode: Encrypted = await encryptString(dec.taxCode, key);
     const eMunicipality: Encrypted = await encryptString(dec.municipality, key);
     const eRegion: Encrypted = await encryptString(dec.region, key);
     const eCountry: Encrypted = await encryptString(dec.country, key);
 
-    await ContractFactory.deploy(eTaxCode, eMunicipality, eRegion, eCountry);
+    const contract = await ContractFactory.deploy(
+      eTaxCode,
+      eMunicipality,
+      eRegion,
+      eCountry,
+    );
+
+    response.data = {
+      DECAddress: await contract.getAddress(),
+    };
 
     return response;
   } catch (e: any) {
