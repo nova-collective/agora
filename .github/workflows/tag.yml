@@ -21,7 +21,7 @@ jobs:
     - name: Set up Git
       run: |
         git config --global user.name "Christian Palazzo"
-        git config --global user.email "enpassant8@gmail.com"
+        git config --global user.email "palazzochristian@yahoo.it"
 
     - name: Tag the release with the version
       run: node ci --function tagRelease
