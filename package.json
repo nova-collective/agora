@@ -1,6 +1,6 @@
 {
   "name": "agora",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A confidentiality-first electronic voting system",
   "author": {
     "name": "nova collective",
@@ -27,7 +27,7 @@
     "prepare-commit": "git-cz",
     "node:start": "npx hardhat node",
     "test-contracts": "npx hardhat test",
-    "test-scripts": " jest --coverage --bail"
+    "test-scripts": " jest --coverage --bail --forceExit"
   },
   "repository": {
     "type": "git",
@@ -53,7 +53,8 @@
     "npm": "~10.2.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "eth-crypto": "^2.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",

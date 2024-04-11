@@ -1,10 +1,10 @@
 /**
- * In order to run this script in hardhat, run the command: npx hardhat run script/create-voter-eoa.ts
+ * In order to run this script in hardhat, run the command: npx hardhat run election-scripts/create-voter-eoa.ts
  * to run the script over a network configured in the hardhat.config.ts run:
- * npx hardhat run script/create-voter-eoa.ts --network <network-configured>, example:
- * npx hardhat run script/create-voter-eoa.ts --network sepolia
+ * npx hardhat run election-scripts/create-voter-eoa.ts --network <network-configured>, example:
+ * npx hardhat run election-scripts/create-voter-eoa.ts --network sepolia
  *
- * This is the first step of the voting process: a public authority creates an EOA for the Voter, the
+ * This is the second step of the voting process: a public authority creates an EOA for the Voter, the
  * script returns the public address and the private key that are communicated to the Voter.
  */
 import { ethers } from "hardhat";
