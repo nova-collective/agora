@@ -2,15 +2,14 @@ import { Party } from "./types";
 
 export const DECsRegistryData = {
   name: "Italy DECs Registry",
-  address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  DECAddress: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  voterEOAAddress: "0x99139259d6851c391cDDbFdab6337FC52Af0e74C",
+  address: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+  DECAddress: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
 };
 
 export const VoterEOA = {
-  address: "",
+  address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
   privateKey:
-    "0x38deabd7a3c86d7dc6d4a0309b92ef8ee523cef9b53326d4d3465b16d96b3ab1",
+    "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
 };
 
 export const DECMock = {

@@ -95,24 +95,27 @@ For the local network the parameter to pass is `localhost`, there is no need to 
     * edit the data of the Voter as you prefer;
 * Compile the smart contracts in order to produce the artifacts: `npm run compile`;
 * Creates the `typechain-types` folder with the command: `npx hardhat typechain`; 
+* start the local network (unless you want to run the scripts on Sepolia): `npm run node:start`;
 
 ### 1. The Public Authority / Admin creates the DECs Registry
 For the creation of the registry we deploy the DECs Registry smart contract:
 
-`npx hardhat run election-scripts/create-decs-registry.ts`;
+`npx hardhat run election-scripts/create-decs-registry.ts --network localhost`;
 
 Take note of the contract address returned by the script;
 
 ### 2. The Public Authority / Admin creates the EOA for the Voter
+If you are using the local network, you can skip this step and just take note of one EOA returned by the local node start.
+
 Execute the `create-voter` scripts and take note of the resulting `address` and `privateKey`:
 
-`npx hardhat run election-scripts/create-voter-eoa.ts`
+`npx hardhat run election-scripts/create-voter-eoa.ts --network localhost`
  
 ### 3. The Public Authority / Admin creates the DEC for the Voter and register the DEC into the DECs Registry
 in the `election-scripts/create-dec.ts` file, insert the Voter's private key and save the file.
 Then, deploy the contract encrypting the Voter's data with the command:
 
-`npx hardhat run election-scripts/create-dec.ts`
+`npx hardhat run election-scripts/create-dec.ts --network localhost`
 
 Take note of the DEC contract address returned by the script;
 
@@ -120,14 +123,14 @@ Take note of the DEC contract address returned by the script;
 Write in the `__mock__.ts` file the data required in the `DECsRegistryData`. The data are retrieved by the previous scripts.
 Then run the script in order to register the Voter DEC into the DECsRegistry:
 
-`npx hardhat run election-scripts/register-dec.ts`
+`npx hardhat run election-scripts/register-dec.ts --network localhost`
 
 ### 5. The Public Authority / Admin creates a Municipality Election
 At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
 
 Now it's time to deploy the smart contract election and register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command:
 
-`npx hardhat run election-scripts/create-election.ts`
+`npx hardhat run election-scripts/create-election.ts --network localhost`
 
 Please note that to make the registration of parties and coalition working, the functions must be called in the registration period set before.
 

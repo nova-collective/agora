@@ -8,7 +8,7 @@
  */
 import { ethers } from "hardhat";
 import { Response, result } from "./types";
-import { DECsRegistryData } from "./__mocks__";
+import { DECsRegistryData, VoterEOA } from "./__mocks__";
 import { Signer } from "ethers";
 
 let owner: Signer;
@@ -32,13 +32,13 @@ export async function main(): Promise<Response<string>> {
 
   await contract
     .connect(owner)
-    .registerDEC(DECsRegistryData.DECAddress, DECsRegistryData.voterEOAAddress);
+    .registerDEC(DECsRegistryData.DECAddress, VoterEOA.address);
 
   const registryName = await contract.getName();
-  const dec = await contract.getDEC(DECsRegistryData.voterEOAAddress);
+  const dec = await contract.getDEC(VoterEOA.address);
 
   console.log(
-    `The DEC ${dec} was successfully registered for voter ${DECsRegistryData.voterEOAAddress} in the registry ${registryName}`,
+    `The DEC ${dec} was successfully registered for voter ${VoterEOA.address} in the registry ${registryName}`,
   );
 
   try {
