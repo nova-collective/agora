@@ -2,11 +2,12 @@ name: tag
 
 on:
     pull_request:
-      types: [closed]
+      branches:
+        - master
 
 jobs:
     tagVersion:
-        if: github.event.pull_request.merged && github.event.pull_request.base.ref == 'main'
+        if: github.event.pull_request.merged == 'true'
         runs-on: ubuntu-latest
 
         steps:
