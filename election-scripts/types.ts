@@ -1,3 +1,5 @@
+import { Signer } from "ethers";
+
 export enum result {
   OK = "ok",
   ERROR = "error",
@@ -68,4 +70,9 @@ export type DEC = {
   municipality: string;
   region: string;
   country: string;
+};
+
+export type RegistryResponse = {
+  address: string;
+  owner: Signer;
 };

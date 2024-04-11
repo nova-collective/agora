@@ -9,9 +9,12 @@
  * This register is created once for all the future elections.
  */
 import { ethers } from "hardhat";
-import { Response, result } from "./types";
-import { DECS_REGISTRY_NAME } from "./__mocks__";
+import { Response, result, RegistryResponse } from "./types";
+import { DECsRegistryData } from "./__mocks__";
 import { DECsRegistry } from "../typechain-types";
+import { Signer } from "ethers";
+
+let owner: Signer;
 
 /**
  * This function deploy an instance of the DECs Registry. The registry is unique and needs to be
@@ -19,21 +22,31 @@ import { DECsRegistry } from "../typechain-types";
  *
  * @returns {Promise<Response<string>>} - the api response containing the output of the operation
  */
-export async function main(): Promise<Response<string>> {
-  const response: Response<string> = {
+export async function main(): Promise<Response<RegistryResponse>> {
+  const response: Response<RegistryResponse> = {
     result: result.OK,
   };
 
   try {
     const ContractFactory = await ethers.getContractFactory("DECsRegistry");
-    const contract: DECsRegistry =
-      await ContractFactory.deploy(DECS_REGISTRY_NAME);
+    const contract: DECsRegistry = await ContractFactory.deploy(
+      DECsRegistryData.name,
+    );
 
     const contractName = await contract.getName();
 
     console.log(
       `The contract "${contractName}" has been successfully deployed`,
     );
+
+    const address = await contract.getAddress();
+    [owner] = await ethers.getSigners();
+
+    const registryResponse: RegistryResponse = {
+      address,
+      owner,
+    };
+    response.data = registryResponse;
 
     return response;
   } catch (e: any) {

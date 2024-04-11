@@ -101,6 +101,8 @@ For the creation of the registry we deploy the DECs Registry smart contract:
 
 `npx hardhat run election-scripts/create-decs-registry.ts`;
 
+Take note of the contract address returned by the script;
+
 ### 2. The Public Authority / Admin creates the EOA for the Voter
 Execute the `create-voter` scripts and take note of the resulting `address` and `privateKey`:
 
