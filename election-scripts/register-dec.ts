@@ -34,13 +34,12 @@ export async function main(): Promise<Response<string>> {
     .connect(owner)
     .registerDEC(DECsRegistryData.DECAddress, DECsRegistryData.voterEOAAddress);
 
-  const name = await contract.getName();
-  console.log(name);
-  // const dec = await contract.getDEC(DECsRegistryData.voterEOAAddress);
+  const registryName = await contract.getName();
+  const dec = await contract.getDEC(DECsRegistryData.voterEOAAddress);
 
-  // console.log(
-  //   `The DEC ${dec} was successfully registered for voter ${DECsRegistryData.voterEOAAddress}`,
-  // );
+  console.log(
+    `The DEC ${dec} was successfully registered for voter ${DECsRegistryData.voterEOAAddress} in the registry ${registryName}`,
+  );
 
   try {
     return response;

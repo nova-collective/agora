@@ -10,8 +10,8 @@
  */
 
 import { ethers } from "hardhat";
-import { DEC, Response, result } from "./types";
-import { DECMock, PRIVATE_KEY } from "./__mocks__";
+import { DEC, Response, result, CreateDECResponse } from "./types";
+import { DECMock, VoterEOA } from "./__mocks__";
 import { encryptString } from "../lib";
 import { Encrypted } from "eth-crypto";
 
@@ -19,13 +19,13 @@ import { Encrypted } from "eth-crypto";
  * This function encrypt the Voter's DECs data and deploys the smart contract instance.
  *
  * @param {DEC} decsData - the list of DECs to deploy
- * @returns {Promise<Response<string>>} - the api response containing the output of the operation
+ * @returns {Promise<Response<CreateDECResponse>>} - the api response containing the output of the operation
  */
 export async function main(
   decsData?: DEC,
   privateKey?: string,
-): Promise<Response<string>> {
-  const response: Response<string> = {
+): Promise<Response<CreateDECResponse>> {
+  const response: Response<CreateDECResponse> = {
     result: result.OK,
   };
 
@@ -33,14 +33,23 @@ export async function main(
     const ContractFactory = await ethers.getContractFactory("DEC");
 
     const dec = decsData || DECMock;
-    const key = privateKey || PRIVATE_KEY;
+    const key = privateKey || VoterEOA.privateKey;
 
     const eTaxCode: Encrypted = await encryptString(dec.taxCode, key);
     const eMunicipality: Encrypted = await encryptString(dec.municipality, key);
     const eRegion: Encrypted = await encryptString(dec.region, key);
     const eCountry: Encrypted = await encryptString(dec.country, key);
 
-    await ContractFactory.deploy(eTaxCode, eMunicipality, eRegion, eCountry);
+    const contract = await ContractFactory.deploy(
+      eTaxCode,
+      eMunicipality,
+      eRegion,
+      eCountry,
+    );
+
+    response.data = {
+      DECAddress: await contract.getAddress(),
+    };
 
     return response;
   } catch (e: any) {

@@ -16,6 +16,10 @@ export type EOAResponse = {
   privateKey: string;
 };
 
+export type CreateDECResponse = {
+  DECAddress: string;
+};
+
 export enum Candidature {
   MAJOR = "major",
   COUNCILOR = "councilor",

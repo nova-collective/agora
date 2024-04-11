@@ -3,8 +3,14 @@ import { Party } from "./types";
 export const DECsRegistryData = {
   name: "Italy DECs Registry",
   address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  DECAddress: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  voterEOAAddress: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+  DECAddress: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  voterEOAAddress: "0x99139259d6851c391cDDbFdab6337FC52Af0e74C",
+};
+
+export const VoterEOA = {
+  address: "",
+  privateKey:
+    "0x38deabd7a3c86d7dc6d4a0309b92ef8ee523cef9b53326d4d3465b16d96b3ab1",
 };
 
 export const DECMock = {
@@ -13,9 +19,6 @@ export const DECMock = {
   region: "Lazio",
   country: "Italy",
 };
-
-export const PRIVATE_KEY =
-  "0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e";
 
 export const MUNICIPALITY_ELECTION_DATA = {
   name: "Election of major of Braccagni city",
