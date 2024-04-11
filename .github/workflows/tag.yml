@@ -1,0 +1,16 @@
+name: tag
+
+on:
+    pull_request:
+      types: [closed]
+
+jobs:
+    tagVersion:
+        if: github.event.pull_request.merged && github.event.pull_request.base.ref == 'main'
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Tag the release with the version
+          run: node ci --function tagRelease
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
