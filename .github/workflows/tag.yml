@@ -38,3 +38,7 @@ jobs:
       run: node ci --function tagRelease
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Final check
+      if: ${{ failure() != false }}
+      run: exit 1
