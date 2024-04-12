@@ -19,7 +19,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        token: ${{ steps.app-token.outputs.token }}
+        token: ${{ steps.get_app_token.outputs.token }}
 
     - name: Use Node.js 20.x
       uses: actions/setup-node@v2
