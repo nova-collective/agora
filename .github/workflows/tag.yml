@@ -31,7 +31,7 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
 
-    - name: Tag the release with the version
+    - name: Tag the release with the version 
       run: node ci --function tagRelease
       env:
         GH_TOKEN: ${{ steps.get_app_token.outputs.token }}
