@@ -28,5 +28,5 @@ jobs:
     - name: Tag the release with the version
       run: node ci --function tagRelease
       env:
-        GITHUB_ACTOR: 'g3k0'
+        GITHUB_ACTOR: 'enpassant8@gmail.com'
         TOKEN: ${{ secrets.GH_TOKEN }}
