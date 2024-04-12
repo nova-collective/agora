@@ -134,7 +134,8 @@ Now it's time to deploy the smart contract election and register parties, counci
 
 Please note that to make the registration of parties and coalition working, the functions must be called in the registration period set before.
 
-
+### 6. The Voter votes using the ZK-SNARKS cryptographic protocol
+[COMING SOON...]
 
 ## Donations
 Support this project and offer me a crypto-coffee!!
