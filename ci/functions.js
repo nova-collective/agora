@@ -30,6 +30,10 @@ const functions = {
       console.error(`Error: The tag for the version ${version} already exists`);
       return;
     }
+    execSync(
+      `gh auth login --with-token ${process.env.GH_TOKEN}`,
+      execSyncOptions,
+    );
     execSync(`git tag -a v${version} -m "Version ${version}"`, execSyncOptions);
     execSync("git push origin --tags", execSyncOptions);
   },
