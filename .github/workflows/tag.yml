@@ -34,6 +34,7 @@ jobs:
         git config user.email github-actions@github.com
 
     - name: Tag the release with the version
+      if: ${{ failure() != false }}
       run: node ci --function tagRelease
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
