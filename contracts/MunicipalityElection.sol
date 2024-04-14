@@ -10,7 +10,7 @@ import "./Election.sol";
 contract MunicipalityElection is Election {
     struct Candidate {
         string name;
-        string candidatesFor; // major or councilior
+        string candidatesFor; // major or councilor
         uint256 points;
     }
 
@@ -27,8 +27,8 @@ contract MunicipalityElection is Election {
     Coalition[] private coalitions;
 
     /// @dev this is a mapping used in private function
-    mapping(string => bool) private isCounciliorCandidateInArray;
-    Candidate[] private counciliorCandidatesArray;
+    mapping(string => bool) private iscouncilorCandidateInArray;
+    Candidate[] private councilorCandidatesArray;
 
     /// @dev this is a mapping used in private function
     mapping(string => bool) private partyExistsInCoalition;
@@ -92,32 +92,32 @@ contract MunicipalityElection is Election {
         return (coalition.majorCandidate, partyNames);
     }
 
-    /// @notice as first step, during the registration period the parties register their names and list of councilior candidates
+    /// @notice as first step, during the registration period the parties register their names and list of councilor candidates
     function registerParty(
         string memory name,
-        string[] memory counciliorCandidates
+        string[] memory councilorCandidates
     ) external onlyOwner isRegistrationPeriod {
         require(
-            counciliorCandidates.length == 5,
-            "The list of councilior candidates must be composed of 5 names"
+            councilorCandidates.length == 5,
+            "The list of councilor candidates must be composed of 5 names"
         );
 
         Candidate[] storage candidatesList = parties[name];
 
-        for (uint i = 0; i < counciliorCandidates.length; i++) {
+        for (uint i = 0; i < councilorCandidates.length; i++) {
             require(
-                !isCounciliorCandidateInArray[counciliorCandidates[i]],
-                "Councilior candidate names must be unique"
+                !iscouncilorCandidateInArray[councilorCandidates[i]],
+                "councilor candidate names must be unique"
             );
 
             Candidate memory c = Candidate({
-                name: counciliorCandidates[i],
-                candidatesFor: "councilior",
+                name: councilorCandidates[i],
+                candidatesFor: "councilor",
                 points: 0
             });
 
             candidatesList.push(c);
-            isCounciliorCandidateInArray[counciliorCandidates[i]] = true;
+            iscouncilorCandidateInArray[councilorCandidates[i]] = true;
         }
 
         partiesLength++;
