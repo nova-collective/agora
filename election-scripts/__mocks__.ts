@@ -40,6 +40,7 @@ export const MAJOR_CANDIDATE_2 = "Ugo Silenti";
 export const PARTIES: Party[] = [
   {
     name: PARTY_NAME_A,
+    points: 0,
     councilorCandidates: [
       "Luigi Rossi",
       "Maria Verdi",
@@ -50,6 +51,7 @@ export const PARTIES: Party[] = [
   },
   {
     name: PARTY_NAME_B,
+    points: 0,
     councilorCandidates: [
       "Francesca Riti",
       "Vanessa Reti",
@@ -60,6 +62,7 @@ export const PARTIES: Party[] = [
   },
   {
     name: PARTY_NAME_C,
+    points: 0,
     councilorCandidates: [
       "Giuseppe Toni",
       "Nicolò Movizzo",
@@ -70,6 +73,7 @@ export const PARTIES: Party[] = [
   },
   {
     name: PARTY_NAME_D,
+    points: 0,
     councilorCandidates: [
       "Patrizio Pini",
       "Mariagrazia Crudi",
