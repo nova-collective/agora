@@ -2,7 +2,7 @@
 const execSync = require("child_process").execSync;
 const fs = require("fs");
 
-const execSyncOptions = { stdio: "inherit" };
+const execSyncOptions = { stdio: "pipe" };
 
 const functions = {
   installDeps: function () {
