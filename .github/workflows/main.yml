@@ -24,26 +24,16 @@ jobs:
         node-version: 20.x
 
     - name: Install dependencies
-      run: |
-        set -e
-        node ci --function installDeps
+      run: node ci --function installDeps
 
     - name: Run linter
-      run: |
-        set -e
-        node ci --function lint
+      run: node ci --function lint
 
     - name: Run duplications check
-      run: |
-        set -e
-        node ci --function checksDuplications
+      run: node ci --function checksDuplications
 
     - name: Run smart contracts unit tests
-      run: |
-        set -e
-        node ci --function smartContractsUnitTest
+      run: node ci --function smartContractsUnitTest
     
     - name: Run scripts unit tests
-      run: |
-        set -e  
-        node ci --function scriptsUnitTest
+      run: node ci --function scriptsUnitTest
