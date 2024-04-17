@@ -2,7 +2,7 @@
 const execSync = require("child_process").execSync;
 const fs = require("fs");
 
-const execSyncOptions = { stdio: "pipe" };
+const execSyncOptions = { stdio: "inherit" };
 
 const functions = {
   installDeps: function () {
@@ -18,7 +18,12 @@ const functions = {
     return execSync("npm run test-contracts", execSyncOptions);
   },
   scriptsUnitTest: function () {
-    return execSync("npm run test-scripts", execSyncOptions);
+    try {
+      execSync("npm run test-scripts", execSyncOptions);
+    } catch (e) {
+      console.log(e);
+      process.exit(1);
+    }
   },
   tagRelease: function () {
     try {
