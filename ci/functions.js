@@ -6,16 +6,36 @@ const execSyncOptions = { stdio: "inherit" };
 
 const functions = {
   installDeps: function () {
-    return execSync("npm install", execSyncOptions);
+    try {
+      execSync("npm install", execSyncOptions);
+    } catch (e) {
+      console.log(e);
+      process.exit(1);
+    }
   },
   lint: function () {
-    return execSync("npm run lint", execSyncOptions);
+    try {
+      execSync("npm run lint", execSyncOptions);
+    } catch (e) {
+      console.log(e);
+      process.exit(1);
+    }
   },
   checksDuplications: function () {
-    return execSync("npm run duplicated", execSyncOptions);
+    try {
+      execSync("npm run duplicated", execSyncOptions);
+    } catch (e) {
+      console.log(e);
+      process.exit(1);
+    }
   },
   smartContractsUnitTest: function () {
-    return execSync("npm run test-contracts", execSyncOptions);
+    try {
+      execSync("npm run test-contracts", execSyncOptions);
+    } catch (e) {
+      console.log(e);
+      process.exit(1);
+    }
   },
   scriptsUnitTest: function () {
     try {
@@ -44,7 +64,8 @@ const functions = {
       );
       execSync("git push origin --tags", execSyncOptions);
     } catch (e) {
-      throw new Error(e);
+      console.log(e);
+      process.exit(1);
     }
   },
 };
