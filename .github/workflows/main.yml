@@ -36,4 +36,4 @@ jobs:
       run: node ci --function smartContractsUnitTest
     
     - name: Run scripts unit tests
-      run: node ci --function scriptsUnitTest
+      run: npm run test-scripts
