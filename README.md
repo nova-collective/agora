@@ -58,7 +58,14 @@ Remember to follow this convention for commit messages: `AG-<jira id> <descripti
 
 Smart contracts code coverage documentation [here](https://www.npmjs.com/package/solidity-coverage).
 
-CI/CD workflow fails if the unit test code coverage threshold (**80% of lines of code**) for scripts is not met. 
+### Quality gates
+
+| step | library used | theshold | is error blocking |
+|------|--------------|----------|-------------------|
+| Code Linting | [eslint](https://www.npmjs.com/package/eslint) | No thesholds | yes |
+| Code duplication | [jscpd](https://www.npmjs.com/package/jscpd) | 10% | yes |
+| Smart contracts unit tests | [jest](https://www.npmjs.com/package/jest) | all tests must pass | yes |
+| TypeScript files unit tests | [jest](https://www.npmjs.com/package/jest) | all tests must pass; 80% code coverage | yes |
 
 ## Run the localhost development network
 
