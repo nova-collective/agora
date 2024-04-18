@@ -69,7 +69,6 @@ describe("MunicipalityElection Contract", function () {
 
     expect(coalition[0][0]).to.be.equal(majorCandidate);
     expect(coalition[0][1]).to.be.equal("major");
-    expect(coalition[0][2]).to.be.equal(0);
     expect(coalition[1][0]).to.be.equal(partyName);
     expect(coalition[1][1]).to.be.equal(partyNameB);
   });

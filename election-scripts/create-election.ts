@@ -92,7 +92,7 @@ export async function main(
       majorCandidate: {
         name: coalition1Raw[0][0],
         candidatesFor: coalition1Raw[0][1] as Candidature,
-        points: Number(coalition1Raw[0][2]),
+        points: 0,
       },
       parties: [],
     };
@@ -100,6 +100,7 @@ export async function main(
     for (const p of parties) {
       for (const k of coalition1Raw[1]) {
         if (k === p.name) {
+          p.points = 0;
           coalition1.parties.push(p);
         }
       }
@@ -120,7 +121,7 @@ export async function main(
       majorCandidate: {
         name: coalition2Raw[0][0],
         candidatesFor: coalition2Raw[0][1] as Candidature,
-        points: Number(coalition2Raw[0][2]),
+        points: 0,
       },
       parties: [],
     };
@@ -128,6 +129,7 @@ export async function main(
     for (const p of parties) {
       for (const k of coalition2Raw[1]) {
         if (k === p.name) {
+          p.points = 0;
           coalition2.parties.push(p);
         }
       }

@@ -11,7 +11,6 @@ contract MunicipalityElection is Election {
     struct Candidate {
         string name;
         string candidatesFor; // major or councilor
-        uint256 points;
     }
 
     /// @dev the string key of the map correspond tho the party name registered in the parties mapping
@@ -112,8 +111,7 @@ contract MunicipalityElection is Election {
 
             Candidate memory c = Candidate({
                 name: councilorCandidates[i],
-                candidatesFor: "councilor",
-                points: 0
+                candidatesFor: "councilor"
             });
 
             candidatesList.push(c);
@@ -143,8 +141,7 @@ contract MunicipalityElection is Election {
 
         Candidate memory mcandidate = Candidate({
             name: majorCandidate,
-            candidatesFor: "major",
-            points: 0
+            candidatesFor: "major"
         });
 
         Coalition memory newCoalition;
