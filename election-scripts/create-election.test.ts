@@ -42,9 +42,6 @@ describe("Create Election Script", () => {
       expect(coalitionFromContract[0][1]).to.equal(
         coalition.majorCandidate.candidatesFor,
       );
-      expect(coalitionFromContract[0][2]).to.equal(
-        coalition.majorCandidate.points,
-      );
       expect(coalitionFromContract[1]).to.deep.equal(
         coalition.parties.map((p) => p.name),
       );

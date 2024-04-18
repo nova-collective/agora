@@ -33,6 +33,7 @@ export type Candidate = {
 
 export type Party = {
   name: string;
+  points: number;
   councilorCandidates: string[];
 };
 
