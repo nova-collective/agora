@@ -22,10 +22,11 @@
     "coverage-contracts": "npx hardhat coverage",
     "deploy-contract": "./script/deploy",
     "duplicated": "npx jscpd",
+    "integrate-external-libs": "./script/lib-integration",
     "lint": "npx lint-staged",
+    "node:start": "npx hardhat node",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
-    "node:start": "npx hardhat node",
     "test-contracts": "npx hardhat test",
     "test-scripts": " jest --coverage --bail --forceExit"
   },
