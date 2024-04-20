@@ -2,7 +2,7 @@
 
 <br>
 
-[![Known Vulnerabilities](https://snyk.io/package/npm/snyk/badge.svg)](https://snyk.io/package/npm/snyk) [![codecov](https://codecov.io/gh/nova-collective/agora/branch/AG-32-devops-improvements/graph/badge.svg?token=AM8FHRH3GZ)](https://codecov.io/gh/nova-collective/agora) ![main workflow](https://github.com/nova-collective/agora/actions/workflows/main.yml/badge.svg) [![HitCount](https://hits.dwyl.com/nova-collective/agora.svg)](https://hits.dwyl.com/nova-collective/agora) [![built-with openzeppelin](https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF)](https://docs.openzeppelin.com/)
+[![Known Vulnerabilities](https://snyk.io/package/npm/snyk/badge.svg)](https://snyk.io/package/npm/snyk) [![codecov](https://codecov.io/gh/nova-collective/agora/branch/AG-32-devops-improvements/graph/badge.svg?token=AM8FHRH3GZ)](https://codecov.io/gh/nova-collective/agora) ![main workflow](https://github.com/nova-collective/agora/actions/workflows/main.yml/badge.svg) [![built-with openzeppelin](https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF)](https://docs.openzeppelin.com/) [![HitCount](https://hits.dwyl.com/nova-collective/agora.svg)](https://hits.dwyl.com/nova-collective/agora)
 
 A confidentiality-first electronic voting system.
 
