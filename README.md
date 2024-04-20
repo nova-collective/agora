@@ -1,5 +1,9 @@
 <img src="docs/assets/logo.jpg" alt="Agora" width="500"/>
 
+<br>
+
+[![Known Vulnerabilities](https://snyk.io/package/npm/snyk/badge.svg)](https://snyk.io/package/npm/snyk)
+
 A confidentiality-first electronic voting system.
 
 ## About
