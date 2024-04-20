@@ -2,7 +2,7 @@
 
 <br>
 
-[![Known Vulnerabilities](https://snyk.io/package/npm/snyk/badge.svg)](https://snyk.io/package/npm/snyk)
+[![Known Vulnerabilities](https://snyk.io/package/npm/snyk/badge.svg)](https://snyk.io/package/npm/snyk) [![codecov](https://codecov.io/gh/nova-collective/agora/branch/AG-32-devops-improvements/graph/badge.svg?token=AM8FHRH3GZ)](https://codecov.io/gh/nova-collective/agora)
 
 A confidentiality-first electronic voting system.
 
