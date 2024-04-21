@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const execSync = require("child_process").execSync;
 const fs = require("fs");
+const path = require("path");
 const config = require("./config");
 
 const execSyncOptions = { stdio: "inherit" };
@@ -70,14 +71,14 @@ const functions = {
     }
   },
   installPythonLibs: function ({ libs }) {
-    try {
-      const cryptoPy = libs["crypto-py"] || "";
+    console.log(libs);
 
-      if (cryptoPy) {
+    try {
+      if (libs.includes("crypto-py")) {
         const libPath = path.resolve("lib");
         const repo = config.installPythonLibs.cryptoPyRepo;
 
-        execSync(`cd ${libPath} && git clone ${repo}`, execSyncOptions);
+        execSync(`cd ${libPath} git clone ${repo}`, execSyncOptions);
 
         console.log("++++++++++repository cloned++++++++++++");
       }
