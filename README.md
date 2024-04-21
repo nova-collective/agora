@@ -79,7 +79,7 @@ Smart contracts code coverage documentation [here](https://www.npmjs.com/package
 
 | step | library used | theshold | is error blocking |
 |------|--------------|----------|-------------------|
-| Code Linting | [eslint](https://www.npmjs.com/package/eslint) | No thesholds | yes |
+| Code Linting | [eslint](https://www.npmjs.com/package/eslint) | Not applicable | yes |
 | Code duplication | [jscpd](https://www.npmjs.com/package/jscpd) | 10% | yes |
 | Smart contracts unit tests | [jest](https://www.npmjs.com/package/jest) | all tests must pass | yes |
 | TypeScript files unit tests | [jest](https://www.npmjs.com/package/jest) | all tests must pass; 80% code coverage | yes |
