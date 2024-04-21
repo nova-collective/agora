@@ -83,8 +83,6 @@ const functions = {
           `cd ${libPath}/crypto-py && pip install -r requirements.txt`,
           execSyncOptions,
         );
-
-        console.log("++++++++++++ OK ++++++++++++");
       }
     } catch (e) {
       console.log(e);
