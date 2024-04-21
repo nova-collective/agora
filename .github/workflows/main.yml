@@ -32,7 +32,7 @@ jobs:
       run: node ci --function installDeps
     
     - name: install python libs
-      run: node ci --function installPythonLibs --params "{'libs':['crypto-py']}"
+      run: node ci --function installPythonLibs --params "{\"libs\":[\"crypto-py\"]}"
 
     - name: Run linter
       run: node ci --function lint
