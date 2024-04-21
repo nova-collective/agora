@@ -79,8 +79,9 @@ const functions = {
         const repo = config.installPythonLibs.cryptoPyRepo;
 
         execSync(`cd ${libPath} && git clone ${repo}`, execSyncOptions);
+        execSync("pip install -r requirements.txt", execSyncOptions);
 
-        console.log("++++++++++repository cloned++++++++++++");
+        console.log("++++++++++++ OK ++++++++++++");
       }
     } catch (e) {
       console.log(e);
