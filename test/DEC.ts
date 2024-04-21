@@ -2,26 +2,22 @@ import { assert } from "chai";
 import { ethers } from "hardhat";
 import { DEC } from "../typechain-types/DEC";
 import { encryptString, decryptString } from "../lib";
-import { Encrypted } from "eth-crypto";
+import { Encrypted } from "../lib/types";
 
 describe("DEC Contract", () => {
   let dec: DEC;
 
   const encryptedDataFactory = function (
-    iv: string,
-    ephemPublicKey: string,
-    ciphertext: string,
-    mac: string,
+    chiper: string,
+    nonce: string,
   ): Encrypted {
     return {
-      iv,
-      ephemPublicKey,
-      ciphertext,
-      mac,
+      chiper,
+      nonce,
     };
   };
 
-  const taxCode = "12345678901";
+  const taxCode = "CRVRMF12RFV4RTY7";
   const municipality = "Roma";
   const region = "Lazio";
   const country = "Italia";
@@ -34,10 +30,11 @@ describe("DEC Contract", () => {
   let eCountry: Encrypted;
 
   beforeEach(async () => {
-    eTaxCode = await encryptString(taxCode, PRIVATE_KEY);
-    eMunicipality = await encryptString(municipality, PRIVATE_KEY);
-    eRegion = await encryptString(region, PRIVATE_KEY);
-    eCountry = await encryptString(country, PRIVATE_KEY);
+    eTaxCode = encryptString(taxCode, PRIVATE_KEY);
+    eMunicipality = encryptString(municipality, PRIVATE_KEY);
+    eRegion = encryptString(region, PRIVATE_KEY);
+    eCountry = encryptString(country, PRIVATE_KEY);
+
     const DECFactory = await ethers.getContractFactory("DEC");
     dec = await DECFactory.deploy(eTaxCode, eMunicipality, eRegion, eCountry);
   });
@@ -56,43 +53,48 @@ describe("DEC Contract", () => {
     const enTaxCode = encryptedDataFactory(
       registeredTaxCode[0],
       registeredTaxCode[1],
-      registeredTaxCode[2],
-      registeredTaxCode[3],
     );
 
     const enMunicipality = encryptedDataFactory(
       registeredMunicipality[0],
       registeredMunicipality[1],
-      registeredMunicipality[2],
-      registeredMunicipality[3],
     );
 
     const enRegion = encryptedDataFactory(
       registeredRegion[0],
       registeredRegion[1],
-      registeredRegion[2],
-      registeredRegion[3],
     );
 
     const enCountry = encryptedDataFactory(
       registeredCountry[0],
       registeredCountry[1],
-      registeredCountry[2],
-      registeredCountry[3],
     );
 
-    const decodedTaxCode = await decryptString(enTaxCode, PRIVATE_KEY);
-    const decodedMunicipality = await decryptString(
-      enMunicipality,
+    const decodedTaxCode = decryptString(
+      enTaxCode.chiper,
       PRIVATE_KEY,
+      enTaxCode.nonce,
     );
-    const decodedRegion = await decryptString(enRegion, PRIVATE_KEY);
-    const decodedCountry = await decryptString(enCountry, PRIVATE_KEY);
+    const decodedMunicipality = decryptString(
+      enMunicipality.chiper,
+      PRIVATE_KEY,
+      enMunicipality.nonce,
+    );
+    const decodedRegion = decryptString(
+      enRegion.chiper,
+      PRIVATE_KEY,
+      enRegion.nonce,
+    );
+    const decodedCountry = decryptString(
+      enCountry.chiper,
+      PRIVATE_KEY,
+      enCountry.nonce,
+    );
 
-    assert.equal(decodedTaxCode, taxCode);
-    assert.equal(decodedMunicipality, municipality);
-    assert.equal(decodedRegion, region);
-    assert.equal(decodedCountry, country);
+    assert.equal(decodedTaxCode.message, taxCode);
+    assert.equal(decodedMunicipality.message, municipality);
+    assert.equal(decodedRegion.message, region);
+    assert.equal(decodedCountry.message, country);
   });
 
   it("Should set and get tax code correctly", async () => {
@@ -100,12 +102,7 @@ describe("DEC Contract", () => {
 
     const getTaxCode = await dec.getTaxCode();
 
-    const gTaxCode = encryptedDataFactory(
-      getTaxCode[0],
-      getTaxCode[1],
-      getTaxCode[2],
-      getTaxCode[3],
-    );
+    const gTaxCode = encryptedDataFactory(getTaxCode[0], getTaxCode[1]);
 
     assert.equal(JSON.stringify(eTaxCode), JSON.stringify(gTaxCode));
   });
@@ -118,8 +115,6 @@ describe("DEC Contract", () => {
     const gMunicipality = encryptedDataFactory(
       getMunicipality[0],
       getMunicipality[1],
-      getMunicipality[2],
-      getMunicipality[3],
     );
 
     assert.equal(JSON.stringify(eMunicipality), JSON.stringify(gMunicipality));
@@ -130,12 +125,7 @@ describe("DEC Contract", () => {
 
     const getRegion = await dec.getRegion();
 
-    const gRegion = encryptedDataFactory(
-      getRegion[0],
-      getRegion[1],
-      getRegion[2],
-      getRegion[3],
-    );
+    const gRegion = encryptedDataFactory(getRegion[0], getRegion[1]);
 
     assert.equal(JSON.stringify(eRegion), JSON.stringify(gRegion));
   });
@@ -145,12 +135,7 @@ describe("DEC Contract", () => {
 
     const getCountry = await dec.getCountry();
 
-    const gCountry = encryptedDataFactory(
-      getCountry[0],
-      getCountry[1],
-      getCountry[2],
-      getCountry[3],
-    );
+    const gCountry = encryptedDataFactory(getCountry[0], getCountry[1]);
 
     assert.equal(JSON.stringify(eCountry), JSON.stringify(gCountry));
   });

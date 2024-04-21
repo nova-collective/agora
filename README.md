@@ -23,6 +23,7 @@ Agora is a web3 dApp based on the [Hardhat framework](https://hardhat.org/) and 
 In order to run the application you need the following software installed on you machine:
 
 * [Node.js](https://nodejs.org/en) v20.11.1 or above
+* [Python](https://www.python.org/) v3.11.2 or above
 
 You also need an Alchemy account.
 
@@ -38,6 +39,18 @@ To setup the application follow these steps:
     * `ALCHEMY_PRIVATE_KEY` You can find the data in your Alchemy account;
     * `REPORT_GAS` enable or disable the gas report on smart contracts unit tests executions;
     * `NODE_ENV` set `development` for your local machine;
+
+### Install crypto-py
+
+Agora uses a Python external library for cryptographic operations called [crypto-py](https://github.com/nova-collective/crypto-py). This library needs to be
+manually integrated into the Hardhat framework, follow this steps:
+
+5. from the root folder of application, go to the `lib` folder;
+6. clone `crypto-py` inside the lib folder;
+6. go inside the crypto-py folder and install the dependencies `pip install -r requirements.txt`;
+7. if you decide to set a python environment inside the crypto-py folder, remember to activate the environment;
+
+Alternatively, If you are in a Unix environment, you can clone the library somewhere else and create a symbolic link inside the Agora lib folder.
 
 ## How to commit
 
