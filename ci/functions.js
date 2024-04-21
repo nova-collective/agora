@@ -78,7 +78,7 @@ const functions = {
         const libPath = path.resolve("lib");
         const repo = config.installPythonLibs.cryptoPyRepo;
 
-        execSync(`cd ${libPath} git clone ${repo}`, execSyncOptions);
+        execSync(`cd ${libPath} && git clone ${repo}`, execSyncOptions);
 
         console.log("++++++++++repository cloned++++++++++++");
       }
