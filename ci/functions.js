@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const execSync = require("child_process").execSync;
 const fs = require("fs");
+const path = require("path");
+const config = require("./config");
 
 const execSyncOptions = { stdio: "inherit" };
 
@@ -63,6 +65,25 @@ const functions = {
         execSyncOptions,
       );
       execSync("git push origin --tags", execSyncOptions);
+    } catch (e) {
+      console.log(e);
+      process.exit(1);
+    }
+  },
+  installPythonLibs: function ({ libs }) {
+    console.log(libs);
+
+    try {
+      if (libs.includes("crypto-py")) {
+        const libPath = path.resolve("lib");
+        const repo = config.installPythonLibs.cryptoPyRepo;
+
+        execSync(`cd ${libPath} && git clone ${repo}`, execSyncOptions);
+        execSync(
+          `cd ${libPath}/crypto-py && pip install -r requirements.txt`,
+          execSyncOptions,
+        );
+      }
     } catch (e) {
       console.log(e);
       process.exit(1);

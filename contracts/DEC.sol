@@ -12,10 +12,8 @@ contract DEC {
     Encrypted country;
 
     struct Encrypted {
-        string iv;
-        string ephemPublicKey;
-        string ciphertext;
-        string mac;
+        string chiper;
+        string nonce;
     }
 
     constructor(

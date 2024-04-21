@@ -6,8 +6,9 @@
  * is because If we send the data and then encrypt it in solidity, the data will be visible in the transaction that
  * in the first place was used to send the data to the contract. Also, solidity doesn't have a function to encrypt.
  */
-import * as EthCrypto from "eth-crypto";
-import { Encrypted } from "eth-crypto";
+import { Encrypted, Decrypted } from "./types";
+import { execSync, ExecSyncOptionsWithStringEncoding } from "child_process";
+import * as path from "path";
 
 /**
  * This function encrypt a string by using a private key possibly from an EOA (Voter's account).
@@ -16,20 +17,36 @@ import { Encrypted } from "eth-crypto";
  *
  * @param {string} decryptedString - the string to be encrypted
  * @param {string} privateKey - a private key, e.g. from the EOA
- * @returns {Promise<Encrypted>} - the encrypted output string
+ * @returns {Encrypted} - the encrypted output string
  */
-export async function encryptString(
+export function encryptString(
   decryptedString: string,
   privateKey: string,
-): Promise<Encrypted> {
+): Encrypted {
   try {
-    const publicKey = await EthCrypto.publicKeyByPrivateKey(privateKey);
+    const execSyncOptions = {
+      stdio: "pipe",
+    } as ExecSyncOptionsWithStringEncoding;
 
-    const encrypted = await EthCrypto.encryptWithPublicKey(
-      publicKey,
-      decryptedString,
+    if (privateKey.startsWith("0x")) {
+      privateKey = privateKey.substring(2);
+    }
+
+    const cryptoPyPath = getCryptoPyPath();
+
+    const encrypted = execSync(
+      `cd ${cryptoPyPath} && python3 Crypto.py AESGCM_encrypt --key="${privateKey}" --secret="${decryptedString}"`,
+      execSyncOptions,
     );
-    return encrypted;
+
+    const en = encrypted.toString().split("\n");
+    const chiper = en[0].split(" ")[1];
+    const nonce = en[1].split("  ")[1];
+
+    return {
+      chiper,
+      nonce,
+    };
   } catch (e) {
     console.error(e);
     throw new Error("Error encrypting string");
@@ -41,20 +58,48 @@ export async function encryptString(
  *
  * @param {Encrypted} encryptedString - the secret to decrypt
  * @param {string}  privateKey - A private key possibly from an EOA
- * @returns {Promise<string>} - the string decrypted
+ * @param {string}  nonce - The nonce value used for the encryption
+ * @returns {Decrypted} - the string decrypted
  */
-export async function decryptString(
-  encryptedString: Encrypted,
+export function decryptString(
+  encryptedString: string,
   privateKey: string,
-): Promise<string> {
+  nonce: string,
+): Decrypted {
   try {
-    const decrypted = await EthCrypto.decryptWithPrivateKey(
-      privateKey,
-      encryptedString,
+    const execSyncOptions = {
+      stdio: "pipe",
+    } as ExecSyncOptionsWithStringEncoding;
+
+    if (privateKey.startsWith("0x")) {
+      privateKey = privateKey.substring(2);
+    }
+
+    const cryptoPyPath = getCryptoPyPath();
+    const decrypted = execSync(
+      `cd ${cryptoPyPath} && python3 Crypto.py AESGCM_decrypt --key=${privateKey} --nonce=${nonce} --chiper=${encryptedString}`,
+      execSyncOptions,
     );
-    return decrypted;
+
+    const de = decrypted.toString().split("\n");
+    const message = de[0].substring(
+      de[0].indexOf("message: ") + "message: ".length,
+    );
+
+    return { message };
   } catch (e) {
-    console.error(e);
     throw new Error("Error decrypting string");
   }
+}
+
+/**
+ * The crypto-py library should be manually copy-pasted (or git cloned) inside the lib folder.
+ * Linux and MacOS users can in alternative create a symbolic link.
+ * After that, activate the python venv in the crypto-py folder, e.g. for linux: source venv/bin/activate
+ *
+ * @returns {string} - the absolute path of the crypto-py library
+ */
+function getCryptoPyPath() {
+  const cryptoRelativePath = path.join("lib", "crypto-py");
+  return path.resolve(cryptoRelativePath);
 }
