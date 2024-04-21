@@ -19,3 +19,6 @@ report
 
 #ignition files
 /ignition/deployments
+
+# external libs linked by symlinks
+crypto-py

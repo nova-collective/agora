@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd lib && ln -s ../../crypto-py crypto-py

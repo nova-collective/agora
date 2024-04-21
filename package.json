@@ -1,6 +1,6 @@
 {
   "name": "agora",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A confidentiality-first electronic voting system",
   "author": {
     "name": "nova collective",
@@ -22,10 +22,11 @@
     "coverage-contracts": "npx hardhat coverage",
     "deploy-contract": "./script/deploy",
     "duplicated": "npx jscpd",
+    "integrate-external-libs": "./script/lib-integration",
     "lint": "npx lint-staged",
+    "node:start": "npx hardhat node",
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
-    "node:start": "npx hardhat node",
     "test-contracts": "npx hardhat test",
     "test-scripts": " jest --coverage --bail --forceExit"
   },
@@ -53,8 +54,7 @@
     "npm": "~10.2.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "eth-crypto": "^2.6.0"
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",

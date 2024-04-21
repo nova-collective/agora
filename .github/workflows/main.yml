@@ -22,9 +22,17 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 20.x
+    
+    - name: Set up Python 3
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
 
     - name: Install dependencies
       run: node ci --function installDeps
+    
+    - name: install python libs
+      run: node ci --function installPythonLibs --params "{\"libs\":[\"crypto-py\"]}"
 
     - name: Run linter
       run: node ci --function lint

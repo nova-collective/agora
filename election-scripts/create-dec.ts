@@ -13,7 +13,7 @@ import { ethers } from "hardhat";
 import { DEC, Response, result, CreateDECResponse } from "./types";
 import { DECMock, VoterEOA } from "./__mocks__";
 import { encryptString } from "../lib";
-import { Encrypted } from "eth-crypto";
+import { Encrypted } from "../lib/types";
 
 /**
  * This function encrypt the Voter's DECs data and deploys the smart contract instance.
@@ -35,10 +35,10 @@ export async function main(
     const dec = decsData || DECMock;
     const key = privateKey || VoterEOA.privateKey;
 
-    const eTaxCode: Encrypted = await encryptString(dec.taxCode, key);
-    const eMunicipality: Encrypted = await encryptString(dec.municipality, key);
-    const eRegion: Encrypted = await encryptString(dec.region, key);
-    const eCountry: Encrypted = await encryptString(dec.country, key);
+    const eTaxCode: Encrypted = encryptString(dec.taxCode, key);
+    const eMunicipality: Encrypted = encryptString(dec.municipality, key);
+    const eRegion: Encrypted = encryptString(dec.region, key);
+    const eCountry: Encrypted = encryptString(dec.country, key);
 
     const contract = await ContractFactory.deploy(
       eTaxCode,
