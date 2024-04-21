@@ -39,14 +39,9 @@ export function encryptString(
       execSyncOptions,
     );
 
-    const en = encrypted.toString().split("\n");
-    const chiper = en[0].split(" ")[1];
-    const nonce = en[1].split("  ")[1];
+    const response: Encrypted = JSON.parse(encrypted.toString());
 
-    return {
-      chiper,
-      nonce,
-    };
+    return response;
   } catch (e) {
     console.error(e);
     throw new Error("Error encrypting string");
@@ -81,12 +76,9 @@ export function decryptString(
       execSyncOptions,
     );
 
-    const de = decrypted.toString().split("\n");
-    const message = de[0].substring(
-      de[0].indexOf("message: ") + "message: ".length,
-    );
+    const response: Decrypted = JSON.parse(decrypted.toString());
 
-    return { message };
+    return response;
   } catch (e) {
     throw new Error("Error decrypting string");
   }
