@@ -10,10 +10,12 @@ describe("DEC Contract", () => {
   const encryptedDataFactory = function (
     chiper: string,
     nonce: string,
+    sha: string,
   ): Encrypted {
     return {
       chiper,
       nonce,
+      sha,
     };
   };
 
@@ -45,29 +47,33 @@ describe("DEC Contract", () => {
       await (await ethers.provider.getSigner(0)).getAddress(),
     );
 
-    const registeredTaxCode = await dec.getTaxCode();
-    const registeredMunicipality = await dec.getMunicipality();
-    const registeredRegion = await dec.getRegion();
-    const registeredCountry = await dec.getCountry();
+    const registeredTaxCode: Encrypted = await dec.taxCode();
+    const registeredMunicipality: Encrypted = await dec.municipality();
+    const registeredRegion: Encrypted = await dec.region();
+    const registeredCountry: Encrypted = await dec.country();
 
     const enTaxCode = encryptedDataFactory(
-      registeredTaxCode[0],
-      registeredTaxCode[1],
+      registeredTaxCode.chiper,
+      registeredTaxCode.nonce,
+      registeredTaxCode.sha,
     );
 
     const enMunicipality = encryptedDataFactory(
-      registeredMunicipality[0],
-      registeredMunicipality[1],
+      registeredMunicipality.chiper,
+      registeredMunicipality.nonce,
+      registeredMunicipality.sha,
     );
 
     const enRegion = encryptedDataFactory(
-      registeredRegion[0],
-      registeredRegion[1],
+      registeredRegion.chiper,
+      registeredRegion.nonce,
+      registeredRegion.sha,
     );
 
     const enCountry = encryptedDataFactory(
-      registeredCountry[0],
-      registeredCountry[1],
+      registeredCountry.chiper,
+      registeredCountry.nonce,
+      registeredCountry.sha,
     );
 
     const decodedTaxCode = decryptString(
@@ -100,9 +106,13 @@ describe("DEC Contract", () => {
   it("Should set and get tax code correctly", async () => {
     await dec.setTaxCode(eTaxCode);
 
-    const getTaxCode = await dec.getTaxCode();
+    const getTaxCode = await dec.taxCode();
 
-    const gTaxCode = encryptedDataFactory(getTaxCode[0], getTaxCode[1]);
+    const gTaxCode = encryptedDataFactory(
+      getTaxCode.chiper,
+      getTaxCode.nonce,
+      getTaxCode.sha,
+    );
 
     assert.equal(JSON.stringify(eTaxCode), JSON.stringify(gTaxCode));
   });
@@ -110,11 +120,12 @@ describe("DEC Contract", () => {
   it("Should set and get municipality correctly", async () => {
     await dec.setMunicipality(eMunicipality);
 
-    const getMunicipality = await dec.getMunicipality();
+    const getMunicipality = await dec.municipality();
 
     const gMunicipality = encryptedDataFactory(
-      getMunicipality[0],
-      getMunicipality[1],
+      getMunicipality.chiper,
+      getMunicipality.nonce,
+      getMunicipality.sha,
     );
 
     assert.equal(JSON.stringify(eMunicipality), JSON.stringify(gMunicipality));
@@ -123,9 +134,13 @@ describe("DEC Contract", () => {
   it("Should set and get region correctly", async () => {
     await dec.setRegion(eRegion);
 
-    const getRegion = await dec.getRegion();
+    const getRegion = await dec.region();
 
-    const gRegion = encryptedDataFactory(getRegion[0], getRegion[1]);
+    const gRegion = encryptedDataFactory(
+      getRegion.chiper,
+      getRegion.nonce,
+      getRegion.sha,
+    );
 
     assert.equal(JSON.stringify(eRegion), JSON.stringify(gRegion));
   });
@@ -133,9 +148,13 @@ describe("DEC Contract", () => {
   it("Should set and get country correctly", async () => {
     await dec.setCountry(eCountry);
 
-    const getCountry = await dec.getCountry();
+    const getCountry = await dec.country();
 
-    const gCountry = encryptedDataFactory(getCountry[0], getCountry[1]);
+    const gCountry = encryptedDataFactory(
+      getCountry.chiper,
+      getCountry.nonce,
+      getCountry.sha,
+    );
 
     assert.equal(JSON.stringify(eCountry), JSON.stringify(gCountry));
   });

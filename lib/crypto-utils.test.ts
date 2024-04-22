@@ -1,4 +1,4 @@
-import { encryptString, decryptString } from "./crypto-utils";
+import { encryptString, decryptString, getHash } from "./crypto-utils";
 import { mockEOAs } from "./__mocks__";
 
 describe("Crypto Utils", () => {
@@ -29,5 +29,15 @@ describe("Crypto Utils", () => {
     } catch (e: any) {
       expect(e.message).toBe("Error decrypting string");
     }
+  });
+
+  it("should return a SHA hash for a given message", () => {
+    const message = "Hello, world!";
+    const expectedHash =
+      "f345a219da005ebe9c1a1eaad97bbf38a10c8473e41d0af7fb617caa0c6aa722";
+
+    const result = getHash(message);
+
+    expect(result).toEqual({ sha: expectedHash });
   });
 });
