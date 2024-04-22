@@ -10,12 +10,12 @@ describe("DEC Contract", () => {
   const encryptedDataFactory = function (
     chiper: string,
     nonce: string,
-    sha: string,
+    hash: string,
   ): Encrypted {
     return {
       chiper,
       nonce,
-      sha,
+      hash,
     };
   };
 
@@ -55,25 +55,25 @@ describe("DEC Contract", () => {
     const enTaxCode = encryptedDataFactory(
       registeredTaxCode.chiper,
       registeredTaxCode.nonce,
-      registeredTaxCode.sha,
+      registeredTaxCode.hash,
     );
 
     const enMunicipality = encryptedDataFactory(
       registeredMunicipality.chiper,
       registeredMunicipality.nonce,
-      registeredMunicipality.sha,
+      registeredMunicipality.hash,
     );
 
     const enRegion = encryptedDataFactory(
       registeredRegion.chiper,
       registeredRegion.nonce,
-      registeredRegion.sha,
+      registeredRegion.hash,
     );
 
     const enCountry = encryptedDataFactory(
       registeredCountry.chiper,
       registeredCountry.nonce,
-      registeredCountry.sha,
+      registeredCountry.hash,
     );
 
     const decodedTaxCode = decryptString(
@@ -111,7 +111,7 @@ describe("DEC Contract", () => {
     const gTaxCode = encryptedDataFactory(
       getTaxCode.chiper,
       getTaxCode.nonce,
-      getTaxCode.sha,
+      getTaxCode.hash,
     );
 
     assert.equal(JSON.stringify(eTaxCode), JSON.stringify(gTaxCode));
@@ -125,7 +125,7 @@ describe("DEC Contract", () => {
     const gMunicipality = encryptedDataFactory(
       getMunicipality.chiper,
       getMunicipality.nonce,
-      getMunicipality.sha,
+      getMunicipality.hash,
     );
 
     assert.equal(JSON.stringify(eMunicipality), JSON.stringify(gMunicipality));
@@ -139,7 +139,7 @@ describe("DEC Contract", () => {
     const gRegion = encryptedDataFactory(
       getRegion.chiper,
       getRegion.nonce,
-      getRegion.sha,
+      getRegion.hash,
     );
 
     assert.equal(JSON.stringify(eRegion), JSON.stringify(gRegion));
@@ -153,7 +153,7 @@ describe("DEC Contract", () => {
     const gCountry = encryptedDataFactory(
       getCountry.chiper,
       getCountry.nonce,
-      getCountry.sha,
+      getCountry.hash,
     );
 
     assert.equal(JSON.stringify(eCountry), JSON.stringify(gCountry));
