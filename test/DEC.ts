@@ -8,12 +8,14 @@ describe("DEC Contract", () => {
   let dec: DEC;
 
   const encryptedDataFactory = function (
+    sha: string,
     chiper: string,
     nonce: string,
   ): Encrypted {
     return {
       chiper,
       nonce,
+      sha,
     };
   };
 
@@ -53,21 +55,25 @@ describe("DEC Contract", () => {
     const enTaxCode = encryptedDataFactory(
       registeredTaxCode[0],
       registeredTaxCode[1],
+      registeredTaxCode[2],
     );
 
     const enMunicipality = encryptedDataFactory(
       registeredMunicipality[0],
       registeredMunicipality[1],
+      registeredMunicipality[2],
     );
 
     const enRegion = encryptedDataFactory(
       registeredRegion[0],
       registeredRegion[1],
+      registeredRegion[2],
     );
 
     const enCountry = encryptedDataFactory(
       registeredCountry[0],
       registeredCountry[1],
+      registeredCountry[2],
     );
 
     const decodedTaxCode = decryptString(
@@ -102,7 +108,11 @@ describe("DEC Contract", () => {
 
     const getTaxCode = await dec.getTaxCode();
 
-    const gTaxCode = encryptedDataFactory(getTaxCode[0], getTaxCode[1]);
+    const gTaxCode = encryptedDataFactory(
+      getTaxCode[0],
+      getTaxCode[1],
+      getTaxCode[2],
+    );
 
     assert.equal(JSON.stringify(eTaxCode), JSON.stringify(gTaxCode));
   });
@@ -115,6 +125,7 @@ describe("DEC Contract", () => {
     const gMunicipality = encryptedDataFactory(
       getMunicipality[0],
       getMunicipality[1],
+      getMunicipality[2],
     );
 
     assert.equal(JSON.stringify(eMunicipality), JSON.stringify(gMunicipality));
@@ -125,7 +136,11 @@ describe("DEC Contract", () => {
 
     const getRegion = await dec.getRegion();
 
-    const gRegion = encryptedDataFactory(getRegion[0], getRegion[1]);
+    const gRegion = encryptedDataFactory(
+      getRegion[0],
+      getRegion[1],
+      getRegion[2],
+    );
 
     assert.equal(JSON.stringify(eRegion), JSON.stringify(gRegion));
   });
@@ -135,7 +150,11 @@ describe("DEC Contract", () => {
 
     const getCountry = await dec.getCountry();
 
-    const gCountry = encryptedDataFactory(getCountry[0], getCountry[1]);
+    const gCountry = encryptedDataFactory(
+      getCountry[0],
+      getCountry[1],
+      getCountry[2],
+    );
 
     assert.equal(JSON.stringify(eCountry), JSON.stringify(gCountry));
   });

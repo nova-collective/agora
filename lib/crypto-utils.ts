@@ -40,6 +40,7 @@ export function encryptString(
     );
 
     const response: Encrypted = JSON.parse(encrypted.toString());
+    response.sha = getHash(decryptedString).sha;
 
     return response;
   } catch (e) {
