@@ -38,6 +38,6 @@ describe("Crypto Utils", () => {
 
     const result = getHash(message);
 
-    expect(result).toEqual({ sha: expectedHash });
+    expect(result).toEqual({ hash: expectedHash });
   });
 });

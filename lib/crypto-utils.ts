@@ -6,7 +6,7 @@
  * is because If we send the data and then encrypt it in solidity, the data will be visible in the transaction that
  * in the first place was used to send the data to the contract. Also, solidity doesn't have a function to encrypt.
  */
-import { Encrypted, Decrypted, Sha } from "./types";
+import { Encrypted, Decrypted, Hash } from "./types";
 import { execSync, ExecSyncOptionsWithStringEncoding } from "child_process";
 import * as path from "path";
 
@@ -40,7 +40,7 @@ export function encryptString(
     );
 
     const response: Encrypted = JSON.parse(encrypted.toString());
-    response.sha = getHash(decryptedString).sha;
+    response.hash = getHash(decryptedString).hash;
 
     return response;
   } catch (e) {
@@ -85,7 +85,7 @@ export function decryptString(
   }
 }
 
-export function getHash(message: string): Sha {
+export function getHash(message: string): Hash {
   try {
     const execSyncOptions = {
       stdio: "pipe",
@@ -97,7 +97,7 @@ export function getHash(message: string): Sha {
       execSyncOptions,
     );
 
-    const response: Sha = JSON.parse(hashed.toString());
+    const response: Hash = JSON.parse(hashed.toString());
 
     return response;
   } catch (e: any) {

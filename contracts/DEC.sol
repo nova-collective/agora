@@ -12,7 +12,7 @@ contract DEC {
     Encrypted public country;
 
     struct Encrypted {
-        string sha;
+        string hash;
         string chiper;
         string nonce;
     }
