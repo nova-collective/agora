@@ -6,12 +6,13 @@ pragma solidity ^0.8.24;
 /// @custom:experimental This is an experimental contract.
 contract DEC {
     address public owner;
-    Encrypted taxCode;
-    Encrypted municipality;
-    Encrypted region;
-    Encrypted country;
+    Encrypted public taxCode;
+    Encrypted public municipality;
+    Encrypted public region;
+    Encrypted public country;
 
     struct Encrypted {
+        string sha;
         string chiper;
         string nonce;
     }
@@ -39,33 +40,15 @@ contract DEC {
         taxCode = _taxCode;
     }
 
-    function getTaxCode() external view returns (Encrypted memory) {
-        return taxCode;
-    }
-
     function setMunicipality(Encrypted memory _municipality) external onlyOwner {
         municipality = _municipality;
-    }
-
-    function getMunicipality() external view returns (Encrypted memory) {
-        return municipality;
     }
 
     function setRegion(Encrypted memory _region) external onlyOwner {
         region = _region;
     }
 
-    function getRegion() external view returns (Encrypted memory) {
-        return region;
-    }
-
     function setCountry(Encrypted memory _country) external onlyOwner {
         country = _country;
     }
-
-    function getCountry() external view returns (Encrypted memory) {
-        return country;
-    }
-
-
 }
