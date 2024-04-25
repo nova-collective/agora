@@ -1,4 +1,4 @@
-struct partiesCoalition1 {
+struct PartiesCoalition1 {
     field partitoDemocratico;
     field cinqueStelle;
 }
@@ -19,7 +19,7 @@ struct Coalition2 {
     PartiesCoalition2 partiesCoalition2;
 }
 
-struct Coalitions = {
+struct Coalitions {
     Coalition1 coalition1;
     Coalition2 coalition2;
 }

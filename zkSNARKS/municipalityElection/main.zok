@@ -1,15 +1,13 @@
-from "types" import Coalitions;                    
+from "./types" import Coalitions;                    
 
 def main(private Coalitions ballot, field points) {
-    // The sum of the points assigned to the candidates and the parties does not exceed 20
-
     field sum = ballot.coalition1.majorCandidate + 
                 ballot.coalition2.majorCandidate +
                 ballot.coalition1.partiesCoalition1.partitoDemocratico + 
                 ballot.coalition1.partiesCoalition1.cinqueStelle +
                 ballot.coalition2.partiesCoalition2.forzaItalia +
-                ballot.coalition2.partiesCoalition2.lega
+                ballot.coalition2.partiesCoalition2.lega;
 
-    assert(sum <= points)
+    assert(sum <= points);
     return;
 }

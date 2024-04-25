@@ -1,0 +1,90 @@
+{
+  "inputs": [
+    {
+      "name": "ballot",
+      "public": false,
+      "type": "struct",
+      "components": {
+        "name": "Coalitions",
+        "generics": [],
+        "members": [
+          {
+            "name": "coalition1",
+            "type": "struct",
+            "components": {
+              "name": "Coalition1",
+              "generics": [],
+              "members": [
+                {
+                  "name": "majorCandidate",
+                  "type": "field"
+                },
+                {
+                  "name": "partiesCoalition1",
+                  "type": "struct",
+                  "components": {
+                    "name": "PartiesCoalition1",
+                    "generics": [],
+                    "members": [
+                      {
+                        "name": "partitoDemocratico",
+                        "type": "field"
+                      },
+                      {
+                        "name": "cinqueStelle",
+                        "type": "field"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "coalition2",
+            "type": "struct",
+            "components": {
+              "name": "Coalition2",
+              "generics": [],
+              "members": [
+                {
+                  "name": "majorCandidate",
+                  "type": "field"
+                },
+                {
+                  "name": "partiesCoalition2",
+                  "type": "struct",
+                  "components": {
+                    "name": "PartiesCoalition2",
+                    "generics": [],
+                    "members": [
+                      {
+                        "name": "forzaItalia",
+                        "type": "field"
+                      },
+                      {
+                        "name": "lega",
+                        "type": "field"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "points",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "output": {
+    "type": "tuple",
+    "components": {
+      "elements": []
+    }
+  }
+}
