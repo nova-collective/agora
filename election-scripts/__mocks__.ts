@@ -20,7 +20,7 @@ export const DECMock = {
 };
 
 export const MUNICIPALITY_ELECTION_DATA = {
-  name: "Election of major of Braccagni city",
+  name: "Election of mayor of Braccagni city",
   municipality: "Braccagni",
   region: "Toscana",
   country: "Italy",
@@ -29,10 +29,10 @@ export const MUNICIPALITY_ELECTION_DATA = {
   votingPoints: 20,
 };
 
-export const PARTY_NAME_A = "Partito Democratico";
-export const PARTY_NAME_B = "Forza Italia";
-export const PARTY_NAME_C = "Cinque Stelle";
-export const PARTY_NAME_D = "Lega";
+export const PARTY_NAME_A = "partitoDemocratico";
+export const PARTY_NAME_B = "cinqueStelle";
+export const PARTY_NAME_C = "forzaItalia";
+export const PARTY_NAME_D = "lega";
 
 export const MAJOR_CANDIDATE_1 = "Pino Pini";
 export const MAJOR_CANDIDATE_2 = "Ugo Silenti";

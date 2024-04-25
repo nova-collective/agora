@@ -21,7 +21,7 @@ export type CreateDECResponse = {
 };
 
 export enum Candidature {
-  MAJOR = "major",
+  MAJOR = "mayor",
   COUNCILOR = "councilor",
 }
 
@@ -38,7 +38,7 @@ export type Party = {
 };
 
 export type Coalition = {
-  majorCandidate: Candidate;
+  mayorCandidate: Candidate;
   parties: Party[];
 };
 

@@ -1,0 +1,25 @@
+struct partiesCoalition1 {
+    field partitoDemocratico;
+    field cinqueStelle;
+}
+
+struct PartiesCoalition2 {
+    field forzaItalia;
+    field lega;
+}
+
+
+struct Coalition1 {
+    field majorCandidate;
+    PartiesCoalition1 partiesCoalition1;
+}
+
+struct Coalition2 {
+    field majorCandidate;
+    PartiesCoalition2 partiesCoalition2;
+}
+
+struct Coalitions = {
+    Coalition1 coalition1;
+    Coalition2 coalition2;
+}
