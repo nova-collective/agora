@@ -103,6 +103,10 @@ Based on this ballot, the following secret is accepted:
 }
 ```
 
+"Coalitions { coalition1: Coalition1 { mayorCandidate: 10, partiesCoalition1: PartiesCoalition1 { partitoDemocratico: 5, cinqueStelle: 5 } }, coalition2: Coalition2 { mayorCandidate: 0, partiesCoalition2: PartiesCoalition2 { forzaItalia: 0, lega: 0 } } }"
+
+"[{"coalition1":{"mayorCandidate":10,"partiesCoalition1":{"partitoDemocratico": 5,"cinqueStelle":5}},"coalition2":{"mayorCandidate":0,"partiesCoalition2":{ "forzaItalia":0,"lega":0}}}]"
+
 
 
 ## Voting mechanism
@@ -119,3 +123,21 @@ It is possible to assign points to more that one mayor candidate at the same tim
 1. The sum of the points assigned to the candidates and the parties does not exceed 20;
 2. Since a voter can assign negative points in that way that the sum is 20, the second proof verifies that the points assigned are positive integers;
 3. The third proof consist to demonstrate that the voter knows for whom he/she is voting;
+
+
+## How to generate the proof
+
+```
+   # compile
+   zokrates compile -i root.zok
+   # perform the setup phase
+   zokrates setup
+   # execute the program
+   zokrates compute-witness --abi --stdin < sample.json
+   # generate a proof of computation
+   zokrates generate-proof
+   # export a solidity verifier
+   zokrates export-verifier
+   # or verify natively
+   zokrates verify
+```

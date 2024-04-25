@@ -16,7 +16,7 @@
               "generics": [],
               "members": [
                 {
-                  "name": "majorCandidate",
+                  "name": "mayorCandidate",
                   "type": "field"
                 },
                 {
@@ -48,7 +48,7 @@
               "generics": [],
               "members": [
                 {
-                  "name": "majorCandidate",
+                  "name": "mayorCandidate",
                   "type": "field"
                 },
                 {

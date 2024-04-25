@@ -10,12 +10,12 @@ struct PartiesCoalition2 {
 
 
 struct Coalition1 {
-    field majorCandidate;
+    field mayorCandidate;
     PartiesCoalition1 partiesCoalition1;
 }
 
 struct Coalition2 {
-    field majorCandidate;
+    field mayorCandidate;
     PartiesCoalition2 partiesCoalition2;
 }
 
