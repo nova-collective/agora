@@ -141,3 +141,9 @@ It is possible to assign points to more that one mayor candidate at the same tim
    # or verify natively
    zokrates verify
 ```
+
+## Useful resources
+
+* [zokrates library documentation](https://zokrates.github.io/)
+* [generates proof demo](https://www.youtube.com/watch?v=_ZvGZxhCFfE&list=PLxv20mV-gBMO_oDoqnYRxtzBVU8ai9c4A&index=2&ab_channel=PaulBrody)
+* [provide arguments as JSON](https://github.com/Zokrates/ZoKrates/issues/105)
