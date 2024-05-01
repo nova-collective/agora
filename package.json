@@ -28,7 +28,7 @@
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
     "test-contracts": "npx hardhat test",
-    "test-scripts": " jest --coverage --bail --forceExit"
+    "test-scripts": "jest --coverage --bail --forceExit"
   },
   "repository": {
     "type": "git",

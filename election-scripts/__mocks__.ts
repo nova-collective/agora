@@ -7,9 +7,9 @@ export const DECsRegistryData = {
 };
 
 export const VoterEOA = {
-  address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  address: "0xdD2FD4581271e230360230F9337D5c0430Bf44C0",
   privateKey:
-    "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+    "0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0",
 };
 
 export const DECMock = {

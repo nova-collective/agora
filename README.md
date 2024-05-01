@@ -6,6 +6,8 @@
 
 A confidentiality-first electronic voting system.
 
+_this is an experimental project, don't use it in production_
+
 ## About
 
 Agora is a voting platform based on the [Ethereum](https://ethereum.org/en/) public blockchain and a [Zero-Knowledge Proof](https://zkp.science/) cryptographic protocol.
