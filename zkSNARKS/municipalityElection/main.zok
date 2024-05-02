@@ -1,0 +1,13 @@
+from "./types" import Coalitions;                    
+
+def main(private Coalitions ballot, field points) {
+    field sum = ballot.coalition1.mayorCandidate + 
+                ballot.coalition2.mayorCandidate +
+                ballot.coalition1.partiesCoalition1.partitoDemocratico + 
+                ballot.coalition1.partiesCoalition1.cinqueStelle +
+                ballot.coalition2.partiesCoalition2.forzaItalia +
+                ballot.coalition2.partiesCoalition2.lega;
+
+    assert(sum <= points);
+    return;
+}

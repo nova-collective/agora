@@ -35,7 +35,7 @@ export function encryptString(
     const cryptoPyPath = getCryptoPyPath();
 
     const encrypted = execSync(
-      `cd ${cryptoPyPath} && python3 Crypto.py AESGCM_encrypt --key="${privateKey}" --secret="${decryptedString}"`,
+      `cd ${cryptoPyPath} && python3 -m crypto AESGCM_encrypt --key="${privateKey}" --secret="${decryptedString}"`,
       execSyncOptions,
     );
 
@@ -73,7 +73,7 @@ export function decryptString(
 
     const cryptoPyPath = getCryptoPyPath();
     const decrypted = execSync(
-      `cd ${cryptoPyPath} && python3 Crypto.py AESGCM_decrypt --key=${privateKey} --nonce=${nonce} --chiper=${encryptedString}`,
+      `cd ${cryptoPyPath} && python3 -m crypto AESGCM_decrypt --key=${privateKey} --nonce=${nonce} --chiper=${encryptedString}`,
       execSyncOptions,
     );
 
@@ -93,7 +93,7 @@ export function getHash(message: string): Hash {
 
     const cryptoPyPath = getCryptoPyPath();
     const hashed = execSync(
-      `cd ${cryptoPyPath} && python3 Crypto.py sha3_256 --input="${message}"`,
+      `cd ${cryptoPyPath} && python3 -m crypto sha3_256 --input="${message}"`,
       execSyncOptions,
     );
 
@@ -104,6 +104,18 @@ export function getHash(message: string): Hash {
     throw new Error("Error hashing the message");
   }
 }
+
+/**
+ *  For the ballot encryption must be implemented a threshold homomorphic encryption in order
+ *  to produce a number of shares of the private_key to distribute across different electoral authorities.
+ *  The shares of the private_key are used together to decrypt the electoral results.
+ *
+ *  Such protocol avoids that a single actor which posses the private_key can decrypt a single ballot.
+ *  Anyway there are no threshold homomorphic implementations ready to be used. In this case we proceed using a
+ *  partially homomorphic encryption scheme, with a classical public/private keys pair.
+ *  It is important to note that the private key can decrypt the ballot in this case: don't use this software in
+ *  production.
+ */
 
 /**
  * The crypto-py library should be manually copy-pasted (or git cloned) inside the lib folder.

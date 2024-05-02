@@ -6,7 +6,7 @@
  *
  * This is the fifth step of the voting process: a public authority creates an election by
  * deploying the election smart contract passing the required data in the constructor.
- * Then, the script registers the parties and the names of the councilior and major candidates.
+ * Then, the script registers the parties and the names of the councilior and mayor candidates.
  */
 import { ethers } from "hardhat";
 import {
@@ -34,7 +34,7 @@ import {
 let owner: Signer;
 /**
  * This function deploys the contract, registers the parties, the coalitions, the councilor candidates and the
- * major candidate to a given municipality election contract and returns the list of the data registered ready to be use for a ballot.
+ * mayor candidate to a given municipality election contract and returns the list of the data registered ready to be use for a ballot.
  *
  * @param {ElectionData} electionData - data required to deploy the smart contract, used for testing purposes
  * @returns {Promise<Response<Ballot>>} - this response contains the data of the ballot to be used for voting
@@ -89,7 +89,7 @@ export async function main(
     const coalition1Raw = await contract.getCoalition(0);
 
     const coalition1: Coalition = {
-      majorCandidate: {
+      mayorCandidate: {
         name: coalition1Raw[0][0],
         candidatesFor: coalition1Raw[0][1] as Candidature,
         points: 0,
@@ -109,7 +109,7 @@ export async function main(
     coalitions.push(coalition1);
 
     console.log(
-      `registered coalition for major candidate: ${coalition1Raw[0]} and parties ${coalition1Raw[1]}`,
+      `registered coalition for mayor candidate: ${coalition1Raw[0]} and parties ${coalition1Raw[1]}`,
     );
 
     await contract
@@ -118,7 +118,7 @@ export async function main(
     const coalition2Raw = await contract.getCoalition(1);
 
     const coalition2: Coalition = {
-      majorCandidate: {
+      mayorCandidate: {
         name: coalition2Raw[0][0],
         candidatesFor: coalition2Raw[0][1] as Candidature,
         points: 0,
@@ -138,7 +138,7 @@ export async function main(
     coalitions.push(coalition2);
 
     console.log(
-      `registered coalition for major candidate: ${coalition2Raw[0]} and parties ${coalition2Raw[1]}`,
+      `registered coalition for mayor candidate: ${coalition2Raw[0]} and parties ${coalition2Raw[1]}`,
     );
 
     const ballot: Ballot = {

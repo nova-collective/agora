@@ -6,6 +6,8 @@
 
 A confidentiality-first electronic voting system.
 
+_this is an experimental project, don't use it in production_
+
 ## About
 
 Agora is a voting platform based on the [Ethereum](https://ethereum.org/en/) public blockchain and a [Zero-Knowledge Proof](https://zkp.science/) cryptographic protocol.
@@ -150,9 +152,9 @@ Then run the script in order to register the Voter DEC into the DECsRegistry:
 `npx hardhat run election-scripts/register-dec.ts --network localhost`
 
 ### 5. The Public Authority / Admin creates a Municipality Election
-At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the major and the council.
+At this point we have the EOA credentials and the DEC for our voters, and the DECs are registered on the DECs Registry. It's time to create an election: as an example we implemented a smart contract for a municipality election, that elects the mayor and the council.
 
-Now it's time to deploy the smart contract election and register parties, councilor and major candidates, parties coalitions in the municipality election contract, run the command: 
+Now it's time to deploy the smart contract election and register parties, councilor and mayor candidates, parties coalitions in the municipality election contract, run the command: 
 
 `npx hardhat run election-scripts/create-election.ts --network localhost`
 

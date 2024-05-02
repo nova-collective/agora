@@ -28,7 +28,7 @@
     "prepare": "husky prepare",
     "prepare-commit": "git-cz",
     "test-contracts": "npx hardhat test",
-    "test-scripts": " jest --coverage --bail --forceExit"
+    "test-scripts": "jest --coverage --bail --forceExit"
   },
   "repository": {
     "type": "git",
@@ -54,7 +54,10 @@
     "npm": "~10.2.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "install": "^0.13.0",
+    "npm": "^10.6.0",
+    "zokrates-js": "^1.1.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",

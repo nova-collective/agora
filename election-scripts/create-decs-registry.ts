@@ -33,7 +33,7 @@ export async function main(): Promise<Response<RegistryResponse>> {
       DECsRegistryData.name,
     );
 
-    const contractName = await contract.getName();
+    const contractName = await contract.name;
 
     console.log(
       `The contract "${contractName}" has been successfully deployed`,
