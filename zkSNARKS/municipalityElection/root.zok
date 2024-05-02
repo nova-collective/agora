@@ -9,5 +9,5 @@ def main(private Coalitions ballot, field points) -> field {
                 ballot.coalition2.partiesCoalition2.lega;
 
     assert(sum <= points);
-    return 5;
+    return;
 }
