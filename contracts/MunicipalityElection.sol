@@ -10,12 +10,12 @@ import "./Election.sol";
 contract MunicipalityElection is Election {
     struct Candidate {
         string name;
-        string candidatesFor; // major or councilor
+        string candidatesFor; // mayor or councilor
     }
 
     /// @dev the string key of the map correspond tho the party name registered in the parties mapping
     struct Coalition {
-        Candidate majorCandidate;
+        Candidate mayorCandidate;
         string[] parties;
     }
 
@@ -88,7 +88,7 @@ contract MunicipalityElection is Election {
             count++;
         }
 
-        return (coalition.majorCandidate, partyNames);
+        return (coalition.mayorCandidate, partyNames);
     }
 
     /// @notice as first step, during the registration period the parties register their names and list of councilor candidates
@@ -121,9 +121,9 @@ contract MunicipalityElection is Election {
         partiesLength++;
     }
 
-    /// @notice in this second step, the parties registered compose coalitions and indicate a major candidate name. A coalition is composed by one or more parties.
+    /// @notice in this second step, the parties registered compose coalitions and indicate a mayor candidate name. A coalition is composed by one or more parties.
     function registerCoalition(
-        string memory majorCandidate,
+        string memory mayorCandidate,
         string[] memory coalitionParties
     ) external onlyOwner isRegistrationPeriod {
         require(
@@ -135,17 +135,17 @@ contract MunicipalityElection is Election {
             "One or more parties are already present in a registered coalition"
         );
         require(
-            !_isMajorCandidateAlreadyRegistered(majorCandidate),
-            "The major candidate is already registered with a coalition"
+            !_isMajorCandidateAlreadyRegistered(mayorCandidate),
+            "The mayor candidate is already registered with a coalition"
         );
 
         Candidate memory mcandidate = Candidate({
-            name: majorCandidate,
-            candidatesFor: "major"
+            name: mayorCandidate,
+            candidatesFor: "mayor"
         });
 
         Coalition memory newCoalition;
-        newCoalition.majorCandidate = mcandidate;
+        newCoalition.mayorCandidate = mcandidate;
         newCoalition.parties = coalitionParties;
 
         coalitions.push(newCoalition);
@@ -186,7 +186,7 @@ contract MunicipalityElection is Election {
         for (uint i = 0; i < coalitions.length; i++) {
             if (
                 keccak256(
-                    abi.encodePacked(coalitions[i].majorCandidate.name)
+                    abi.encodePacked(coalitions[i].mayorCandidate.name)
                 ) == keccak256(abi.encodePacked(candidateMajor))
             ) {
                 return true;

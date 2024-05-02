@@ -1,0 +1,19 @@
+[
+    {
+        "coalition1":{
+            "mayorCandidate":"10",
+            "partiesCoalition1":{
+                "partitoDemocratico":"5",
+                "cinqueStelle":"5"
+            }
+        },
+        "coalition2":{
+            "mayorCandidate":"0",
+            "partiesCoalition2":{
+                "forzaItalia":"0",
+                "lega":"0"
+            }
+        }
+    },
+    "20"
+]

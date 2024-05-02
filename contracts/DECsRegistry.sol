@@ -37,11 +37,6 @@ contract DECsRegistry {
         name = _name;
     }
 
-    /// @notice DECs REgistry name getter function
-    function getName() external view returns (string memory) {
-        return name;
-    }
-
     /// @notice this function is used by the third party authority to register a Voter's DEC in the registry
     function registerDEC(address dec, address voter) external onlyOwner {
         require(

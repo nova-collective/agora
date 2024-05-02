@@ -6,7 +6,7 @@ import { PARTIES } from "./__mocks__";
 describe("Create Election Script", () => {
   it("should deploy contract and register parties and coalitions", async () => {
     const response = await main({
-      name: "Election of major of Braccagni city",
+      name: "Election of mayor of Braccagni city",
       municipality: "Braccagni",
       region: "Toscana",
       country: "Italy",
@@ -37,10 +37,10 @@ describe("Create Election Script", () => {
         coalitions.indexOf(coalition),
       );
       expect(coalitionFromContract[0][0]).to.equal(
-        coalition.majorCandidate.name,
+        coalition.mayorCandidate.name,
       );
       expect(coalitionFromContract[0][1]).to.equal(
-        coalition.majorCandidate.candidatesFor,
+        coalition.mayorCandidate.candidatesFor,
       );
       expect(coalitionFromContract[1]).to.deep.equal(
         coalition.parties.map((p) => p.name),

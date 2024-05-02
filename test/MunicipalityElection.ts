@@ -24,7 +24,7 @@ describe("MunicipalityElection Contract", function () {
     "Candidate 9",
     "Candidate 0",
   ];
-  const majorCandidate = "Major Candidate";
+  const mayorCandidate = "Major Candidate";
   const coalitionParties = [partyName, partyNameB];
 
   beforeEach(async () => {
@@ -64,11 +64,11 @@ describe("MunicipalityElection Contract", function () {
       .registerParty(partyNameB, councilorCandidatesB);
     await contract
       .connect(owner)
-      .registerCoalition(majorCandidate, coalitionParties);
+      .registerCoalition(mayorCandidate, coalitionParties);
     const coalition = await contract.getCoalition(0);
 
-    expect(coalition[0][0]).to.be.equal(majorCandidate);
-    expect(coalition[0][1]).to.be.equal("major");
+    expect(coalition[0][0]).to.be.equal(mayorCandidate);
+    expect(coalition[0][1]).to.be.equal("mayor");
     expect(coalition[1][0]).to.be.equal(partyName);
     expect(coalition[1][1]).to.be.equal(partyNameB);
   });
@@ -81,11 +81,11 @@ describe("MunicipalityElection Contract", function () {
 
     await contract
       .connect(owner)
-      .registerCoalition(majorCandidate, coalitionParties);
+      .registerCoalition(mayorCandidate, coalitionParties);
     await expect(
       contract
         .connect(owner)
-        .registerCoalition(majorCandidate, coalitionParties),
+        .registerCoalition(mayorCandidate, coalitionParties),
     ).to.be.revertedWith(
       "One or more parties are already present in a registered coalition",
     );

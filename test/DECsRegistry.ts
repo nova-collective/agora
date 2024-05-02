@@ -26,7 +26,7 @@ describe("DECs Registry Contract", function () {
     const newName = "New Name";
 
     await contract.connect(owner).setName(newName);
-    const retrievedName = await contract.getName();
+    const retrievedName = await contract.name();
 
     expect(retrievedName).to.equal(newName);
   });
